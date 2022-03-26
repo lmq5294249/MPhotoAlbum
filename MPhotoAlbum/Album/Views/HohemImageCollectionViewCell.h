@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) id <HohemImageCollectionViewCellDelegate>delegate;
 
-@property (nonatomic, strong) id controller;
+@property (nonatomic, weak) id controller;
 
 @property (nonatomic, strong) LocalAssetModel *assetModel;
 
