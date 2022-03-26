@@ -1,0 +1,904 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3ECDA2D127E9CCC100823622 /* MediaPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ECDA2D027E9CCC100823622 /* MediaPlayerView.m */; };
+		3ED07B7B27DF293F00AA730C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07B7A27DF293F00AA730C /* AppDelegate.m */; };
+		3ED07B8127DF293F00AA730C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07B8027DF293F00AA730C /* ViewController.m */; };
+		3ED07B8427DF293F00AA730C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED07B8227DF293F00AA730C /* Main.storyboard */; };
+		3ED07B8627DF294100AA730C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3ED07B8527DF294100AA730C /* Assets.xcassets */; };
+		3ED07B8927DF294100AA730C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3ED07B8727DF294100AA730C /* LaunchScreen.storyboard */; };
+		3ED07B8C27DF294100AA730C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07B8B27DF294100AA730C /* main.m */; };
+		3ED07B9627DF294200AA730C /* MPhotoAlbumTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07B9527DF294200AA730C /* MPhotoAlbumTests.m */; };
+		3ED07BA127DF294200AA730C /* MPhotoAlbumUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BA027DF294200AA730C /* MPhotoAlbumUITests.m */; };
+		3ED07BB327DF34FA00AA730C /* HohemAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BB227DF34FA00AA730C /* HohemAlbumViewController.m */; };
+		3ED07BB627DF3AC400AA730C /* MSlidePageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BB527DF3AC400AA730C /* MSlidePageView.m */; };
+		3ED07BBC27E0877600AA730C /* LocalAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BBB27E0877600AA730C /* LocalAssetModel.m */; };
+		3ED07BBF27E087F100AA730C /* PHPhotoLibraryManage.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BBE27E087F100AA730C /* PHPhotoLibraryManage.m */; };
+		3ED07BC227E0A44200AA730C /* HHMediaCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BC127E0A44200AA730C /* HHMediaCell.m */; };
+		3ED07BC727E1EAED00AA730C /* HohemImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BC327E1EAEC00AA730C /* HohemImageCollectionViewCell.m */; };
+		3ED07BCD27E1EAF400AA730C /* HohemAlbumPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BCA27E1EAF400AA730C /* HohemAlbumPlayViewController.m */; };
+		3ED07BCE27E1EAF400AA730C /* HohemShowAlbumViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BCB27E1EAF400AA730C /* HohemShowAlbumViewController.m */; };
+		3ED07BF927E1EF8400AA730C /* HohemPlayVideoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07BF727E1EF8400AA730C /* HohemPlayVideoView.m */; };
+		3ED07C4027E1F14A00AA730C /* TationAlbumManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1127E1F14A00AA730C /* TationAlbumManager.m */; };
+		3ED07C4127E1F14A00AA730C /* UIColor+HHUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1227E1F14A00AA730C /* UIColor+HHUtil.m */; };
+		3ED07C4227E1F14A00AA730C /* UIView+Point.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1327E1F14A00AA730C /* UIView+Point.m */; };
+		3ED07C4327E1F14A00AA730C /* NSString+HHFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1427E1F14A00AA730C /* NSString+HHFormat.m */; };
+		3ED07C4427E1F14A00AA730C /* XCFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1627E1F14A00AA730C /* XCFileManager.m */; };
+		3ED07C4527E1F14A00AA730C /* TationApplicationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1727E1F14A00AA730C /* TationApplicationManager.m */; };
+		3ED07C4627E1F14A00AA730C /* TationChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1827E1F14A00AA730C /* TationChooseView.m */; };
+		3ED07C4727E1F14A00AA730C /* TationDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1927E1F14A00AA730C /* TationDeviceManager.m */; };
+		3ED07C4827E1F14A00AA730C /* TationToolsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1B27E1F14A00AA730C /* TationToolsManager.m */; };
+		3ED07C4927E1F14A00AA730C /* TationVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1C27E1F14A00AA730C /* TationVideoPlayerView.m */; };
+		3ED07C4A27E1F14A00AA730C /* UILabel+TationLableSize.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C1F27E1F14A00AA730C /* UILabel+TationLableSize.m */; };
+		3ED07C4B27E1F14A00AA730C /* HHBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C2B27E1F14A00AA730C /* HHBaseViewController.m */; };
+		3ED07C4C27E1F14A00AA730C /* HHBaseTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C2D27E1F14A00AA730C /* HHBaseTableView.m */; };
+		3ED07C4D27E1F14A00AA730C /* HHBaseImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C2F27E1F14A00AA730C /* HHBaseImageView.m */; };
+		3ED07C4E27E1F14A00AA730C /* HHBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3027E1F14A00AA730C /* HHBaseView.m */; };
+		3ED07C4F27E1F14A00AA730C /* HHBaseTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3227E1F14A00AA730C /* HHBaseTextField.m */; };
+		3ED07C5027E1F14A00AA730C /* HohemBaseButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3327E1F14A00AA730C /* HohemBaseButton.m */; };
+		3ED07C5127E1F14A00AA730C /* HohemBaseLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3627E1F14A00AA730C /* HohemBaseLabel.m */; };
+		3ED07C5227E1F14A00AA730C /* NdUncaughtExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3727E1F14A00AA730C /* NdUncaughtExceptionHandler.m */; };
+		3ED07C5327E1F14A00AA730C /* TationAuthorityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3827E1F14A00AA730C /* TationAuthorityManager.m */; };
+		3ED07C5427E1F14A00AA730C /* TationReminderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3A27E1F14A00AA730C /* TationReminderView.m */; };
+		3ED07C5527E1F14A00AA730C /* TationResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C3B27E1F14A00AA730C /* TationResourceManager.m */; };
+		3ED07C5827E1F23500AA730C /* HohemTargetManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C5727E1F23500AA730C /* HohemTargetManager.m */; };
+		3ED07C5F27E313D900AA730C /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C5E27E313D900AA730C /* ContactViewController.m */; };
+		3ED07C6427E3156700AA730C /* ContactDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C6227E3156700AA730C /* ContactDataModel.m */; };
+		3ED07C6527E3156700AA730C /* ContactTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C6327E3156700AA730C /* ContactTableViewCell.m */; };
+		3ED07C6927E323DF00AA730C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ED07C6B27E323DF00AA730C /* Localizable.strings */; };
+		3ED07C6F27E33B7900AA730C /* GuideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C6E27E33B7900AA730C /* GuideTableViewCell.m */; };
+		3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C7127E33BE300AA730C /* GuideDataModel.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3ED07B9227DF294200AA730C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ED07B6E27DF293F00AA730C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ED07B7527DF293F00AA730C;
+			remoteInfo = MPhotoAlbum;
+		};
+		3ED07B9D27DF294200AA730C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3ED07B6E27DF293F00AA730C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3ED07B7527DF293F00AA730C;
+			remoteInfo = MPhotoAlbum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3ECDA2CF27E9CCC100823622 /* MediaPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaPlayerView.h; sourceTree = "<group>"; };
+		3ECDA2D027E9CCC100823622 /* MediaPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaPlayerView.m; sourceTree = "<group>"; };
+		3ED07B7627DF293F00AA730C /* MPhotoAlbum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MPhotoAlbum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED07B7927DF293F00AA730C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		3ED07B7A27DF293F00AA730C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3ED07B7F27DF293F00AA730C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		3ED07B8027DF293F00AA730C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3ED07B8327DF293F00AA730C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3ED07B8527DF294100AA730C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3ED07B8827DF294100AA730C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3ED07B8A27DF294100AA730C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ED07B8B27DF294100AA730C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3ED07B9127DF294200AA730C /* MPhotoAlbumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MPhotoAlbumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED07B9527DF294200AA730C /* MPhotoAlbumTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPhotoAlbumTests.m; sourceTree = "<group>"; };
+		3ED07B9727DF294200AA730C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ED07B9C27DF294200AA730C /* MPhotoAlbumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MPhotoAlbumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3ED07BA027DF294200AA730C /* MPhotoAlbumUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MPhotoAlbumUITests.m; sourceTree = "<group>"; };
+		3ED07BA227DF294200AA730C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3ED07BB127DF34FA00AA730C /* HohemAlbumViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HohemAlbumViewController.h; sourceTree = "<group>"; };
+		3ED07BB227DF34FA00AA730C /* HohemAlbumViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HohemAlbumViewController.m; sourceTree = "<group>"; };
+		3ED07BB427DF3AC400AA730C /* MSlidePageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MSlidePageView.h; sourceTree = "<group>"; };
+		3ED07BB527DF3AC400AA730C /* MSlidePageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MSlidePageView.m; sourceTree = "<group>"; };
+		3ED07BBA27E0877600AA730C /* LocalAssetModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LocalAssetModel.h; sourceTree = "<group>"; };
+		3ED07BBB27E0877600AA730C /* LocalAssetModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LocalAssetModel.m; sourceTree = "<group>"; };
+		3ED07BBD27E087F100AA730C /* PHPhotoLibraryManage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PHPhotoLibraryManage.h; sourceTree = "<group>"; };
+		3ED07BBE27E087F100AA730C /* PHPhotoLibraryManage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PHPhotoLibraryManage.m; sourceTree = "<group>"; };
+		3ED07BC027E0A44200AA730C /* HHMediaCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HHMediaCell.h; sourceTree = "<group>"; };
+		3ED07BC127E0A44200AA730C /* HHMediaCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HHMediaCell.m; sourceTree = "<group>"; };
+		3ED07BC327E1EAEC00AA730C /* HohemImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemImageCollectionViewCell.m; sourceTree = "<group>"; };
+		3ED07BC527E1EAEC00AA730C /* HohemImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemImageCollectionViewCell.h; sourceTree = "<group>"; };
+		3ED07BC927E1EAF400AA730C /* HohemAlbumPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemAlbumPlayViewController.h; sourceTree = "<group>"; };
+		3ED07BCA27E1EAF400AA730C /* HohemAlbumPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemAlbumPlayViewController.m; sourceTree = "<group>"; };
+		3ED07BCB27E1EAF400AA730C /* HohemShowAlbumViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemShowAlbumViewController.m; sourceTree = "<group>"; };
+		3ED07BCC27E1EAF400AA730C /* HohemShowAlbumViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemShowAlbumViewController.h; sourceTree = "<group>"; };
+		3ED07BF327E1EDD900AA730C /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		3ED07BF727E1EF8400AA730C /* HohemPlayVideoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemPlayVideoView.m; sourceTree = "<group>"; };
+		3ED07BF827E1EF8400AA730C /* HohemPlayVideoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemPlayVideoView.h; sourceTree = "<group>"; };
+		3ED07C1127E1F14A00AA730C /* TationAlbumManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationAlbumManager.m; sourceTree = "<group>"; };
+		3ED07C1227E1F14A00AA730C /* UIColor+HHUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HHUtil.m"; sourceTree = "<group>"; };
+		3ED07C1327E1F14A00AA730C /* UIView+Point.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Point.m"; sourceTree = "<group>"; };
+		3ED07C1427E1F14A00AA730C /* NSString+HHFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+HHFormat.m"; sourceTree = "<group>"; };
+		3ED07C1527E1F14A00AA730C /* NdUncaughtExceptionHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NdUncaughtExceptionHandler.h; sourceTree = "<group>"; };
+		3ED07C1627E1F14A00AA730C /* XCFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCFileManager.m; sourceTree = "<group>"; };
+		3ED07C1727E1F14A00AA730C /* TationApplicationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationApplicationManager.m; sourceTree = "<group>"; };
+		3ED07C1827E1F14A00AA730C /* TationChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationChooseView.m; sourceTree = "<group>"; };
+		3ED07C1927E1F14A00AA730C /* TationDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationDeviceManager.m; sourceTree = "<group>"; };
+		3ED07C1A27E1F14A00AA730C /* TationResourceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationResourceManager.h; sourceTree = "<group>"; };
+		3ED07C1B27E1F14A00AA730C /* TationToolsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationToolsManager.m; sourceTree = "<group>"; };
+		3ED07C1C27E1F14A00AA730C /* TationVideoPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationVideoPlayerView.m; sourceTree = "<group>"; };
+		3ED07C1D27E1F14A00AA730C /* TationReminderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationReminderView.h; sourceTree = "<group>"; };
+		3ED07C1E27E1F14A00AA730C /* TationAuthorityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationAuthorityManager.h; sourceTree = "<group>"; };
+		3ED07C1F27E1F14A00AA730C /* UILabel+TationLableSize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+TationLableSize.m"; sourceTree = "<group>"; };
+		3ED07C2027E1F14A00AA730C /* TationAlbumManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationAlbumManager.h; sourceTree = "<group>"; };
+		3ED07C2127E1F14A00AA730C /* UIColor+HHUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HHUtil.h"; sourceTree = "<group>"; };
+		3ED07C2227E1F14A00AA730C /* NSString+HHFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+HHFormat.h"; sourceTree = "<group>"; };
+		3ED07C2327E1F14A00AA730C /* TationToolsHeadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationToolsHeadFile.h; sourceTree = "<group>"; };
+		3ED07C2427E1F14A00AA730C /* UIView+Point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Point.h"; sourceTree = "<group>"; };
+		3ED07C2527E1F14A00AA730C /* TationApplicationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationApplicationManager.h; sourceTree = "<group>"; };
+		3ED07C2627E1F14A00AA730C /* XCFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCFileManager.h; sourceTree = "<group>"; };
+		3ED07C2927E1F14A00AA730C /* HHBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseView.h; sourceTree = "<group>"; };
+		3ED07C2A27E1F14A00AA730C /* HHBaseTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseTextField.h; sourceTree = "<group>"; };
+		3ED07C2B27E1F14A00AA730C /* HHBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseViewController.m; sourceTree = "<group>"; };
+		3ED07C2C27E1F14A00AA730C /* HohemBaseButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemBaseButton.h; sourceTree = "<group>"; };
+		3ED07C2D27E1F14A00AA730C /* HHBaseTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseTableView.m; sourceTree = "<group>"; };
+		3ED07C2E27E1F14A00AA730C /* HohemBaseLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemBaseLabel.h; sourceTree = "<group>"; };
+		3ED07C2F27E1F14A00AA730C /* HHBaseImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseImageView.m; sourceTree = "<group>"; };
+		3ED07C3027E1F14A00AA730C /* HHBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseView.m; sourceTree = "<group>"; };
+		3ED07C3127E1F14A00AA730C /* HHBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseViewController.h; sourceTree = "<group>"; };
+		3ED07C3227E1F14A00AA730C /* HHBaseTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HHBaseTextField.m; sourceTree = "<group>"; };
+		3ED07C3327E1F14A00AA730C /* HohemBaseButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemBaseButton.m; sourceTree = "<group>"; };
+		3ED07C3427E1F14A00AA730C /* HHBaseImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseImageView.h; sourceTree = "<group>"; };
+		3ED07C3527E1F14A00AA730C /* HHBaseTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HHBaseTableView.h; sourceTree = "<group>"; };
+		3ED07C3627E1F14A00AA730C /* HohemBaseLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemBaseLabel.m; sourceTree = "<group>"; };
+		3ED07C3727E1F14A00AA730C /* NdUncaughtExceptionHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NdUncaughtExceptionHandler.m; sourceTree = "<group>"; };
+		3ED07C3827E1F14A00AA730C /* TationAuthorityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationAuthorityManager.m; sourceTree = "<group>"; };
+		3ED07C3927E1F14A00AA730C /* UILabel+TationLableSize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+TationLableSize.h"; sourceTree = "<group>"; };
+		3ED07C3A27E1F14A00AA730C /* TationReminderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationReminderView.m; sourceTree = "<group>"; };
+		3ED07C3B27E1F14A00AA730C /* TationResourceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TationResourceManager.m; sourceTree = "<group>"; };
+		3ED07C3C27E1F14A00AA730C /* TationVideoPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationVideoPlayerView.h; sourceTree = "<group>"; };
+		3ED07C3D27E1F14A00AA730C /* TationToolsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationToolsManager.h; sourceTree = "<group>"; };
+		3ED07C3E27E1F14A00AA730C /* TationDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationDeviceManager.h; sourceTree = "<group>"; };
+		3ED07C3F27E1F14A00AA730C /* TationChooseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TationChooseView.h; sourceTree = "<group>"; };
+		3ED07C5627E1F23500AA730C /* HohemTargetManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HohemTargetManager.h; sourceTree = "<group>"; };
+		3ED07C5727E1F23500AA730C /* HohemTargetManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HohemTargetManager.m; sourceTree = "<group>"; };
+		3ED07C5D27E313D900AA730C /* ContactViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		3ED07C5E27E313D900AA730C /* ContactViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		3ED07C6027E3156700AA730C /* ContactTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactTableViewCell.h; sourceTree = "<group>"; };
+		3ED07C6127E3156700AA730C /* ContactDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactDataModel.h; sourceTree = "<group>"; };
+		3ED07C6227E3156700AA730C /* ContactDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactDataModel.m; sourceTree = "<group>"; };
+		3ED07C6327E3156700AA730C /* ContactTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactTableViewCell.m; sourceTree = "<group>"; };
+		3ED07C6A27E323DF00AA730C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		3ED07C6C27E3240500AA730C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		3ED07C6D27E33B7900AA730C /* GuideTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideTableViewCell.h; sourceTree = "<group>"; };
+		3ED07C6E27E33B7900AA730C /* GuideTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideTableViewCell.m; sourceTree = "<group>"; };
+		3ED07C7027E33BE300AA730C /* GuideDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideDataModel.h; sourceTree = "<group>"; };
+		3ED07C7127E33BE300AA730C /* GuideDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideDataModel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3ED07B7327DF293F00AA730C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B8E27DF294200AA730C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B9927DF294200AA730C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3ED07B6D27DF293F00AA730C = {
+			isa = PBXGroup;
+			children = (
+				3ED07B7827DF293F00AA730C /* MPhotoAlbum */,
+				3ED07B9427DF294200AA730C /* MPhotoAlbumTests */,
+				3ED07B9F27DF294200AA730C /* MPhotoAlbumUITests */,
+				3ED07B7727DF293F00AA730C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3ED07B7727DF293F00AA730C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07B7627DF293F00AA730C /* MPhotoAlbum.app */,
+				3ED07B9127DF294200AA730C /* MPhotoAlbumTests.xctest */,
+				3ED07B9C27DF294200AA730C /* MPhotoAlbumUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3ED07B7827DF293F00AA730C /* MPhotoAlbum */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07C1027E1F14A00AA730C /* Tation */,
+				3ED07B7927DF293F00AA730C /* AppDelegate.h */,
+				3ED07B7A27DF293F00AA730C /* AppDelegate.m */,
+				3ED07C5C27E313B900AA730C /* ContactViewController */,
+				3ED07B7F27DF293F00AA730C /* ViewController.h */,
+				3ED07B8027DF293F00AA730C /* ViewController.m */,
+				3ED07C6627E31C5700AA730C /* Album */,
+				3ED07B8227DF293F00AA730C /* Main.storyboard */,
+				3ED07B8527DF294100AA730C /* Assets.xcassets */,
+				3ED07B8727DF294100AA730C /* LaunchScreen.storyboard */,
+				3ED07B8A27DF294100AA730C /* Info.plist */,
+				3ED07BF327E1EDD900AA730C /* PrefixHeader.pch */,
+				3ED07C6B27E323DF00AA730C /* Localizable.strings */,
+				3ED07B8B27DF294100AA730C /* main.m */,
+			);
+			path = MPhotoAlbum;
+			sourceTree = "<group>";
+		};
+		3ED07B9427DF294200AA730C /* MPhotoAlbumTests */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07B9527DF294200AA730C /* MPhotoAlbumTests.m */,
+				3ED07B9727DF294200AA730C /* Info.plist */,
+			);
+			path = MPhotoAlbumTests;
+			sourceTree = "<group>";
+		};
+		3ED07B9F27DF294200AA730C /* MPhotoAlbumUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07BA027DF294200AA730C /* MPhotoAlbumUITests.m */,
+				3ED07BA227DF294200AA730C /* Info.plist */,
+			);
+			path = MPhotoAlbumUITests;
+			sourceTree = "<group>";
+		};
+		3ED07BAE27DF32CF00AA730C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07BB127DF34FA00AA730C /* HohemAlbumViewController.h */,
+				3ED07BB227DF34FA00AA730C /* HohemAlbumViewController.m */,
+				3ED07BC927E1EAF400AA730C /* HohemAlbumPlayViewController.h */,
+				3ED07BCA27E1EAF400AA730C /* HohemAlbumPlayViewController.m */,
+				3ED07BCC27E1EAF400AA730C /* HohemShowAlbumViewController.h */,
+				3ED07BCB27E1EAF400AA730C /* HohemShowAlbumViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		3ED07BAF27DF32E000AA730C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07BF827E1EF8400AA730C /* HohemPlayVideoView.h */,
+				3ED07BF727E1EF8400AA730C /* HohemPlayVideoView.m */,
+				3ECDA2CF27E9CCC100823622 /* MediaPlayerView.h */,
+				3ECDA2D027E9CCC100823622 /* MediaPlayerView.m */,
+				3ED07BC527E1EAEC00AA730C /* HohemImageCollectionViewCell.h */,
+				3ED07BC327E1EAEC00AA730C /* HohemImageCollectionViewCell.m */,
+				3ED07BB427DF3AC400AA730C /* MSlidePageView.h */,
+				3ED07BB527DF3AC400AA730C /* MSlidePageView.m */,
+				3ED07BC027E0A44200AA730C /* HHMediaCell.h */,
+				3ED07BC127E0A44200AA730C /* HHMediaCell.m */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3ED07BB027DF32E900AA730C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07BBA27E0877600AA730C /* LocalAssetModel.h */,
+				3ED07BBB27E0877600AA730C /* LocalAssetModel.m */,
+				3ED07BBD27E087F100AA730C /* PHPhotoLibraryManage.h */,
+				3ED07BBE27E087F100AA730C /* PHPhotoLibraryManage.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3ED07C1027E1F14A00AA730C /* Tation */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07C5627E1F23500AA730C /* HohemTargetManager.h */,
+				3ED07C5727E1F23500AA730C /* HohemTargetManager.m */,
+				3ED07C2727E1F14A00AA730C /* BaseUI */,
+				3ED07C1527E1F14A00AA730C /* NdUncaughtExceptionHandler.h */,
+				3ED07C3727E1F14A00AA730C /* NdUncaughtExceptionHandler.m */,
+				3ED07C2227E1F14A00AA730C /* NSString+HHFormat.h */,
+				3ED07C1427E1F14A00AA730C /* NSString+HHFormat.m */,
+				3ED07C2027E1F14A00AA730C /* TationAlbumManager.h */,
+				3ED07C1127E1F14A00AA730C /* TationAlbumManager.m */,
+				3ED07C2527E1F14A00AA730C /* TationApplicationManager.h */,
+				3ED07C1727E1F14A00AA730C /* TationApplicationManager.m */,
+				3ED07C1E27E1F14A00AA730C /* TationAuthorityManager.h */,
+				3ED07C3827E1F14A00AA730C /* TationAuthorityManager.m */,
+				3ED07C3F27E1F14A00AA730C /* TationChooseView.h */,
+				3ED07C1827E1F14A00AA730C /* TationChooseView.m */,
+				3ED07C3E27E1F14A00AA730C /* TationDeviceManager.h */,
+				3ED07C1927E1F14A00AA730C /* TationDeviceManager.m */,
+				3ED07C1D27E1F14A00AA730C /* TationReminderView.h */,
+				3ED07C3A27E1F14A00AA730C /* TationReminderView.m */,
+				3ED07C1A27E1F14A00AA730C /* TationResourceManager.h */,
+				3ED07C3B27E1F14A00AA730C /* TationResourceManager.m */,
+				3ED07C2327E1F14A00AA730C /* TationToolsHeadFile.h */,
+				3ED07C3D27E1F14A00AA730C /* TationToolsManager.h */,
+				3ED07C1B27E1F14A00AA730C /* TationToolsManager.m */,
+				3ED07C3C27E1F14A00AA730C /* TationVideoPlayerView.h */,
+				3ED07C1C27E1F14A00AA730C /* TationVideoPlayerView.m */,
+				3ED07C2127E1F14A00AA730C /* UIColor+HHUtil.h */,
+				3ED07C1227E1F14A00AA730C /* UIColor+HHUtil.m */,
+				3ED07C3927E1F14A00AA730C /* UILabel+TationLableSize.h */,
+				3ED07C1F27E1F14A00AA730C /* UILabel+TationLableSize.m */,
+				3ED07C2427E1F14A00AA730C /* UIView+Point.h */,
+				3ED07C1327E1F14A00AA730C /* UIView+Point.m */,
+				3ED07C2627E1F14A00AA730C /* XCFileManager.h */,
+				3ED07C1627E1F14A00AA730C /* XCFileManager.m */,
+			);
+			path = Tation;
+			sourceTree = "<group>";
+		};
+		3ED07C2727E1F14A00AA730C /* BaseUI */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07C2827E1F14A00AA730C /* OC */,
+			);
+			path = BaseUI;
+			sourceTree = "<group>";
+		};
+		3ED07C2827E1F14A00AA730C /* OC */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07C2927E1F14A00AA730C /* HHBaseView.h */,
+				3ED07C2A27E1F14A00AA730C /* HHBaseTextField.h */,
+				3ED07C2B27E1F14A00AA730C /* HHBaseViewController.m */,
+				3ED07C2C27E1F14A00AA730C /* HohemBaseButton.h */,
+				3ED07C2D27E1F14A00AA730C /* HHBaseTableView.m */,
+				3ED07C2E27E1F14A00AA730C /* HohemBaseLabel.h */,
+				3ED07C2F27E1F14A00AA730C /* HHBaseImageView.m */,
+				3ED07C3027E1F14A00AA730C /* HHBaseView.m */,
+				3ED07C3127E1F14A00AA730C /* HHBaseViewController.h */,
+				3ED07C3227E1F14A00AA730C /* HHBaseTextField.m */,
+				3ED07C3327E1F14A00AA730C /* HohemBaseButton.m */,
+				3ED07C3427E1F14A00AA730C /* HHBaseImageView.h */,
+				3ED07C3527E1F14A00AA730C /* HHBaseTableView.h */,
+				3ED07C3627E1F14A00AA730C /* HohemBaseLabel.m */,
+			);
+			path = OC;
+			sourceTree = "<group>";
+		};
+		3ED07C5C27E313B900AA730C /* ContactViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07C7027E33BE300AA730C /* GuideDataModel.h */,
+				3ED07C7127E33BE300AA730C /* GuideDataModel.m */,
+				3ED07C6127E3156700AA730C /* ContactDataModel.h */,
+				3ED07C6227E3156700AA730C /* ContactDataModel.m */,
+				3ED07C6D27E33B7900AA730C /* GuideTableViewCell.h */,
+				3ED07C6E27E33B7900AA730C /* GuideTableViewCell.m */,
+				3ED07C6027E3156700AA730C /* ContactTableViewCell.h */,
+				3ED07C6327E3156700AA730C /* ContactTableViewCell.m */,
+				3ED07C5D27E313D900AA730C /* ContactViewController.h */,
+				3ED07C5E27E313D900AA730C /* ContactViewController.m */,
+			);
+			path = ContactViewController;
+			sourceTree = "<group>";
+		};
+		3ED07C6627E31C5700AA730C /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				3ED07BB027DF32E900AA730C /* Models */,
+				3ED07BAF27DF32E000AA730C /* Views */,
+				3ED07BAE27DF32CF00AA730C /* Controller */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3ED07B7527DF293F00AA730C /* MPhotoAlbum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ED07BA527DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbum" */;
+			buildPhases = (
+				3ED07B7227DF293F00AA730C /* Sources */,
+				3ED07B7327DF293F00AA730C /* Frameworks */,
+				3ED07B7427DF293F00AA730C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MPhotoAlbum;
+			productName = MPhotoAlbum;
+			productReference = 3ED07B7627DF293F00AA730C /* MPhotoAlbum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3ED07B9027DF294200AA730C /* MPhotoAlbumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ED07BA827DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbumTests" */;
+			buildPhases = (
+				3ED07B8D27DF294200AA730C /* Sources */,
+				3ED07B8E27DF294200AA730C /* Frameworks */,
+				3ED07B8F27DF294200AA730C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ED07B9327DF294200AA730C /* PBXTargetDependency */,
+			);
+			name = MPhotoAlbumTests;
+			productName = MPhotoAlbumTests;
+			productReference = 3ED07B9127DF294200AA730C /* MPhotoAlbumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3ED07B9B27DF294200AA730C /* MPhotoAlbumUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3ED07BAB27DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbumUITests" */;
+			buildPhases = (
+				3ED07B9827DF294200AA730C /* Sources */,
+				3ED07B9927DF294200AA730C /* Frameworks */,
+				3ED07B9A27DF294200AA730C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3ED07B9E27DF294200AA730C /* PBXTargetDependency */,
+			);
+			name = MPhotoAlbumUITests;
+			productName = MPhotoAlbumUITests;
+			productReference = 3ED07B9C27DF294200AA730C /* MPhotoAlbumUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3ED07B6E27DF293F00AA730C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					3ED07B7527DF293F00AA730C = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					3ED07B9027DF294200AA730C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 3ED07B7527DF293F00AA730C;
+					};
+					3ED07B9B27DF294200AA730C = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 3ED07B7527DF293F00AA730C;
+					};
+				};
+			};
+			buildConfigurationList = 3ED07B7127DF293F00AA730C /* Build configuration list for PBXProject "MPhotoAlbum" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+				"zh-Hans",
+			);
+			mainGroup = 3ED07B6D27DF293F00AA730C;
+			productRefGroup = 3ED07B7727DF293F00AA730C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3ED07B7527DF293F00AA730C /* MPhotoAlbum */,
+				3ED07B9027DF294200AA730C /* MPhotoAlbumTests */,
+				3ED07B9B27DF294200AA730C /* MPhotoAlbumUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3ED07B7427DF293F00AA730C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED07B8927DF294100AA730C /* LaunchScreen.storyboard in Resources */,
+				3ED07C6927E323DF00AA730C /* Localizable.strings in Resources */,
+				3ED07B8627DF294100AA730C /* Assets.xcassets in Resources */,
+				3ED07B8427DF293F00AA730C /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B8F27DF294200AA730C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B9A27DF294200AA730C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3ED07B7227DF293F00AA730C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED07C5527E1F14A00AA730C /* TationResourceManager.m in Sources */,
+				3ED07C5227E1F14A00AA730C /* NdUncaughtExceptionHandler.m in Sources */,
+				3ED07B8127DF293F00AA730C /* ViewController.m in Sources */,
+				3ED07C4C27E1F14A00AA730C /* HHBaseTableView.m in Sources */,
+				3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */,
+				3ED07C4127E1F14A00AA730C /* UIColor+HHUtil.m in Sources */,
+				3ED07C4E27E1F14A00AA730C /* HHBaseView.m in Sources */,
+				3ED07BBF27E087F100AA730C /* PHPhotoLibraryManage.m in Sources */,
+				3ED07C5327E1F14A00AA730C /* TationAuthorityManager.m in Sources */,
+				3ED07B7B27DF293F00AA730C /* AppDelegate.m in Sources */,
+				3ED07BF927E1EF8400AA730C /* HohemPlayVideoView.m in Sources */,
+				3ED07BCD27E1EAF400AA730C /* HohemAlbumPlayViewController.m in Sources */,
+				3ED07C4727E1F14A00AA730C /* TationDeviceManager.m in Sources */,
+				3ED07BC727E1EAED00AA730C /* HohemImageCollectionViewCell.m in Sources */,
+				3ED07C6427E3156700AA730C /* ContactDataModel.m in Sources */,
+				3ED07C5F27E313D900AA730C /* ContactViewController.m in Sources */,
+				3ED07C4A27E1F14A00AA730C /* UILabel+TationLableSize.m in Sources */,
+				3ED07C5827E1F23500AA730C /* HohemTargetManager.m in Sources */,
+				3ED07C5127E1F14A00AA730C /* HohemBaseLabel.m in Sources */,
+				3ED07C4927E1F14A00AA730C /* TationVideoPlayerView.m in Sources */,
+				3ED07C4527E1F14A00AA730C /* TationApplicationManager.m in Sources */,
+				3ED07BBC27E0877600AA730C /* LocalAssetModel.m in Sources */,
+				3ED07C4227E1F14A00AA730C /* UIView+Point.m in Sources */,
+				3ED07C4427E1F14A00AA730C /* XCFileManager.m in Sources */,
+				3ED07BCE27E1EAF400AA730C /* HohemShowAlbumViewController.m in Sources */,
+				3ED07C4327E1F14A00AA730C /* NSString+HHFormat.m in Sources */,
+				3ECDA2D127E9CCC100823622 /* MediaPlayerView.m in Sources */,
+				3ED07BB327DF34FA00AA730C /* HohemAlbumViewController.m in Sources */,
+				3ED07BC227E0A44200AA730C /* HHMediaCell.m in Sources */,
+				3ED07C4627E1F14A00AA730C /* TationChooseView.m in Sources */,
+				3ED07C4B27E1F14A00AA730C /* HHBaseViewController.m in Sources */,
+				3ED07C4D27E1F14A00AA730C /* HHBaseImageView.m in Sources */,
+				3ED07B8C27DF294100AA730C /* main.m in Sources */,
+				3ED07C4F27E1F14A00AA730C /* HHBaseTextField.m in Sources */,
+				3ED07C4827E1F14A00AA730C /* TationToolsManager.m in Sources */,
+				3ED07C5027E1F14A00AA730C /* HohemBaseButton.m in Sources */,
+				3ED07C6527E3156700AA730C /* ContactTableViewCell.m in Sources */,
+				3ED07BB627DF3AC400AA730C /* MSlidePageView.m in Sources */,
+				3ED07C6F27E33B7900AA730C /* GuideTableViewCell.m in Sources */,
+				3ED07C4027E1F14A00AA730C /* TationAlbumManager.m in Sources */,
+				3ED07C5427E1F14A00AA730C /* TationReminderView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B8D27DF294200AA730C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED07B9627DF294200AA730C /* MPhotoAlbumTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3ED07B9827DF294200AA730C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3ED07BA127DF294200AA730C /* MPhotoAlbumUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3ED07B9327DF294200AA730C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ED07B7527DF293F00AA730C /* MPhotoAlbum */;
+			targetProxy = 3ED07B9227DF294200AA730C /* PBXContainerItemProxy */;
+		};
+		3ED07B9E27DF294200AA730C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3ED07B7527DF293F00AA730C /* MPhotoAlbum */;
+			targetProxy = 3ED07B9D27DF294200AA730C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3ED07B8227DF293F00AA730C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ED07B8327DF293F00AA730C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3ED07B8727DF294100AA730C /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ED07B8827DF294100AA730C /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		3ED07C6B27E323DF00AA730C /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3ED07C6A27E323DF00AA730C /* en */,
+				3ED07C6C27E3240500AA730C /* zh-Hans */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3ED07BA327DF294200AA730C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3ED07BA427DF294200AA730C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3ED07BA627DF294200AA730C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
+				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3ED07BA727DF294200AA730C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
+				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		3ED07BA927DF294200AA730C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				INFOPLIST_FILE = MPhotoAlbumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MPhotoAlbum.app/MPhotoAlbum";
+			};
+			name = Debug;
+		};
+		3ED07BAA27DF294200AA730C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				INFOPLIST_FILE = MPhotoAlbumTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MPhotoAlbum.app/MPhotoAlbum";
+			};
+			name = Release;
+		};
+		3ED07BAC27DF294200AA730C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				INFOPLIST_FILE = MPhotoAlbumUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MPhotoAlbum;
+			};
+			name = Debug;
+		};
+		3ED07BAD27DF294200AA730C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
+				INFOPLIST_FILE = MPhotoAlbumUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.hohem.MPhotoAlbumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MPhotoAlbum;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3ED07B7127DF293F00AA730C /* Build configuration list for PBXProject "MPhotoAlbum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ED07BA327DF294200AA730C /* Debug */,
+				3ED07BA427DF294200AA730C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ED07BA527DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ED07BA627DF294200AA730C /* Debug */,
+				3ED07BA727DF294200AA730C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ED07BA827DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ED07BA927DF294200AA730C /* Debug */,
+				3ED07BAA27DF294200AA730C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3ED07BAB27DF294200AA730C /* Build configuration list for PBXNativeTarget "MPhotoAlbumUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3ED07BAC27DF294200AA730C /* Debug */,
+				3ED07BAD27DF294200AA730C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3ED07B6E27DF293F00AA730C /* Project object */;
+}

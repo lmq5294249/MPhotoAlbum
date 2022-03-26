@@ -1,0 +1,53 @@
+//
+//  PrefixHeader.pch
+//  MPhotoAlbum
+//
+//  Created by 林漫钦 on 2022/3/16.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#import "TationResourceManager.h"
+#import "TationDeviceManager.h"
+#import "HohemBaseLabel.h"
+#import "HohemBaseButton.h"
+#import "HHBaseTextField.h"
+#import "HHBaseImageView.h"
+#import "HHBaseTableView.h"
+#import "HHBaseViewController.h"
+#import "HHBaseView.h"
+#import "XCFileManager.h"
+#import "HohemTargetManager.h"
+#import "TationResourceManager.h"
+#import "TationDeviceManager.h"
+#import "TationApplicationManager.h"
+#import "TationToolsManager.h"
+#import "TationAuthorityManager.h"
+#import "TationReminderView.h"
+#import "TationAlbumManager.h"
+#import "UIColor+HHUtil.h"
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+//NSlog宏
+#ifndef __OPTIMIZE__
+#define NSLog(...) NSLog(__VA_ARGS__)
+#else
+# define NSLog(...) {}
+#endif
+
+#ifdef __OPTIMIZE__
+#define HohemTestEnvironment NO
+#else
+#define HohemTestEnvironment YES
+#endif
+//是否打印蓝牙数据
+#define HHPrintBTData NO
+
+#define Hohem_Font_Title [UIFont systemFontOfSize:18]
+#define Hohem_Font_Noraml [UIFont systemFontOfSize:16]
+#define Hohem_Font_Small [UIFont systemFontOfSize:12]
+
+
+
+#endif /* PrefixHeader_pch */

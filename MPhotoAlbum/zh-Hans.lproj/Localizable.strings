@@ -1,0 +1,663 @@
+/*
+  Localizable.strings
+  Hohem Pro
+
+  Created by jolly on 2019/8/14.
+  Copyright © 2019 jolly. All rights reserved.
+*/
+
+//Home
+
+"Hohem.Update.Title" = "固件升级";
+"Hohem.Main.UpdatePrompt" = "检测到新版本固件,是否立即进行更新";
+"Hohem.Home.Connect" = "连接";
+
+//Connect BT
+
+"Hohem.Connect.Equipmentlist" = "设备列表";
+
+//Camera
+"Hohem.Camera.Resolution.Title" = "视频分辨率";
+"Hohem.Camera.fps.Title" = "帧率";
+"Hohem.Camera.More.Reminder" = "提示";
+"Hohem.Camera.More.Sure" = "确认";
+"Hohem.Camera.More.Cancel" = "取消";
+"Hohem.Camera.More.AutoCalibration" = "是否启动稳定器自动校准？";
+"Hohem.Camera.More.isCalibration" = "完成自动校准预计40秒,校准过程中请确保稳定器处于水平平面";
+"Hohem.Camera.SaveVideoSuccess" = "视频保存成功";
+"Hohem.Camera.SavePhotoSuccess" = "照片保存成功";
+"Hohem.Camera.SaveVideoFail" = "视频保存失败";
+"Hohem.Camera.SavePhotoFail" = "照片保存失败";
+"Hohem.Camera.WorkMode_NormalPhoto" = "拍照";
+"Hohem.Camera.WorkMode_NormalVideo" = "录像";
+"Hohem.Camera.WorkMode_Moment"= "Moment";
+
+//Album
+"Hohem.Local.LocalTitle" = "相册";
+"Hohem.Album.Photo" = "照片";
+"Hohem.Album.Video" = "视频";
+"Hohem.Album.Selected" = "选择";
+"Hohem.Album.Cancel" = "取消";
+
+//Country
+"Hohem.Country.ChooseCountry" = "选择国家和地区";
+
+//User Plist
+"Camera" = "手机相机参数设置";
+"Flash Mode" = "闪光灯";
+"On" = "开启";
+"Off" = "关闭";
+"Auto" = "自动";
+"Grid" = "网格";
+"Gimbal" = "稳定器参数设置";
+"Gimbal Work Mode" = "工作模式";
+"Pan And Tilt Follow" = "航向&俯仰跟随";
+"All Lock" = "全锁定";
+"Pan Follow" = "航向跟随";
+"Gimbal Calibration" = "自动校准";
+"More" = "更多设置";
+
+//Me
+"Hohem.Me.Login" = "立即登录";
+"Hohem.Me.Works" = "作品";
+"Hohem.Me.Attention"  = "关注";
+"Hohem.Me.Fan"  = "粉丝";
+"Hohem.Me.Favorite"  = "收藏";
+"Hohem.Me.Message" = "消息";
+"Hohem.Me.AboutUs" = "关于Hohem";
+"Hohem.Me.Feedback" = "我想反馈";
+"Hohem.Me.Setting" = "设置";
+"Hohem.Me.Edit" = "修改资料";
+"Hohem.Me.EditUserTitle" = "个人资料";
+"Hohem.Me.EditUser.Avatar" = "头像:";
+"Hohem.Me.EditUser.NickName" = "昵称:";
+"Hohem.Me.EditUser.Country" = "国家:";
+"Hohem.Me.EditUser.Sex_Choose" = "性别";
+"Hohem.Me.EditUser.Sex_Man" = "男";
+"Hohem.Me.EditUser.Sex_Woman" = "女";
+"Hohem.Me.EditUser.Sex" = "性别:";
+"Hohem.Me.EditUser.Introduction" = "介绍:";
+"Hohem.Me.EditUser_Save" = "保存";
+"Hohem.Me.Info.Browse" = "阅读量";
+
+//UserInfo
+"Hohem.UserInfo.NormalName" = "谭某某";
+"Hohem.UserInfo.NormalAttention" = "关注:";
+"Hohem.UserInfo.NormalFan" = "粉丝:";
+"Hohem.UserInfo.NormalDestription" = "我是谭某某";
+"Hohem.UserInfo.Attention_unilateral" = "已关注";
+"Hohem.UserInfo.Attention_eachother" = "互相关注";
+
+//Moment
+"Hohem.Camera.StoryMode.Draft" = "草稿";
+"Hohem.Camera.StoryMode.Start" = "开始";
+"Hohem.Camera.DollyZoom.Title" = "设置自动缩放范围";
+"Hohem.Camera.DollyZoom.Despriction" = "滑动缩放条选取倍率，点击+添加按钮";
+"Hohem.Camera.DollyZoom_ValueTitle" = "zoom";
+"Hohem.Camera.DollyZoom.Add" = "+添加";
+"Hohem.Camera.DollyZoom_Start" = "开始录制";
+"Hohem.Camera.DollyZoom.Zoom" = "zoom";
+"Hohem.Camera.DollyZoom.Time" = "时间";
+"Hohem.Moment.InceptionMode_Title" = "盗梦空间";
+//"Hohem.Moment.InceptionMode_Description" = "旋转跳跃";
+"Hohem.Moment.Dynamic_Title" = "动感";
+"Hohem.Moment.Dynamic_Description" = "轻快的节奏";
+"Hohem.Moment.DollyZoom_Title" = "希区柯克";
+"Hohem.Moment.DollyZoom_Description" = "大片级的视觉享受";
+"Hohem.Moment.Lucky_Title" = "幸运";
+"Hohem.Moment.Lucky_Description" = "幸运时刻";
+"Hohem.Camera.Moment_Retake" = "重拍本段";
+"Hohem.Camera.Moment_Save" = "保存视频";
+"Hohem.Camera.Moment_Next" = "拍摄下一段";
+"Hohem.Moment.panoramic_Title" = "全景";
+"Hohem.Moment.panoramic_Description" = "更宽阔的视觉享受";
+"Hohem.Moment.timelapse_Title" = "智能移动延时摄影";
+"Hohem.Moment.timelapse_Description" = "记录时光的变迁";
+"Hohem.Camera.Timelapse.Title" = "移动延时摄影";
+"Hohem.Camera.Timelapse.Angle" = "水平角度范围";
+"Hohem.Camera.Timelapse.Time" = "拍摄时长";
+"Hohem.Camera.Timelapse.videoTime" = "视频时长";
+"Hohem.Camera.Timelapse.Start" = "开始";
+"Hohem.Camera.TimelapseTime" = "延时摄影";
+
+//Release
+"Hohem.Release.Release" = "发布";
+"Hohem.Release.Mark_Title" = "# 添加标签";
+"Hohem.Release.Mark_Description" = "请选择1~2个";
+"Hohem.Release.Product_Title" = "# 选择产品";
+"Hohem.Release.DescriptionPlaceholder" = "写下你的创意标题，让更多人看到～";
+"Hohem.Release.Release_Success" = "发布成功";
+
+//Me.Setting
+"Hohem.Me.Setting.LogOut" = "退出登录";
+"Hohem.Me.Feedback" = "我想反馈";
+
+"Hohem.Main.JoinCamera" = "进入拍摄";
+"Hohem.Main.Tutorials" = "教程视频";
+"Hohem.Main.ScanBLE" = "手动搜索设备";
+"Hohem.Main.BLEDisconnected" = "iSteady X 蓝牙未连接";
+"Hohem.Camera.Moment_SpliceVideo" = "视频合成";
+"Hohem.Camera.Moment_RetakeVideo" = "重拍视频";
+"Hohem.Moment.StartHelp_Horizontal" = "点击上方按钮或使用拍摄按键，开始拍摄";
+"Hohem.Moment.StartHelp_Vertical" = "点击下方按钮或使用拍摄按键，开始拍摄";
+"Hohem.Connect.Help" = "点击设备名称进行蓝牙连接";
+"Hohem.Camera.isUpdate" = "检测到新的固件,是否马上进行升级?";
+"Hohem.Camera.Update" = "马上升级";
+"Hohem.Camera.Updateing" = "固件升级: ";
+"Hohem.Camera.UpdateFinish" = "升级完成！请重启设备开始使用";
+
+"Hohem.Camera.Filter_Title" = "滤镜";
+"Hohem.Camera.Filter.None" = "无滤镜";
+"Hohem.Camera.Filter.Beauty" = "美颜";
+"Hohem.Camera.Filter.Grayscale" = "黑白";
+"Hohem.Camera.Filter.GaussianBlur" = "高斯模糊";
+"Hohem.Camera.Filter.Sepia" = "怀旧";
+"Hohem.Camera.Filter.Sketch" = "素描";
+"Hohem.Camera.Filter.Toon" = "卡通";
+"Hohem.Camera.Filter.Bilateral" = "旋涡";
+
+"Hohem.Main.Highlights" = "精彩时刻";
+
+"Hohem.Camera.More.Open" = "开启";
+"Hohem.Camera.More.Close" = "关闭";
+"Hohem.Camera.More.CounterclockwiseOpen" = "逆时针开启";
+"Hohem.Camera.More.ClockwiseOpen" = "顺时针开启";
+"Turn Screen" = "智能横滚旋转";
+
+"Device Name" = "设备名称";
+"S/N" = "S/N";
+"Gimbal Version" = "固件版本";
+"BLE Version" = "蓝牙版本";
+"Tilt Reverse" = "俯仰摇杆控制反向";
+"Tilt Speed" = "俯仰摇杆速度";
+"Pan Reverse" = "摇杆左右控制反向";
+"Pan Speed" = "摇杆左右速度";
+
+"Hohem.Login.ErrorFormatWithUserOrPSW" = "请输入正确格式的账号与密码";
+"Hohem.Login.LoginIn" = "正在登录，请稍后";
+
+"Hohem.Camera.Setting.Low" = "低";
+"Hohem.Camera.Setting.Middle" = "中";
+"Hohem.Camera.Setting.High" = "高";
+
+"Shooting Style" = "稳拍风格";
+"Hohem.Camera.Setting.Normal" = "常规";
+"Hohem.Camera.Setting.Supple" = "柔顺";
+"Hohem.Camera.Setting.Motion" = "运动";
+"Hohem.Camera.Setting.Speed" = "极速";
+
+"Hohem.Home.GimbalUpdateFail" = "稳定器升级失败，请确保电量充足再进行操作";
+"Resolution" = "视频分辨率";
+"Hohem.Register.Error" = "注册异常";
+
+"Hohem.Main.ActivationIng" = "设备激活中,请勿关闭APP和稳定器";
+"Hohem.Rivacy.Title" = "隐私协议";
+
+
+
+"Hohem.Main.ErrorLogTitle" = "运行异常提示";
+"Hohem.Main.ErrorLogMessage" = "检测到Hohem Pro之前退出异常,是否反馈给开发者？";
+
+
+
+"Hohem.Authority.Agree" = "前往设置";
+"Hohem.Authority.Cancel" = "取消";
+"Hohem.Authority.Album" = "无法访问相册";
+"Hohem.Authority.AlbumDescription" = "请在iPhone的'设置'-'隐私'-'相册'中允许访问相册";
+"Hohem.Authority.Camera" = "无法访问相机";
+"Hohem.Authority.CameraDescription" = "请在iPhone的'设置'-'隐私'-'相机'中允许访问相机";
+"Hohem.Authority.BLE" = "无法使用蓝牙";
+"Hohem.Authority.BLEDescription" = "请在iPhone的'设置'-'隐私'-'蓝牙'中允许访问蓝牙";
+"Hohem.Authority.Microphone" = "无法访问麦克风";
+"Hohem.Authority.MicrophoneDescription" = "请在iPhone的'设置'-'隐私'-'麦克风'中允许访问麦克风";
+"Hohem.Authority.Location" = "无法访问定位信息";
+"Hohem.Authority.LocationDescription" = "请在iPhone的'设置'-'隐私'-'位置'中允许定位权限";
+
+"Hohem.Register.CkeckInfo" = "请检测输入信息";
+
+"Hohem.Alert.Title" = "提示";
+"Hohem.Alert.Confirm" = "确认";
+"Hohem.Alert.Cancel" = "取消";
+"Hohem.Camera.VideoSynthesis" = "视频正在合成，请耐心等待～";
+"Hohem.Camera.StopRecord" = "当前正在录制视频,是否退出?";
+"Hohem.Camera.StopInception" = "当前正在进行盗梦空间录制,是否退出?";
+"Hohem.Camera.StopTimelapse" = "当前正在进行移动延时摄影录制,是否退出?";
+"Hohem.Camera.StopDollyZoom" = "当前正在进行希区柯克录制,是否退出?";
+
+"Hohem.Register.Reset" = "重置密码";
+
+"Hohem.Authority.BLEOff" = "请在'设置'中允许蓝牙连接";
+"Hohem.Camera.StopMoment" = "正在进行Moment录制,是否确认退出";
+"Hohem.Camera.StopPanoramic" = "正在进行全景视频录制,是否确认退出";
+"Hohem.Moment.Panoramic_Title" = "全景环拍";
+"Hohem.Moment.Panoramic_Description" = "更宽阔的视觉享受";
+"Hohem.Moment.DreamSpin_Title" = "梦幻旋转";
+"Hohem.Moment.DreamSpin_Description" = "伴随音乐节奏自由旋转";
+
+"Hohem.More.Setting.LanguageEnglish" = "英语";
+"Hohem.More.Setting.LanguageChinese" = "中文";
+"Hohem.Me.Setting.ResetPassword" = "密码修改";
+"Hohem.Me.Setting.AppVersion" = "APP版本";
+"Hohem.Me.Setting.Language" = "语言";
+
+"None" = "无";
+"Cross" = "十字";
+"Diagonal" = "对角线";
+"Hohem.Camera.MomentNoBle" = "当前蓝牙未连接\n\n请确认连接后再正常使用Moment模式";
+
+"Hohem.Main.UpdateApplicationTitle" = "更新提示";
+"Hohem.Main.UpdateApplicationDescription" = "Hohem Pro已发布新版本";
+"Hohem.Main.UpdateApplicationYes" = "立即更新";
+"Hohem.Main.UpdateApplicationNo" = "下次";
+
+"Hohem.Authority.Localition" = "定位服务已关闭";
+"Hohem.Authority.LocalitionMessage" = "您需要打开定位权限,才能正常使用Hohem Pro。请到设置->隐私->定位服务中开启定位服务";
+"Hohem.Authority.NetWork" = "网络已关闭";
+"Hohem.Authority.NetWorkMessage" = "您需要打开网络权限,才能正常使用Hohem Pro。请到设置->隐私->无线数据中开启网络";
+"Hohem.Authority.Title" = "权限申请";
+"Motor response" = "电机响应";
+"Hohoe.Main.UpdateDetail" = "固件升级中，请勿锁屏或退出APP";
+"Hohem.Camera.WorkMode_TimeLapse" = "延时摄影";
+"Hohem.Camera.WorkMode_SlowMotion" = "慢动作";
+"Hohem.Camera.TrackLapse.Shutter" = "快门间隔";
+"Hohem.Camera.TrackLapse.Time" = "持续时间";
+"Hohem.Camera.TrackLapse.Nolimit" = "不限";
+
+
+"Hohem.Register.UesrNamePlaceholder" = "请输入手机号/邮箱";
+"Hohem.Login.UesrNamePlaceholder" = "请输入手机号/邮箱";//8个空格
+"Hohem.Me.ContactUs" = "联系我们";
+"Hohem.Me.Contact.Phone" = "客服热线";
+"Hohem.Me.Contact.Email" = "邮箱";
+"Hohem.Me.Contact.wechat" = "微信公众号";
+"Hohem.Me.Contact.FB" = "Facebook";
+"Hohem.Main.FAQ" = "常见问题";
+"Hohem.Main.UpdateRemind" = "固件升级";
+"Hohem.Main.Update.Agree" = "同意";
+"Hohem.Main.Update.Refuse" = "拒绝";
+
+"About Contorl" = "摇杆左右控制";
+"Hohem.Camera.More.AboutControl" = "摇杆左右控制";
+"Hohem.Camera.More.Pan" = "航向轴";
+"Hohem.Camera.More.Roll" = "横滚轴";
+"Hohem.Register.RegisterType.Phone" = "切换手机号注册";
+"Hohem.Register.RegisterType.Email" = "切换邮箱注册";
+"Hohem.Register.UesrNamePlaceholder.Phone" = "请输入手机号码";
+"Hohem.Register.UesrNamePlaceholder.Email" = "请输入邮箱";
+
+
+"Hohem.Camera.StopDreamSpin" = "正在进行梦幻旋转录制,是否确认退出";
+"POV" = "POV 全跟随";
+"Hohem.Camera.Setting.Reset" = "恢复出厂设置";
+"Hohem.Camera.Setting.isReset" = "稳定器参数恢复到出厂设置值?";
+"Reset" = "恢复出厂设置";
+
+
+"Hohem.Camera.MomentInceptionPrompt" = "根据手机摄像头排布的差异，部分手机在该拍摄模式下部分旋转角度，稳定器机身可能会被拍摄入境，请注意选用。";
+
+
+
+
+//Login Swift
+"Hohem.Login.TitleLogin" = "登录";
+"Hohem.Login.TitleActivation" = "激活设备需要绑定账号";
+"Hohem.Login.UserPlaceholder" = "请输入手机号/邮箱";
+"Hohem.Login.PswPlaceholder" = "请输入密码";
+"Hohem.Login.Login" = "登录";
+"Hohem.Login.RivacyMessage" = "登录即同意'Hohem用户隐私协议'";
+"Hohem.Login.RivacyMessagePre" = "登录即同意";
+"Hohem.Login.RivacyMessageMiddle" = "Hohem用户隐私协议";
+"Hohem.Login.RivacyMessageSuf" = "";
+"Hohem.Login.Register" = "没有Hohem账号，点此注册";
+"Hohem.Login.Forget" = "忘记密码?";
+
+
+//Register
+"Hohem.Register.TitleRegister" = "注册";
+"Hohem.Register.TitleActivation" = "激活设备需要绑定账号";
+"Hohem.Register.TitleReset" = "密码修改";
+"Hohem.Register.UserPlaceholderPhone" = "请输入手机号码";
+"Hohem.Register.UserPlaceholderEmail" = "请输入邮箱";
+"Hohem.Register.UserPlaceholderReset" = "请输入手机号/邮箱";
+"Hohem.Register.CodePlaceholder" = "请输入验证码";
+"Hohem.Register.SendCode" = "发送验证码";
+"Hohem.Register.PswPlaceholder" = "请输入密码";
+"Hohem.Register.PswPlaceholderAgain" = "请再次输入密码";
+"Hohem.Register.Register" = "注册";
+"Hohem.Register.Reset" = "密码修改";
+"Hohem.Register.RivacyMessage" = "注册即表示同意'Hohem用户隐私协议'";
+"Hohem.Register.RivacyMessagePre" = "注册即表示同意";
+"Hohem.Register.RivacyMessageMiddle" = "Hohem用户隐私协议";
+"Hohem.Register.RivacyMessageSuf" = "";
+"Hohem.Register.Login" = "已有Hohem账号,点此登录";
+"Hohem.Register.RegisterTypePhone" = "切换到手机注册";
+"Hohem.Register.RegisterTypeEmail" = "切换到邮箱注册";
+
+"Hohem.Register.PhoneNumError" = "请输入正确的手机号码";
+"Hohem.Register.EmailError" = "请输入正确的邮箱";
+"Hohem.Register.Reset_NoUser" = "用户不存在";
+"Hohem.Register.isRegister" = "该账号已被注册";
+"Hohem.Register.PhoneError" = "请输入正确格式的手机号码";
+"Hohem.Register.FirstPSWFormatError" = "第一次输入密码格式不正确,确保密码在6到11位之间";
+"Hohem.Register.SecondPSWFormatError" = "第二次输入密码格式不正确,确保密码在6到11位之间";
+"Hohem.Register.PSWInconsistent" = "两次设定密码不一致";
+"Hohem.Register.NoSMSCode" = "请获取短信验证码";
+"Hohem.Register.SMSNumberFormatError" = "请输入正确格式验证码";
+"Hohem.Register.NeedAgreeRivacy" = "注册需同意用户隐私协议";
+
+"Hohem.Activation.DeviceTitle.Pre" = "激活 ";
+"Hohem.Activation.DeviceTitle.Suf" = "";
+"Hohem.Activation.DeviceDescription.Pre" = "首次连接需要激活 ";
+"Hohem.Activation.DeviceDescription.Suf" = "\n激活后您将享有保修服务";
+"Hohem.Activation.DeviceInfoTitle.Pre" = "获取 ";
+"Hohem.Activation.DeviceInfoTitle.Suf" = "设备信息";
+"Hohem.Activating.ConfirmAccount.Pre" = "";
+"Hohem.Activating.ConfirmAccount.Suf" = "信息将与您的账号绑定，作为维修及售后服务的依据，请确认账号信息是否正确";
+//Activation Swift
+"Hohem.Activation.DeviceTitle" = "激活 iSteady X";
+"Hohem.Activation.DeviceDescription" = "首次连接需要激活 iSteady X\n激活后您将享有保修服务";
+"Hohem.Activation.DeviceInfoTitle" = "获取 iSteady X 设备信息";
+"Hohem.Activation.DeviceInfoDescription" = "Hohem Pro 只会获取激活设备所需的必要信息";
+"Hohem.Activation.DeviceNext" = "下一步";
+"Hohem.Activating.TitleConfirmAccount" = "确认激活账号";
+"Hohem.Activating.ConfirmAccount" = "iSteady X信息将与您的账号绑定，作为维修及售后服务的依据，请确认账号信息是否正确";
+"Hohem.Activating.ChangeAccount" = "切换账号";
+"Hohem.Activating.BeginActivation" = "开始激活";
+"Hohem.Activation.TitleActivating" = "正在激活...";
+"Hohem.Activation.ActivatingPrompt" = "激活过程中请勿退出APP\n或切换到其它APP";
+"Hohem.Activation.TitleFinish" = "激活成功 ";
+"Hohem.Activation.Finish" = "回到首页";
+"Hohem.Activation.TitleFail" = "激活失败";
+"Hohem.Activation.FailTitle" = "请进行以下操作并尝试重新激活";
+"Hohem.Activation.FailDescription" = "1.保持手机网络连接正常\n2.重启稳定器\n3.保持蓝牙连接稳定\n4.确保在激活过程中\n  ·手机未锁屏\n  ·未切换到其他 APP";
+
+
+
+"Mic" = "Hohem SmartMic";
+
+
+"Hohem.MotionTimeLapse.AddPointFail" = "相邻取景点太相近,请重新取景。";
+"Hohem.MotionTimeLapse.DeviceDisCoonect" = "请先连接稳定器";
+"Hohem.MotionTimeLapse.Guide" = "控制摇杆或手掰稳定器到取景角度,点击'+'添加取景点(最多可添加5个取景点)。";
+
+"Hohem.ObjectTrack.Title" = "物体追踪";
+"Hohem.ObjectTrack.Description" = "请框选需要跟踪的物体目标";
+
+"Hohem.FaceTrack.Title" = "人脸跟踪";
+
+"Hohem.HandGeature.Title" = "手势识别";
+//"Hohem.HandGeature.Description" = "请用手比V或手掌张开\n(请确保人脸和手势同时出现在画面)";
+"Hohem.HandGeature.Description" = "拍照模式:单手比V触发拍照;\n录像模式:单手比V开始录像,单手手掌展开停止录像;";
+
+//Brica
+"Brica.Home.ConnectGimbal" = "连接设备";
+
+"UserMic" = "启用 Hohem SmartMic";
+"UserPhoneMic" = "手机麦克风";
+
+
+"MicEffect" = "麦克增益";
+"Monito" = "监听音量";
+"Reverber" = "麦克混音";
+"Ans" = "降噪";
+"Agc" = "自动增益";
+"Mix" = "BGM混音";
+"Music" = "BGM音量";
+"Hohem.Camera.Setting.None" = "关闭";
+
+//滤镜
+"mainMenuItem_3_detail_0" = "原图";
+"mainMenuItem_3_detail_1" = "香槟";
+"mainMenuItem_3_detail_2" = "清莹";
+"mainMenuItem_3_detail_3" = "落秋";
+"mainMenuItem_3_detail_4" = "葱郁";
+"mainMenuItem_3_detail_5" = "薄荷";
+"mainMenuItem_3_detail_6" = "西柚";
+"mainMenuItem_3_detail_7" = "马卡龙";
+"mainMenuItem_3_detail_8" = "卓别林";
+"mainMenuItem_3_detail_9" = "硬像";
+"mainMenuItem_3_detail_10" = "美颜";
+"mainMenuItem_3_detail_11" = "亮度";
+
+"InstagramFiltersXproii" = "新潮";
+"InstagramFiltersSierra" = "清新";
+"InstagramFiltersAmaro" = "流年";
+"InstagramFiltersWalden" = "日系";
+"InstagramFilters1977" = "创新";
+"InstagramFiltersBrannan" = "淡雅";
+"InstagramFiltersToaster" = "绚丽";
+"InstagramFiltersLordKelvin" = "回忆";
+"InstagramFiltersEarlybird" = "怡尚";
+"InstagramFiltersRise" = "森系";
+"InstagramFiltersSutro" = "摩登";
+"InstagramFiltersLomofi" = "个性";
+"InstagramFiltersHefe" = "优格";
+"InstagramFiltersInkwell" = "黑白";
+"InstagramFiltersHudson" = "胶片";
+"InstagramFiltersNashville" = "复古";
+"InstagramFiltersValencia" = "优雅";
+
+"Hohem.LockFocus.Title" = "锁定曝光/对焦";
+
+
+"Photo size" = "拍照尺寸";
+"Timer" = "定时拍照";
+"ZoomSpeed" = "缩放速度";
+"Professional Mode" = "专业模式";
+
+"Incandescent Bulbs" = "白炽灯";
+"Fluorescent Lights" = "荧光灯";
+"Daylight" = "日光";
+"Cloudy" = "阴天";
+"Shade" = "阴影";
+"Twilight" = "黄昏";
+
+
+// MARK: 第一次启用指引
+//主页
+"HH.Home.Guide.EnterCamera" = "点击进入相机拍摄页面";
+"HH.Home.Guide.Scan" = "点击连接稳定器";
+"HH.Home.Guide.ConnectStatus" = "稳定器连接状态";
+"HH.Home.Guide.Tutorials" = "点击观看教程视频";
+//相机页面
+"HH.Camera.Guide.CameraModel" = "点击选择拍摄、录像、Moment模式、延时摄影";
+"HH.Camera.Guide.Filter" = "点击这里选择美颜、滤镜";
+"HH.Camera.Guide.Gesture" = "点击这里开启手势识别";
+"HH.Camera.Guide.Track" = "点击这里开启人脸跟踪，物体追踪";
+"HH.Camera.Guide.Setting" = "更多设置";
+
+
+//Home
+"HH.Home.EnterCamera" = "开始拍摄";
+"HH.Home.EnterFAQ" = "常见问题";
+"HH.Home.MoreVideo" = "更多";
+"HH.Home.ScanedBT" = "检测到";
+"HH.Home.ConnectingBT" = "连接中...";
+"HH.Home.ConnectSuccess" = "连接成功";
+"HH.Home.ConnectFail" = "连接失败";
+
+//BT Scan
+"HH.ScanBT.Title" = "设备连接";
+"HH.ScanBT.Scaning" = "搜索中...";
+"HH.ScanBT.Help" = "帮助";
+"HH.ScanBT.EnterCamera" = "不连设备,直接拍摄";
+"HH.ScanBT.BTDes" = "点击设备名称进行蓝牙连接";
+"HH.ScanBT.Connecting" = "蓝牙连接中，请稍等...";
+"HH.ScanBT.ConnectFail" = "蓝牙连接失败";
+"HH.ScanBT.ConnectFailTitle" = "以下情况会导致蓝牙连接失败";
+"HH.ScanBT.ConnectReason" = "1. 手机与稳定器距离太远；\n2. 稳定器蓝牙被关闭；\n3. 稳定器电量不足。";
+"HH.ScanBT.Reconnecting" = "重新连接蓝牙";
+"HH.ScanBT.ConnectSuccess" = "蓝牙连接成功";
+"HH.ScanBT.ConnectSuccessEnterCamera" = "马上开启你的拍摄之旅！";
+"HH.ScanBT.BTClose" = "手机蓝牙未打开";
+"HH.ScanBT.BTCloseGuid" = "请前往“手机-设置-蓝牙”页面打开蓝牙开关";
+"HH.ScanBT.OpneSetting" = "打开系统设置";
+
+//Home update tip
+"HH.Home.Tips.NewAppVersion" = "检测到新版本";
+"HH.Home.Tips.Update" = "立刻更新";
+"HH.Home.Tips.RefuseUpdate" = "以后再说";
+"HH.Home.Tips.NewGimbalFile" = "检测到新固件";
+"HH.Home.Tips.Updateing" = "固件升级中";
+"HH.Home.Tips.UpdateReminder" = "请勿锁屏或退出APP";
+"HH.Home.Tips.UpdateFinish" = "固件升级成功";
+"HH.Home.Tips.UpdateConfirmFinish" = "完成";
+"HH.Home.Tips.UpdateConfirmFail" = "好的";
+"HH.Home.Tips.UpdateFail" = "固件升级失败";
+"HH.Home.Tips." = "请按照以下步骤尝试重新升级";
+"HH.Home.Tips.UpdateFailReminder" = "1. 关闭手机蓝牙和APP；\n2. 重启 iSteady X，并打开手机蓝牙；\n3. 确保蓝牙连接稳定;\n4. 开启APP，连接 iSteady X 蓝牙，再次升级固件;";
+"HH.Home.Tips.FirmwareCorrupt" = "稳定器运行异常,需要升级固件";
+
+
+"HH.ScanBTHelp.Title" = "蓝牙连接帮助";
+"HH.ScanBTHelp.ResetBT" = "重置蓝牙连接:\n\n同时按下'快门键'、上推'变焦推杆'并持续3秒。重置成功后再次连接稳定器。";
+
+
+"Ai Calibration" = "AI视觉定位校准";
+"HH.Ai.Calibration.Title" = "AI定标设置";
+"HH.Ai.Calibration.Des" = "是否进行AI传感器定标位置微调?";
+"HH.Ai.Describe" = "使用'OK'手势开启AI追踪功能,待绿色指示灯常亮后点击方向键,调整AI跟拍中人像在屏幕中的位置";
+"HH.Ai.Save" = "保存";
+"HH.Ai.Reset" = "重置";
+"HH.Ai.Offline" = "使用AI定标设置需要先开启AI传感器";
+"HH.Ai.IsRecord" = "视频录制中，请停止录像后再使用AI定标设置";
+
+"HH.Me.ClearCache" = "清除缓存";
+"HH.Me.NoCache" = "没有缓存";
+"HH.Me.ClearCacheTip" = "正在删除缓存,是否继续?";
+"Hohem.Moment.InceptionMode_Description" = "旋转三维空间穿梭大片";
+"HH.ScanBTHelp.ResetBTQ" = "重置蓝牙连接:\n\n九按稳拍杆电源键进行重置蓝牙操作。重置成功后再次连接稳定器。";
+
+
+"HH.Pano.PointTitle" = "分身数量";
+"HH.Pano.DesString" = "请保证拍摄目标不超出参考线";
+"HH.Pano.IsSplice" = "正在合成全景照片";
+"HH.Pano.SpliceFail" = "全景照片合成失败";
+"Hohem.Moment.Pano_Title" = "魔法分身";
+"Hohem.Moment.Pano_Description" = "一人分饰多角的创意照片";
+
+"HH.Track.HandheldTips" = "请在桌面模式下使用追踪功能。";
+"HH.Inception.DesktopUseTips" = "请在手持模式下使用盗梦空间。";
+"HH.Timelapse.HandheldTips" = "请在桌面模式下使用智能移动延时摄影。";
+"HH.Pano.HandheldTips" = "请在桌面模式下使用魔法分身。";
+"HH.Panoramic.HandheldTips" = "请在桌面模式下使用全景环拍";
+"HH.Record.RecordingTips" = "拍摄视频中,请先结束视频录制再进行其它操作。";
+
+"HH.Discover.Error" = "不是我的";
+"HH.Discover.Connecting" = "连接中";
+
+"HH.Activation.Activation" = "一键激活";
+
+//技术支持
+"HH.Function.Support" = "技术支持";
+
+"HH.Contact.Online.Title" = "在线客服";
+"HH.Contact.Online.Des" = "9:00 - 21:00(GMT+8)\n点击进入在线答疑解惑";
+
+"HH.Contact.ServicePhone.Title" = "客服热线";
+
+"HH.Contact.Mailbox.Title" = "邮箱";
+"HH.Contact.Mailbox.Des" = "点击复制，向我们发送问题、建议";
+
+"HH.Contact.Wechat.Title" = "微信公众号";
+"HH.Contact.Wechat.Des" = "点击复制，打开微信搜索关注";
+
+"HH.Contact.Facebook.Title" = "Facebook";
+"HH.Contact.Facebook.Des" = "点击复制，打开Facebook搜索关注";
+
+"HH.CopySuccess" = "复制成功";
+
+
+
+"HH.GotoWeChat.Title" = "前往微信";
+"HH.GotoWeChat.Des" = "已复制[浩瀚稳定器]，前往微信关注公众号";
+
+"HH.GotoFacebook.Title" = "前往Facebook";
+"HH.GotoFacebook.Des" = "已复制[Hohem]，前往Facebook关注浩瀚官方账号";
+
+"HH.GoToOtherApp" = "立即前往";
+
+
+
+
+"Cameras" = "镜头选择";
+"photoscale" = "拍照尺寸";
+"mirror" = "自拍镜像";
+
+"HH.VideoResolution" = "视频分辨率";
+"HH.VideoFPS" = "视频帧率";
+
+"HH.Beauty.Title" = "美颜";
+"HH.Beauty.Des" = "开启美颜";
+"HH.Beauty.ThinFace" = "瘦脸";
+"HH.Beauty.BigEye" = "大眼";
+"HH.Filter.Title" = "滤镜";
+"HH.NotAllowFilter" = "4K或60FPS不支持美颜";
+"HH.CloseFilter" = "美颜已关闭,4K或60FPS不支持美颜";
+
+"HH.MomentGuideTitle" = "小Q稳拍杆 精彩玩法";
+
+"HH.InceptionMode.GuideTitle" = "300°盗梦空间";
+"HH.InceptionMode.Guide1" = "1.选择有纵深感的场景（如走廊/街道等)";
+"HH.InceptionMode.Guide2" = "2.三按遥控器功能键";
+"HH.InceptionMode.Guide3" = "3.缓步向前推进拍摄";
+"HH.MomentGuide.Back" = "上一步";
+"HH.MomentGuide.Next" = "下一步";
+"HH.MomentGuide.Other" = "其他玩法";
+
+"HH.Pano.GuideTitle" = "一键魔法分身";
+"HH.Pano.Guide1" = "1.选择一个宽阔的场地";
+"HH.Pano.Guide2" = "2.Moment模式中选择魔法分身（确保蓝牙连接)";
+"HH.Pano.Guide3" = "3.选择分身数量后点击开始";
+"HH.Pano.Guide4" = "4.有效画面内摆好姿势";
+"HH.Pano.Guide5" = "5.从左至右重复拍摄至完成";
+
+"HH.Track.GuideTitle" = "开启人脸追踪";
+"HH.Track.Guide1" = "1.桌面跟拍场景需手动旋转臂杆90°";
+"HH.Track.Guide2" = "2.打开底部三脚架水平放置桌面";
+"HH.Track.Guide3" = "3.点击左侧'人脸跟踪'图标（确保蓝牙连接）";
+"HH.Track.Guide4" = "4.绿框锁定人脸，表示已启动360°跟拍";
+
+//智能盗梦空间
+"HH.Camera.Inception" = "智能盗梦空间";
+"HH.Camera.Inception.Des" = "旋转三维空间穿梭大片";
+
+//智能希区柯克
+"HH.Camera.AutoDollyZoom" = "智能希区柯克";
+"HH.Camera.AutoDollyZoom.Des" = "大片级的视觉享受";
+"HH.AutoDollyZoom.Wide" = "目标远离";
+"HH.AutoDollyZoom.CloseTo" = "目标靠近";
+"HH.AutoDollyZoom.SelectTarget" = "请用手指划动屏幕框选目标";
+"HH.AutoDollyZoom.NoObject" = "请在屏幕内框选物体后拍摄";
+"HH.AutoDollyZoom.Standing" = "目标锁定后请不要移动,点击快门开始拍摄";
+"HH.AutoDollyZoom.WideTips" = "倒计时结束后,请跟随箭头指引,向后逐步远离物体";
+"HH.AutoDollyZoom.CloseToTips" = "倒计时结束后,请跟随箭头指引,向前逐步靠近物体";
+"HH.AutoDollyZoom.NeedWide" = "移动方向错误,请向后逐步远离物体";
+"HH.AutoDollyZoom.NeedCloseTo" = "移动方向错误,请向前逐步靠近物体";
+
+//绑定设备
+"HH.Me.Bind.Register" = "免费注册浩瀚会员\n为设备延保一年";
+"HH.Me.Bind.RegisterDes" = "为您的创作之旅保驾护航";
+"HH.Me.Bind.RegisterMember" = "注册浩瀚会员";
+"HH.Me.Bind.BindingDevice" = "绑定 iSteady X";
+"HH.Me.Bind.ExtendedWarranty" = "绑定您的设备\n即可获得一年延保";
+"HH.Me.Bind.Success" = "iSteady X 绑定成功";
+"HH.Me.Bind.ExtendedWarrantySuccess" = "恭喜您\n已获得设备一年延保";
+"HH.Me.Bind.Title" = "绑定设备";
+"HH.Me.Bind.Bound" = "当前已绑定设备";
+"HH.Me.Bind.BoundNews" = "绑定新设备";
+"HH.Me.Bind.Disconnect" = "未检测到设备蓝牙连接";
+"HH.Me.Bind.PleaseConnect" = "请先连接设备蓝牙\n再进行绑定操作";
+"HH.Me.Bind.Connect" = "连接设备蓝牙";
+
+
+"HH.CloseSpecialEffect" = "新春贴纸已关闭,4K或60FPS不支持美颜";
+"HH.NotAllowSpecialEffect" = "4K或60FPS不支持新春贴纸";
+
+
+
+
+
+
+
+
