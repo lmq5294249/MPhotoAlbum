@@ -250,7 +250,8 @@ static NSString *HohemImageCollectionViewCell_Rid = @"HohemImageCollectionViewCe
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    
+    HohemImageCollectionViewCell *cell = (HohemImageCollectionViewCell *)[self.collectionView cellForItemAtIndexPath:indexPath];
+    [cell setScrollViewZoomScale];
     self.isNavView = !self.isNavView;
 }
 
