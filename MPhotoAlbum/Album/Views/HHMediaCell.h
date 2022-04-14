@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "LocalAssetModel.h"
 
-typedef void(^LongPressGestureBlock)(BOOL enable);
+typedef void(^LongPressGestureBlock)(BOOL enable ,NSInteger section,NSInteger row);
 
 @interface HHMediaCell : UICollectionViewCell<UIGestureRecognizerDelegate>
 
@@ -20,6 +20,10 @@ typedef void(^LongPressGestureBlock)(BOOL enable);
 @property (nonatomic, strong) UIImageView *selectStateImageView;
 
 @property (nonatomic, strong) UILabel *timeLabel;
+
+@property (nonatomic, assign) NSInteger indexSection; //在哪一个section
+ 
+@property (nonatomic, assign) NSInteger indexRow; //在section的哪一个位置row
 
 @property (nonatomic, copy) LongPressGestureBlock gestureBlock;
 
