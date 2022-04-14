@@ -32,7 +32,8 @@
 
     __block NSMutableDictionary * assetTypePhotoDic = [NSMutableDictionary dictionary];
     __block NSMutableDictionary * assetTypeVideoDic = [NSMutableDictionary dictionary];
-    [assetsFetchResult enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+    [assetsFetchResult enumerateObjectsWithOptions:NSEnumerationReverse usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
         PHAsset *asset = obj;
         LocalAssetModel * assetModel = [[LocalAssetModel alloc]init];
         assetModel.asset=asset;
