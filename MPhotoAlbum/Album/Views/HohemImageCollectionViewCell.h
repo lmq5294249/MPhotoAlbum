@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)updateImageWithImage:(UIImage *)image;
 - (void)showPlayBtn:(BOOL)isShow;
 - (void)videoStopPlay;
+- (void)setScrollViewZoomScale;
 
 @end
 
