@@ -13,6 +13,8 @@
 #import "PHPhotoLibraryManage.h"
 #import "LocalAssetModel.h"
 #import "HHMediaCell.h"
+#import "OptionalEditView.h"
+#import "MQVideoEditingViewController.h"
 #define baseMargin 6.0
 
 static NSString *const cellId = @"HHMediaCellID";
@@ -44,17 +46,23 @@ static NSString *const cellId = @"HHMediaCellID";
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
+@property (nonatomic, assign) HohemAlbum_Mode albumMode; //相册模式
 @property (nonatomic, assign) BOOL isEnableEdit;
 @property (nonatomic, strong) UIButton *backBtn;
 @property (nonatomic, strong) UIButton *selectedBtn;
 @property (nonatomic, strong) UIButton *deletedBtn;
 @property (nonatomic, strong) UIButton *videoEditorBtn;
+@property (nonatomic, strong) UIButton *editedBtn;
+@property (nonatomic, strong) UIButton *nextStepBtn;
 
 @property (nonatomic, strong) UILabel *selectedLabel;
 
 @property (nonatomic, assign) CGFloat fitRatio;
 
 @property (nonatomic, strong) UIView *bottomView;
+
+//下面是视频编辑模块的测试
+@property (nonatomic, strong) OptionalEditView *optionalView;
 
 @end
 
@@ -128,6 +136,11 @@ static NSString *const cellId = @"HHMediaCellID";
     [self.backBtn addTarget:self action:@selector(didClickBackBtn:) forControlEvents:UIControlEventTouchUpInside];
     [self.titleView addSubview:self.backBtn];
     if (self.hiddenBackBtn) self.backBtn.hidden = YES;
+    //视频编辑按钮
+    self.editedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.editedBtn setImage:[UIImage imageNamed:@"Hohem_Album_ editing"] forState:UIControlStateNormal];
+    [self.editedBtn addTarget:self action:@selector(didClickEditBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.titleView addSubview:self.editedBtn];
     //多选按钮
     self.selectedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.selectedBtn setImage:[UIImage imageNamed:@"Hohem_Album_ unselected"] forState:UIControlStateNormal];
@@ -188,6 +201,23 @@ static NSString *const cellId = @"HHMediaCellID";
     
     //[self.bottomView addSubview:self.selectedLabel];
     [self.view addSubview:self.deletedBtn];
+    
+    __weak typeof(self) weakSelf = self;
+    self.optionalView = [[OptionalEditView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 80, CGRectGetWidth(self.view.frame), 80)];
+    self.optionalView.maxcount = 4;
+    self.optionalView.deleteOptionalModelBlock = ^{
+        weakSelf.nextStepBtn.hidden = YES;
+    };
+    [self.view addSubview:self.optionalView];
+    
+    //视频剪辑下一步按钮
+    self.nextStepBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.nextStepBtn setTitle:@"下一步" forState:UIControlStateNormal];
+    self.nextStepBtn.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
+    [self.nextStepBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    [self.nextStepBtn addTarget:self action:@selector(didClickNextStepBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.slidePageView addSubview:self.nextStepBtn];
+    self.nextStepBtn.hidden = YES;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -208,6 +238,9 @@ static NSString *const cellId = @"HHMediaCellID";
     CGPoint logoViewCenter = self.labelImageVIew.center;
     self.selectedBtn.center = CGPointMake(self.selectedBtn.center.x, logoViewCenter.y);
     self.backBtn.center = CGPointMake(self.backBtn.center.x, logoViewCenter.y);
+    //编辑位置在左边返回处
+    self.editedBtn.frame = CGRectMake( 32* self.fitRatio * 2 + 44* self.fitRatio, 4 + xIphoneMargin, 44* self.fitRatio, 44* self.fitRatio);
+    self.editedBtn.center = CGPointMake(self.editedBtn.center.x, logoViewCenter.y);
     
     self.slidePageView.frame = CGRectMake(0, CGRectGetMaxY(self.titleView.frame) - 10, CGRectGetWidth(self.view.frame), 52);
     
@@ -219,6 +252,8 @@ static NSString *const cellId = @"HHMediaCellID";
     self.bottomView.frame = CGRectMake(0, h - 92 - bottomDistValue, w, 92 + bottomDistValue);
     self.deletedBtn.frame = CGRectMake((w - 66 * self.fitRatio)/2, CGRectGetMinY(self.bottomView.frame) + (92 + bottomDistValue - 66 * self.fitRatio)/2 - 4, 66 * self.fitRatio, 66 * self.fitRatio);
     self.selectedLabel.frame = CGRectMake(CGRectGetMinX(self.deletedBtn.frame) - 60 - 4, (48  - 24)/2 + bottomDistValue/4, 60, 24);
+    
+    self.nextStepBtn.frame = CGRectMake(CGRectGetWidth(self.slidePageView.frame)- 100, 0, 100, CGRectGetHeight(self.slidePageView.frame));
     
     //bottomView底部层添加渐变层
     self.bottomView.alpha = 1.0;
@@ -386,19 +421,24 @@ static NSString *const cellId = @"HHMediaCellID";
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void)didClickEditBtn:(UIButton *)btn {
+    
+    self.albumMode = HohemAlbum_Mode_VideoEditor;
+}
+
 - (void)didClickSelectedBtn:(UIButton *)btn {
     
     btn.selected = !btn.selected;
 //    self.bottomView.hidden = !btn.selected;
 
     if (btn.selected) {
-        self.isEnableEdit = YES;
+        self.albumMode = HohemAlbum_Mode_DeleteItems;
         //self.selectedLabel.hidden = NO;
         self.bottomView.hidden = NO;
         self.deletedBtn.hidden = NO;
     }
     else{
-        self.isEnableEdit = NO;
+        self.albumMode = HohemAlbum_Mode_Viewer;
         for (LocalAssetModel *model in self.mediaModelArr) {
             model.isSelect = NO;
         }
@@ -465,9 +505,9 @@ static NSString *const cellId = @"HHMediaCellID";
             //重加载视图同步主线程
             dispatch_async(dispatch_get_main_queue(), ^{
                 [weakSelf.collectionView reloadData];
-                if (weakSelf.isEnableEdit) {
+                if (weakSelf.albumMode == HohemAlbum_Mode_DeleteItems) {
 
-                    weakSelf.isEnableEdit = NO;
+                    weakSelf.albumMode = HohemAlbum_Mode_Viewer;
                 }
                 weakSelf.selectedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"(%d)", nil),0];
                 weakSelf.selectedLabel.hidden = YES;
@@ -520,6 +560,14 @@ static NSString *const cellId = @"HHMediaCellID";
     return min / 390.0;
 }
 
+- (void)didClickNextStepBtn:(UIButton *)btn {
+    //进入编辑模式
+    MQVideoEditingViewController *videoEditingViewController = [[MQVideoEditingViewController alloc] init];
+    videoEditingViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    videoEditingViewController.mediaDic = [NSDictionary dictionaryWithDictionary:self.optionalView.optionalDict];
+    [self presentViewController:videoEditingViewController animated:YES completion:nil];
+}
+
 #pragma mark - UICollectionViewDataSource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -546,12 +594,14 @@ static NSString *const cellId = @"HHMediaCellID";
     if (self.mediaModelDataArr) {
         NSArray *mediaArry = self.mediaModelDataArr[indexPath.section];
         LocalAssetModel *model = mediaArry[indexPath.row];
+        cell.indexSection = indexPath.section;
+        cell.indexRow = indexPath.row;
         //cell自定义的方法,存入model根据model内容显示
         [cell displayModelDataWithModel:model];
     }
     
     //根据当前状态，是否显示选中的图片
-    if(_isEnableEdit == YES)
+    if(_albumMode == HohemAlbum_Mode_DeleteItems)
     {
         cell.selectStateImageView.hidden = NO;
     }else
@@ -560,16 +610,19 @@ static NSString *const cellId = @"HHMediaCellID";
     }
     
     __weak typeof(self) weakSelf = self;
-    cell.gestureBlock = ^(BOOL enable) {
-        
+    cell.gestureBlock = ^(BOOL enable, NSInteger section, NSInteger row) {
         if (enable) {
             dispatch_async(dispatch_get_main_queue(), ^{
                //编辑模式
-                weakSelf.isEnableEdit = YES;
+                weakSelf.albumMode = HohemAlbum_Mode_DeleteItems;
                 weakSelf.selectedBtn.selected = YES;
                 weakSelf.selectedLabel.hidden = NO;
                 weakSelf.bottomView.hidden = NO;
                 weakSelf.deletedBtn.hidden = NO;
+                NSArray *dateArray = weakSelf.mediaModelDataArr[section];
+                LocalAssetModel *model = dateArray[row];
+                model.isSelect = YES;
+                NSLog(@"长按选中cell = %d, %d",section,row);
                 [weakSelf.collectionView reloadData];
             });
         }
@@ -582,7 +635,7 @@ static NSString *const cellId = @"HHMediaCellID";
 //UICollectionView每个cell被点击时回调的代理
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (!_isEnableEdit) {
+    if (_albumMode == HohemAlbum_Mode_Viewer) {
         //非选择状态
         LocalAssetModel *assetModel = self.mediaModelArr[[self IndexForImageShow:indexPath]];
         PHAsset *phAsset = assetModel.asset;
@@ -612,7 +665,8 @@ static NSString *const cellId = @"HHMediaCellID";
         showVc.modalPresentationStyle = UIModalPresentationFullScreen;
         [self presentViewController:showVc animated:NO completion:nil];
         
-    }else{
+    }else if (_albumMode == HohemAlbum_Mode_DeleteItems)
+    {
         //选择编辑状态
         NSArray *dateArray = self.mediaModelDataArr[indexPath.section];
         LocalAssetModel *model = dateArray[indexPath.row];
@@ -633,8 +687,23 @@ static NSString *const cellId = @"HHMediaCellID";
             }
 
         }
-        //更新选择的个数
-        self.selectedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"(%d)", nil),selectedCount];
+    }
+    else{
+        NSArray *dateArray = self.mediaModelDataArr[indexPath.section];
+        LocalAssetModel *model = dateArray[indexPath.row];
+        NSString *string = [NSString stringWithFormat:@"%d",(int)self.optionalView.curIndex];
+        LocalAssetModel *newModel = [self.optionalView.optionalDict objectForKey:string];
+        newModel.asset = model.asset;
+        newModel.propertyName = model.propertyName;
+        newModel.propertyType = model.propertyType;
+        newModel.propertyThumbImage = model.propertyThumbImage;
+        [self.optionalView reloadData];
+        if (self.optionalView.curIndex == 10000) {
+            self.nextStepBtn.hidden = NO;
+        }
+        else{
+            self.nextStepBtn.hidden = YES;
+        }
     }
 }
 
@@ -743,7 +812,7 @@ static NSString *const cellId = @"HHMediaCellID";
     [selectAllBtn addTarget:self action:@selector(didClickSelectAllFile:) forControlEvents:UIControlEventTouchUpInside];
     [header addSubview:selectAllBtn];
     selectAllBtn.tag = indexPath.section;
-    if (self.isEnableEdit) {
+    if (self.albumMode == HohemAlbum_Mode_DeleteItems) {
         selectAllBtn.hidden = NO;
     }
     else{
