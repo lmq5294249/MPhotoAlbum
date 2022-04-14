@@ -8,7 +8,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <Photos/PHAsset.h>
-NS_ASSUME_NONNULL_BEGIN
 
 @interface LocalAssetModel : NSObject
 
@@ -55,7 +54,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  *  URL地址
  */
-@property (nonatomic, strong)NSURL * propertyAssetURL;
+@property (nonatomic, strong)AVURLAsset * propertyAssetURL;
 /**
  *  model选中状态的bool值
  */
@@ -63,4 +62,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
