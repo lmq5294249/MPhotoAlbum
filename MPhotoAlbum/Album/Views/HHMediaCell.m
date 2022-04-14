@@ -75,6 +75,7 @@
         self.contentView.layer.borderColor = [UIColor colorWithRed:255.0/255.0 green:101.0/255.0 blue:1/255.0 alpha:1.0].CGColor;
         self.contentView.layer.borderWidth = 2;
         self.contentView.layer.cornerRadius = 8;
+        NSLog(@"打印cell = %d , %d",self.indexSection, self.indexRow);
     }else
     {
         self.selectStateImageView.image = nil;
@@ -130,7 +131,10 @@
 #pragma mark - 长按手势
 - (void)handlelongGesture:(UILongPressGestureRecognizer *)longPress
 {
-    self.gestureBlock(YES);
+    if (longPress.state == UIGestureRecognizerStateBegan) {
+        self.gestureBlock(YES,self.indexSection,self.indexRow);
+    }
+    
 }
 
 @end
