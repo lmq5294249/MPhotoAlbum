@@ -70,12 +70,12 @@
     UIImage *roundImg = UIGraphicsGetImageFromCurrentImageContext();
     UIGraphicsEndImageContext();
     
-    self.pSlider = [[UISlider alloc] initWithFrame:CGRectMake(46, 1, CGRectGetWidth(self.controlView.frame) - 92, 20)];
+    self.pSlider = [[UISlider alloc] initWithFrame:CGRectMake(46, 0, CGRectGetWidth(self.controlView.frame) - 92, 18)];
     self.pSlider.value = 0;
     [self.pSlider setThumbImage:roundImg forState:UIControlStateNormal];
     self.pSlider.minimumTrackTintColor = [UIColor whiteColor];
     self.pSlider.maximumTrackTintColor = [UIColor colorWithRed:51.0/255.0 green:51.0/255.0 blue:51.0/255.0 alpha:1.0];
-    //[self.pSlider addTarget:self action:@selector(pSliderTouchUpInsider:) forControlEvents:UIControlEventTouchUpInside];
+    [self.pSlider addTarget:self action:@selector(pSliderTouchUpInsider:) forControlEvents:UIControlEventTouchUpInside];
     [self.pSlider addTarget:self action:@selector(pSliderValueChange:) forControlEvents:UIControlEventValueChanged];
     
     [self.controlView addSubview:self.pSlider];
@@ -94,12 +94,15 @@
     PHAsset *asset = assetModel.asset;
     CGFloat w = asset.pixelWidth;
     CGFloat h = asset.pixelHeight;
-    CGFloat blankSpacesValue = 18.0;
-    CGFloat bottomDistValue = Tation_BottomSafetyDistance + 76 + 16;
+    CGFloat bottomDistValue = Tation_BottomSafetyDistance;
+    CGFloat bottomMarginValue = bottomDistValue + 76 + 16;
     if (h > w) {
         //竖方向视频
-
-        self.controlView.frame = CGRectMake(10, self.frame.size.height - bottomDistValue - 20, self.frame.size.width - 20, 20);
+        self.controlView.frame = CGRectMake(16, self.frame.size.height - bottomMarginValue - 20, self.frame.size.width - 32, 18);
+        self.leftTimeLabel.frame = CGRectMake(0, 0, 38, 18);
+        self.rightTimeLabel.frame = CGRectMake(CGRectGetWidth(self.controlView.frame) - 38, 0, 38, 18);
+        self.pSlider.frame = CGRectMake(46, 0, CGRectGetWidth(self.controlView.frame) - 92, 18);
+        
     }
     else{
         //横方向视频
@@ -111,7 +114,10 @@
         CGFloat marginTop = (screenHeight - newVideoHeight)/2;
         CGFloat margin = marginTop + newVideoHeight + 10;
         
-        self.controlView.frame = CGRectMake(10, margin + 4, self.frame.size.width - 20, 20);
+        self.controlView.frame = CGRectMake(16, margin + 4, self.frame.size.width - 32, 18);
+        self.leftTimeLabel.frame = CGRectMake(0, 0, 38, 18);
+        self.rightTimeLabel.frame = CGRectMake(CGRectGetWidth(self.controlView.frame) - 38, 0, 38, 18);
+        self.pSlider.frame = CGRectMake(46, 0, CGRectGetWidth(self.controlView.frame) - 92, 18);
     }
     [self.pSlider setValue:0.0];
     self.leftTimeLabel.text = @"00:00";
@@ -226,22 +232,25 @@
 
 - (void)pSliderTouchUpInsider:(id)sender
 {
-    self.isPlaying = YES;
-    [self.videoPlayer play];
-    [self.videoPlayer play];
+    if (self.isPlaying) {
+        [self.videoPlayer play];
+        self.playButton.enabled = YES;
+    }
 }
 
 - (void)pSliderValueChange:(id)sender
 {
     if (self.isPlaying) {
         [self.videoPlayer pause];
+        self.playButton.enabled = NO;
     }
     int64_t videoDuration = CMTimeGetSeconds(self.videoPlayer.currentItem.duration) * 1000;
     int64_t value = self.pSlider.value * videoDuration;
     CMTime newTime = CMTimeMake(value, 1000);
-    
-    [self.videoPlayer seekToTime:newTime toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
+    [self.videoPlayer seekToTime:newTime];
 }
+
+
 
 
 -(NSString *)durationString:(double)duration
