@@ -19,6 +19,14 @@ typedef enum{
     
 } HohemAlbumViewController_ShowType;
 
+typedef enum{
+
+    HohemAlbum_Mode_Viewer,
+    HohemAlbum_Mode_DeleteItems,
+    HohemAlbum_Mode_VideoEditor,
+    
+} HohemAlbum_Mode;
+
 @interface HohemAlbumViewController : UIViewController
 
 @property (nonatomic, assign) BOOL hiddenBackBtn;
