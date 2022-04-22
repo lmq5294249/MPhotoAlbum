@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) NSMutableDictionary *mediaDic;
 
+@property (nonatomic, copy) NSArray *templateModelArray;
+
 @property (nonatomic, strong) NSMutableArray <LocalAssetModel*>*mediaAssetArray;
 
 @property (nonatomic, assign) NSInteger fixedNum;
