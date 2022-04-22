@@ -70,6 +70,7 @@
     
     //底部拖动选择栏
     self.optionalView.mediaAssetArray = self.mediaAssetArray;
+    self.optionalView.templateModelArray = self.templateModel.scripts;
     [self.optionalView reloadData];
     
     
