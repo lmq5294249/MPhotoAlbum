@@ -202,7 +202,9 @@ static NSString* cellId = @"MQDragingCell";
 {
     MQDragingCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellId forIndexPath:indexPath];
     LocalAssetModel *model = self.mediaAssetArray[indexPath.row];
+    EditUnitModel *editunitModel = self.templateModelArray[indexPath.row];
     cell.thumbImage = model.propertyThumbImage;
+    cell.timeLabel.text = [NSString stringWithFormat:@"%.1fs",editunitModel.mediaDuration];
     cell.backgroundColor = [UIColor blackColor];
     cell.isFixed = NO;
     return cell;
