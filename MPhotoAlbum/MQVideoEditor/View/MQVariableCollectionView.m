@@ -101,9 +101,9 @@ static NSString* cellId = @"MQDragingCell";
     [_collectionView bringSubviewToFront:_dragingItem];
     MQDragingCell *item = (MQDragingCell*)[_collectionView cellForItemAtIndexPath:_dragingIndexPath];
     item.isMoving = true;
-    //item.hidden = YES;
+    item.thumbImageView.hidden = YES;
     //更新被拖拽的item
-    _dragingItem.hidden = false;
+    _dragingItem.hidden = NO;
     _dragingItem.frame = item.frame;
     _dragingItem.title = item.title;
     _dragingItem.thumbImage = item.thumbImage;
@@ -119,7 +119,14 @@ static NSString* cellId = @"MQDragingCell";
 
 //拖拽结束
 -(void)dragEnd{
-    if (!_dragingIndexPath || !_targetIndexPath) return;
+    if (!_dragingIndexPath || !_targetIndexPath)
+    {
+        self.dragingItem.hidden = YES;
+        MQDragingCell *item = (MQDragingCell*)[self.collectionView cellForItemAtIndexPath:self.dragingIndexPath];
+        item.isMoving = false;
+        item.hidden = NO;
+        return;
+    }
     //更新数据源
     [self rearrangeMediaFileArray];
     
@@ -129,15 +136,16 @@ static NSString* cellId = @"MQDragingCell";
     [UIView animateWithDuration:0.3 animations:^{
         self.dragingItem.frame = endFrame;
     }completion:^(BOOL finished) {
-        self.dragingItem.hidden = true;
-        MQDragingCell *item = (MQDragingCell*)[self.collectionView cellForItemAtIndexPath:self.dragingIndexPath];
-        item.isMoving = false;
-        item.hidden = NO;
-        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.dragingItem.hidden = YES;
+            MQDragingCell *item = (MQDragingCell*)[self.collectionView cellForItemAtIndexPath:self.dragingIndexPath];
+            item.isMoving = false;
+            item.thumbImageView.hidden = NO;
+            //刷新
+            [self reloadData];
+        });
     }];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self reloadData];
-    });
+    
     
 }
 
