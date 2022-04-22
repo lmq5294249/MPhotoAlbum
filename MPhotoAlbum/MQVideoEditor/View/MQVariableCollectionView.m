@@ -115,19 +115,13 @@ static NSString* cellId = @"MQDragingCell";
     if (!_dragingIndexPath) {return;}
     _dragingItem.center = point;
     _targetIndexPath = [self getTargetIndexPathWithPoint:point];
-    //交换位置 如果没有找到_targetIndexPath则不交换位置
-    if (_dragingIndexPath && _targetIndexPath) {
-        //更新数据源
-        [self rearrangeMediaFileArray];
-        //更新item位置
-        //[_collectionView moveItemAtIndexPath:_dragingIndexPath toIndexPath:_targetIndexPath];
-        //_dragingIndexPath = _targetIndexPath;
-    }
 }
 
 //拖拽结束
 -(void)dragEnd{
     if (!_dragingIndexPath || !_targetIndexPath) return;
+    //更新数据源
+    [self rearrangeMediaFileArray];
     
     CGRect endFrame = [_collectionView cellForItemAtIndexPath:_targetIndexPath].frame;
     [_dragingItem setTransform:CGAffineTransformMakeScale(1.0, 1.0)];
@@ -232,6 +226,7 @@ static NSString* cellId = @"MQDragingCell";
 -(void)rearrangeMediaFileArray
 {
     //交换可变数组里面的两个元素位置,其余保持不变
+    NSLog(@"交换可变数组里面的两个元素位置,其余保持不变");
     NSInteger drageIndex  = _dragingIndexPath.row;
     NSInteger targetIndex = _targetIndexPath.row;
     if (drageIndex == targetIndex) {
