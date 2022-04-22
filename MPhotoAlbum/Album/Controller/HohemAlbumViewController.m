@@ -72,6 +72,8 @@ static NSString *const cellId = @"HHMediaCellID";
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     
+    [self requestAuthorization];
+    
     //获取UI适应屏幕的参数
     self.fitRatio = [self getFitLengthRatio];
     
@@ -88,28 +90,44 @@ static NSString *const cellId = @"HHMediaCellID";
     [super viewDidAppear:animated];
 }
 
+- (void)requestAuthorization
+{
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
+        if (status == PHAuthorizationStatusDenied) {
+            NSLog(@"status:%ld",(long)status);
+        } else if (status == PHAuthorizationStatusNotDetermined) {
+            NSLog(@"status:%ld",(long)status);
+        } else if (status == PHAuthorizationStatusRestricted) {
+            NSLog(@"status:%ld",(long)status);
+        } else if (status == PHAuthorizationStatusAuthorized) {
+            NSLog(@"status:%ld",(long)status);
+            [self initAttribute];
+        }
+    }];
+}
+
 - (void)initAttribute {
     
     self.showType = HohemAlbumViewController_ShowType_Video;
     
-    __weak typeof(self) weakSelf = self;
+    //__weak typeof(self) weakSelf = self;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         //读取数据
-        [weakSelf getPHAssetDateFromePhotoLibrary];
-        weakSelf.showType = HohemAlbumViewController_ShowType_Video;
+        [self getPHAssetDateFromePhotoLibrary];
+        self.showType = HohemAlbumViewController_ShowType_Video;
         //判断是否是以日期为点进入相册
-        if (weakSelf.showType == HohemAlbumViewController_ShowType_Photo) {
+        if (self.showType == HohemAlbumViewController_ShowType_Photo) {
             
-            [weakSelf getAllDocumentDate:@"Image"];
+            [self getAllDocumentDate:@"Image"];
 
         }else{
             
-            [weakSelf getAllDocumentDate:@"Video"];
+            [self getAllDocumentDate:@"Video"];
 
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-            [weakSelf.collectionView reloadData];
+            [self.collectionView reloadData];
         });
     });
     
@@ -489,29 +507,29 @@ static NSString *const cellId = @"HHMediaCellID";
         return;
     }
     //删除当前图片
-    __weak typeof(self) weakSelf = self;
+    //__weak typeof(self) weakSelf = self;
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
         [PHAssetChangeRequest deleteAssets:self.deleteArray];
     }completionHandler:^(BOOL success, NSError *error) {
         NSLog(@"Error: %@", error);
         if (success) {
             //重新加载数据
-            [weakSelf getPHAssetDateFromePhotoLibrary];
-            if (weakSelf.showType == HohemAlbumViewController_ShowType_Photo) {
-                [weakSelf getAllDocumentDate:@"Image"];
+            [self getPHAssetDateFromePhotoLibrary];
+            if (self.showType == HohemAlbumViewController_ShowType_Photo) {
+                [self getAllDocumentDate:@"Image"];
             }else{
-                [weakSelf getAllDocumentDate:@"Video"];
+                [self getAllDocumentDate:@"Video"];
             }
             //重加载视图同步主线程
             dispatch_async(dispatch_get_main_queue(), ^{
-                [weakSelf.collectionView reloadData];
-                if (weakSelf.albumMode == HohemAlbum_Mode_DeleteItems) {
+                [self.collectionView reloadData];
+                if (self.albumMode == HohemAlbum_Mode_DeleteItems) {
 
-                    weakSelf.albumMode = HohemAlbum_Mode_Viewer;
+                    self.albumMode = HohemAlbum_Mode_Viewer;
                 }
-                weakSelf.selectedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"(%d)", nil),0];
-                weakSelf.selectedLabel.hidden = YES;
-                weakSelf.selectedBtn.selected = NO;
+                self.selectedLabel.text = [NSString stringWithFormat:NSLocalizedString(@"(%d)", nil),0];
+                self.selectedLabel.hidden = YES;
+                self.selectedBtn.selected = NO;
             });
         }
     }];
@@ -522,18 +540,18 @@ static NSString *const cellId = @"HHMediaCellID";
     LocalAssetModel *model = self.mediaModelArr[index];
     [self.deleteArray addObject:model.asset];
     //删除当前图片
-    __weak typeof(self) weakSelf = self;
+    //__weak typeof(self) weakSelf = self;
     [[PHPhotoLibrary sharedPhotoLibrary] performChanges:^{
         [PHAssetChangeRequest deleteAssets:self.deleteArray];
     }completionHandler:^(BOOL success, NSError *error) {
         NSLog(@"Error: %@", error);
         if (success) {
             //重新加载数据
-            [weakSelf getPHAssetDateFromePhotoLibrary];
-            if (weakSelf.showType == HohemAlbumViewController_ShowType_Photo) {
-                [weakSelf getAllDocumentDate:@"Image"];
+            [self getPHAssetDateFromePhotoLibrary];
+            if (self.showType == HohemAlbumViewController_ShowType_Photo) {
+                [self getAllDocumentDate:@"Image"];
             }else{
-                [weakSelf getAllDocumentDate:@"Video"];
+                [self getAllDocumentDate:@"Video"];
             }
             [[NSNotificationCenter defaultCenter] postNotificationName:@"DeleteItemSuccess" object:nil];
         }
