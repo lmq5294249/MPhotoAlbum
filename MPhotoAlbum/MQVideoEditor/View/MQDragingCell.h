@@ -19,6 +19,8 @@
 
 @property (nonatomic, strong) UIImage *thumbImage;
 
+@property (nonatomic, strong) UILabel *timeLabel;
+
 @property (nonatomic, assign) BOOL isMoving; //是否正在移动状态
 
 @property (nonatomic, assign) BOOL isFixed; //是否不可移动
