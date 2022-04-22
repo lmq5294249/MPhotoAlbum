@@ -10,12 +10,6 @@
 
 @interface MQDragingCell ()
 
-@property (nonatomic, strong) UILabel *textLabel;
-
-@property (nonatomic, strong) UIImageView *editImageView;
-
-@property (nonatomic, strong) UIImageView *thumbImageView;
-
 @property (nonatomic, strong) CAShapeLayer *borderLayer;
 
 @end
