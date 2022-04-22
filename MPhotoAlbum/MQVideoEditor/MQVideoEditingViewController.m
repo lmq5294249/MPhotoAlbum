@@ -17,6 +17,8 @@
 #import "MVideoEditEngine.h"
 #import "VideoTemplateReader.h"
 #import "LocalAssetModel.h"
+#import "OptionalEditView.h"
+#import "MQVariableCollectionView.h"
 
 #define SCREEN_WIDTH  ([UIScreen mainScreen].bounds.size.width)
 #define SCREEN_HEIGHT ([UIScreen mainScreen].bounds.size.height)
@@ -32,6 +34,11 @@
 //视频预览界面
 @property (nonatomic, strong) MVideoPreviewView *videoPreviewView;
 @property (nonatomic, strong) UIButton *playBtn;
+
+//下面是视频编辑模块的测试
+//@property (nonatomic, strong) OptionalEditView *optionalView;
+@property (nonatomic, strong) MQVariableCollectionView *optionalView;
+@property (nonatomic, strong) NSMutableArray <LocalAssetModel*>*mediaAssetArray; //用于后面的重排序
 
 @end
 
@@ -61,7 +68,9 @@
     
     [self loadMediaDataToVideoPreviewView];
     
-    
+    //底部拖动选择栏
+    self.optionalView.mediaAssetArray = self.mediaAssetArray;
+    [self.optionalView reloadData];
     
     
 }
@@ -94,6 +103,13 @@
     [_playBtn setImage:[UIImage imageNamed:@"MQVideoPlayer.Pause"] forState:UIControlStateSelected];
     [_playBtn addTarget:self action:@selector(playVideo:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:_playBtn];
+    
+    //
+    __weak typeof(self) weakSelf = self;
+    self.optionalView = [[MQVariableCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 80, CGRectGetWidth(self.view.frame), 80)];
+    self.optionalView.mediaDic = [NSMutableDictionary dictionaryWithDictionary:self.mediaDic];
+    [self.view addSubview:self.optionalView];
+    [self.optionalView reloadData];
 }
 
 - (void)initAttribute
@@ -160,6 +176,8 @@
         NSString *key = [NSString stringWithFormat:@"%d",i];
         LocalAssetModel *model = [self.mediaDic objectForKey:key];
         [self.clips addObject:model.propertyAssetURL];
+        
+        [self.mediaAssetArray addObject:model];
     }
     
     //加载视频数据
@@ -258,6 +276,14 @@
         _transTimeArray = [[NSMutableArray alloc] init];
     }
     return _transTimeArray;
+}
+
+- (NSMutableArray <LocalAssetModel*>*)mediaAssetArray
+{
+    if (!_mediaAssetArray) {
+        _mediaAssetArray = [NSMutableArray array];
+    }
+    return  _mediaAssetArray;
 }
 
 - (void)deleteMVideoPreivewView
