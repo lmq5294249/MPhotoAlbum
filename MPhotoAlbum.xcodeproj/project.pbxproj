@@ -8,6 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		3E1A1D1F27FFD01B00854D55 /* OptionalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */; };
+		3E23C90A2812455E00ADECCD /* MVideoEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C9042812455E00ADECCD /* MVideoEditView.m */; };
+		3E23C90B2812455E00ADECCD /* VideoFrameBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C9052812455E00ADECCD /* VideoFrameBar.m */; };
+		3E23C90C2812455E00ADECCD /* GifTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C9062812455E00ADECCD /* GifTimeView.m */; };
+		3E23C90F2812461E00ADECCD /* MAVPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C90E2812461E00ADECCD /* MAVPlayerView.m */; };
+		3E23C915281246D500ADECCD /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C912281246D500ADECCD /* UIView+Frame.m */; };
+		3E23C916281246D500ADECCD /* UIImage+Zoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C914281246D500ADECCD /* UIImage+Zoom.m */; };
+		3E23C91A281257E400ADECCD /* MQVariableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C919281257E400ADECCD /* MQVariableCollectionView.m */; };
+		3E23C91D28127C1700ADECCD /* MQDragingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C91C28127C1700ADECCD /* MQDragingCell.m */; };
 		3E782963280812E400DA81A4 /* TemplateMan.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E782962280812E400DA81A4 /* TemplateMan.mp4 */; };
 		3EC97BD628055CFF006A25D9 /* swap.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EC97B5C28055CFE006A25D9 /* swap.fsh */; };
 		3EC97BD728055CFF006A25D9 /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EC97B5D28055CFE006A25D9 /* cube.vsh */; };
@@ -163,6 +171,8 @@
 		3ED07C6927E323DF00AA730C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3ED07C6B27E323DF00AA730C /* Localizable.strings */; };
 		3ED07C6F27E33B7900AA730C /* GuideTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C6E27E33B7900AA730C /* GuideTableViewCell.m */; };
 		3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C7127E33BE300AA730C /* GuideDataModel.m */; };
+		3ED4F21B28097032005B086C /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4F21928097032005B086C /* LaunchViewController.m */; };
+		3ED4F21C28097032005B086C /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED4F21A28097032005B086C /* LaunchViewController.xib */; };
 		3EF960BC27FEEE5300AC845A /* OptionalEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF960BB27FEEE5300AC845A /* OptionalEditView.m */; };
 /* End PBXBuildFile section */
 
@@ -186,6 +196,22 @@
 /* Begin PBXFileReference section */
 		3E1A1D1D27FFD01B00854D55 /* OptionalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionalCell.h; sourceTree = "<group>"; };
 		3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionalCell.m; sourceTree = "<group>"; };
+		3E23C9042812455E00ADECCD /* MVideoEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVideoEditView.m; sourceTree = "<group>"; };
+		3E23C9052812455E00ADECCD /* VideoFrameBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoFrameBar.m; sourceTree = "<group>"; };
+		3E23C9062812455E00ADECCD /* GifTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GifTimeView.m; sourceTree = "<group>"; };
+		3E23C9072812455E00ADECCD /* GifTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GifTimeView.h; sourceTree = "<group>"; };
+		3E23C9082812455E00ADECCD /* VideoFrameBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoFrameBar.h; sourceTree = "<group>"; };
+		3E23C9092812455E00ADECCD /* MVideoEditView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MVideoEditView.h; sourceTree = "<group>"; };
+		3E23C90D2812461E00ADECCD /* MAVPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAVPlayerView.h; sourceTree = "<group>"; };
+		3E23C90E2812461E00ADECCD /* MAVPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAVPlayerView.m; sourceTree = "<group>"; };
+		3E23C911281246D500ADECCD /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		3E23C912281246D500ADECCD /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		3E23C913281246D500ADECCD /* UIImage+Zoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Zoom.h"; sourceTree = "<group>"; };
+		3E23C914281246D500ADECCD /* UIImage+Zoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Zoom.m"; sourceTree = "<group>"; };
+		3E23C918281257E400ADECCD /* MQVariableCollectionView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQVariableCollectionView.h; sourceTree = "<group>"; };
+		3E23C919281257E400ADECCD /* MQVariableCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQVariableCollectionView.m; sourceTree = "<group>"; };
+		3E23C91B28127C1700ADECCD /* MQDragingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQDragingCell.h; sourceTree = "<group>"; };
+		3E23C91C28127C1700ADECCD /* MQDragingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQDragingCell.m; sourceTree = "<group>"; };
 		3E782962280812E400DA81A4 /* TemplateMan.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TemplateMan.mp4; sourceTree = "<group>"; };
 		3EC97B5C28055CFE006A25D9 /* swap.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = swap.fsh; sourceTree = "<group>"; };
 		3EC97B5D28055CFE006A25D9 /* cube.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.vsh; sourceTree = "<group>"; };
@@ -403,6 +429,9 @@
 		3ED07C6E27E33B7900AA730C /* GuideTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideTableViewCell.m; sourceTree = "<group>"; };
 		3ED07C7027E33BE300AA730C /* GuideDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GuideDataModel.h; sourceTree = "<group>"; };
 		3ED07C7127E33BE300AA730C /* GuideDataModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GuideDataModel.m; sourceTree = "<group>"; };
+		3ED4F21828097032005B086C /* LaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
+		3ED4F21928097032005B086C /* LaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
+		3ED4F21A28097032005B086C /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
 		3EF960BA27FEEE5300AC845A /* OptionalEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionalEditView.h; sourceTree = "<group>"; };
 		3EF960BB27FEEE5300AC845A /* OptionalEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionalEditView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -432,9 +461,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E23C9032812422A00ADECCD /* SingleVideoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				3E23C90D2812461E00ADECCD /* MAVPlayerView.h */,
+				3E23C90E2812461E00ADECCD /* MAVPlayerView.m */,
+				3E23C9072812455E00ADECCD /* GifTimeView.h */,
+				3E23C9062812455E00ADECCD /* GifTimeView.m */,
+				3E23C9092812455E00ADECCD /* MVideoEditView.h */,
+				3E23C9042812455E00ADECCD /* MVideoEditView.m */,
+				3E23C9082812455E00ADECCD /* VideoFrameBar.h */,
+				3E23C9052812455E00ADECCD /* VideoFrameBar.m */,
+			);
+			path = SingleVideoEditor;
+			sourceTree = "<group>";
+		};
+		3E23C9102812468200ADECCD /* MQCategory */ = {
+			isa = PBXGroup;
+			children = (
+				3E23C913281246D500ADECCD /* UIImage+Zoom.h */,
+				3E23C914281246D500ADECCD /* UIImage+Zoom.m */,
+				3E23C911281246D500ADECCD /* UIView+Frame.h */,
+				3E23C912281246D500ADECCD /* UIView+Frame.m */,
+			);
+			path = MQCategory;
+			sourceTree = "<group>";
+		};
+		3E23C9172812550400ADECCD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				3E23C91B28127C1700ADECCD /* MQDragingCell.h */,
+				3E23C91C28127C1700ADECCD /* MQDragingCell.m */,
+				3E23C918281257E400ADECCD /* MQVariableCollectionView.h */,
+				3E23C919281257E400ADECCD /* MQVariableCollectionView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		3EC97B5A28055C1A006A25D9 /* MQVideoEditor */ = {
 			isa = PBXGroup;
 			children = (
+				3E23C9172812550400ADECCD /* View */,
+				3E23C9032812422A00ADECCD /* SingleVideoEditor */,
 				3EC97BCB28055CFF006A25D9 /* ReadData */,
 				3EC97C3F28055DC3006A25D9 /* MQVideoEditingViewController.h */,
 				3EC97C4028055DC3006A25D9 /* MQVideoEditingViewController.m */,
@@ -637,11 +705,15 @@
 				3ED07C5C27E313B900AA730C /* ContactViewController */,
 				3ED07B7F27DF293F00AA730C /* ViewController.h */,
 				3ED07B8027DF293F00AA730C /* ViewController.m */,
+				3E23C9102812468200ADECCD /* MQCategory */,
 				3EC97B5A28055C1A006A25D9 /* MQVideoEditor */,
 				3ED07C6627E31C5700AA730C /* Album */,
 				3ED07B8227DF293F00AA730C /* Main.storyboard */,
 				3ED07B8527DF294100AA730C /* Assets.xcassets */,
 				3ED07B8727DF294100AA730C /* LaunchScreen.storyboard */,
+				3ED4F21828097032005B086C /* LaunchViewController.h */,
+				3ED4F21928097032005B086C /* LaunchViewController.m */,
+				3ED4F21A28097032005B086C /* LaunchViewController.xib */,
 				3ED07B8A27DF294100AA730C /* Info.plist */,
 				3ED07BF327E1EDD900AA730C /* PrefixHeader.pch */,
 				3ED07C6B27E323DF00AA730C /* Localizable.strings */,
@@ -949,6 +1021,7 @@
 				3EC97C1C28055CFF006A25D9 /* lookup_test11.png in Resources */,
 				3EC97C1E28055CFF006A25D9 /* lookup_pinkWorld.png in Resources */,
 				3EC97BE428055CFF006A25D9 /* MQZoomInFilter.fsh in Resources */,
+				3ED4F21C28097032005B086C /* LaunchViewController.xib in Resources */,
 				3EC97C1B28055CFF006A25D9 /* lookup_RedStyle.png in Resources */,
 				3EC97BF128055CFF006A25D9 /* GPUImageGrayscaleFilter.vsh in Resources */,
 				3EC97BFC28055CFF006A25D9 /* GPUImageGrayscaleFilter.fsh in Resources */,
@@ -1040,16 +1113,20 @@
 				3EC97C3B28055CFF006A25D9 /* VideoTemplateReader.m in Sources */,
 				3ED07C5527E1F14A00AA730C /* TationResourceManager.m in Sources */,
 				3ED07C5227E1F14A00AA730C /* NdUncaughtExceptionHandler.m in Sources */,
+				3ED4F21B28097032005B086C /* LaunchViewController.m in Sources */,
+				3E23C91D28127C1700ADECCD /* MQDragingCell.m in Sources */,
 				3ED07B8127DF293F00AA730C /* ViewController.m in Sources */,
 				3ED07C4C27E1F14A00AA730C /* HHBaseTableView.m in Sources */,
 				3EC97C4128055DC3006A25D9 /* MQVideoEditingViewController.m in Sources */,
 				3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */,
 				3EC97C3328055CFF006A25D9 /* MVideoEditEngine.m in Sources */,
 				3ED07C4127E1F14A00AA730C /* UIColor+HHUtil.m in Sources */,
+				3E23C90C2812455E00ADECCD /* GifTimeView.m in Sources */,
 				3EC97C3D28055CFF006A25D9 /* MediaAssetModel.m in Sources */,
 				3ED07C4E27E1F14A00AA730C /* HHBaseView.m in Sources */,
 				3EC97C3728055CFF006A25D9 /* MQCustomVideoCompositionInstruction.m in Sources */,
 				3ED07BBF27E087F100AA730C /* PHPhotoLibraryManage.m in Sources */,
+				3E23C915281246D500ADECCD /* UIView+Frame.m in Sources */,
 				3ED07C5327E1F14A00AA730C /* TationAuthorityManager.m in Sources */,
 				3ED07B7B27DF293F00AA730C /* AppDelegate.m in Sources */,
 				3ED07BF927E1EF8400AA730C /* HohemPlayVideoView.m in Sources */,
@@ -1057,6 +1134,7 @@
 				3ED07C4727E1F14A00AA730C /* TationDeviceManager.m in Sources */,
 				3ED07BC727E1EAED00AA730C /* HohemImageCollectionViewCell.m in Sources */,
 				3EC97C3628055CFF006A25D9 /* MVideoPreviewView.m in Sources */,
+				3E23C90F2812461E00ADECCD /* MAVPlayerView.m in Sources */,
 				3ED07C6427E3156700AA730C /* ContactDataModel.m in Sources */,
 				3EC97C3128055CFF006A25D9 /* MQVideoEditor.m in Sources */,
 				3ED07C5F27E313D900AA730C /* ContactViewController.m in Sources */,
@@ -1079,10 +1157,12 @@
 				3ED07C4B27E1F14A00AA730C /* HHBaseViewController.m in Sources */,
 				3ED07C4D27E1F14A00AA730C /* HHBaseImageView.m in Sources */,
 				3ED07B8C27DF294100AA730C /* main.m in Sources */,
+				3E23C916281246D500ADECCD /* UIImage+Zoom.m in Sources */,
 				3EC97C3028055CFF006A25D9 /* MOpenGLEngine.m in Sources */,
 				3ED07C4F27E1F14A00AA730C /* HHBaseTextField.m in Sources */,
 				3EC97C3528055CFF006A25D9 /* MVideoEditingManager.m in Sources */,
 				3EC97C3A28055CFF006A25D9 /* EditTemplateModel.m in Sources */,
+				3E23C90A2812455E00ADECCD /* MVideoEditView.m in Sources */,
 				3ED07C4827E1F14A00AA730C /* TationToolsManager.m in Sources */,
 				3ED07C5027E1F14A00AA730C /* HohemBaseButton.m in Sources */,
 				3EC97C3C28055CFF006A25D9 /* ManVideoReader.m in Sources */,
@@ -1090,7 +1170,9 @@
 				3ED07BB627DF3AC400AA730C /* MSlidePageView.m in Sources */,
 				3ED07C6F27E33B7900AA730C /* GuideTableViewCell.m in Sources */,
 				3ED07C4027E1F14A00AA730C /* TationAlbumManager.m in Sources */,
+				3E23C90B2812455E00ADECCD /* VideoFrameBar.m in Sources */,
 				3E1A1D1F27FFD01B00854D55 /* OptionalCell.m in Sources */,
+				3E23C91A281257E400ADECCD /* MQVariableCollectionView.m in Sources */,
 				3ED07C5427E1F14A00AA730C /* TationReminderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1275,7 +1357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V29DM8ABKF;
+				DEVELOPMENT_TEAM = K9X3CL9GAH;
 				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
 				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1295,7 +1377,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = V29DM8ABKF;
+				DEVELOPMENT_TEAM = K9X3CL9GAH;
 				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
 				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
