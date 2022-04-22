@@ -11,6 +11,8 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) UIImageView *shadeImageView;
+
 @end
 
 @implementation ViewController
@@ -18,6 +20,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor orangeColor];
+    
+    self.shadeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame))];
+    self.shadeImageView.backgroundColor = [UIColor clearColor];
+    [self.shadeImageView setImage:[UIImage imageNamed:@"13"]];
+    [self.view addSubview:self.shadeImageView];
+    
+    UIBlurEffect *blur = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    UIVisualEffectView *visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blur];
+
+    visualEffectView.frame = CGRectMake(0, 0, CGRectGetWidth(self.shadeImageView.frame), CGRectGetHeight(self.shadeImageView.frame));
+    visualEffectView.alpha = 1.0;
+    [self.shadeImageView addSubview:visualEffectView];
+    
+    CAGradientLayer *layer = [CAGradientLayer layer];
+    layer.colors = @[(__bridge id)[[UIColor whiteColor] colorWithAlphaComponent:0].CGColor, (__bridge id)[UIColor whiteColor].CGColor];
+    layer.locations = @[@0.0, @1.0];
+    //上下渐变
+    layer.startPoint = CGPointMake(0.5, 0);
+    layer.endPoint = CGPointMake(0.5, 1);
+    layer.frame = self.shadeImageView.frame;
+    
+    UIView *effectShadowView = [[UIView alloc] init];
+    effectShadowView.frame = self.shadeImageView.frame;
+    effectShadowView.backgroundColor = [[UIColor darkGrayColor] colorWithAlphaComponent:0.24];
+    [effectShadowView.layer addSublayer:layer];
+    [self.shadeImageView addSubview:effectShadowView];
     
     UIButton *albumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [albumBtn setFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.frame), 200)];
