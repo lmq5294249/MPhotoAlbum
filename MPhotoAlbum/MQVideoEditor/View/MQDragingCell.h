@@ -21,6 +21,10 @@
 
 @property (nonatomic, strong) UILabel *timeLabel;
 
+@property (nonatomic, strong) UIImageView *editImageView;
+
+@property (nonatomic, strong) UIImageView *thumbImageView;
+
 @property (nonatomic, assign) BOOL isMoving; //是否正在移动状态
 
 @property (nonatomic, assign) BOOL isFixed; //是否不可移动
