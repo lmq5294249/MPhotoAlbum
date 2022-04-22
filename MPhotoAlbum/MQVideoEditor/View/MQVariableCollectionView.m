@@ -124,7 +124,7 @@ static NSString* cellId = @"MQDragingCell";
         self.dragingItem.hidden = YES;
         MQDragingCell *item = (MQDragingCell*)[self.collectionView cellForItemAtIndexPath:self.dragingIndexPath];
         item.isMoving = false;
-        item.hidden = NO;
+        item.thumbImageView.hidden = NO;
         return;
     }
     //更新数据源
