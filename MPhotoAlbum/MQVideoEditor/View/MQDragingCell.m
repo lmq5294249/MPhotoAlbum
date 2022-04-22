@@ -46,6 +46,13 @@
     _editImageView = [[UIImageView alloc] init];
     [_editImageView setImage:[UIImage imageNamed:@"VideoEdit"]];
     [self.contentView addSubview:_editImageView];
+    
+    self.timeLabel = [[UILabel alloc] init];
+    self.timeLabel.backgroundColor = [UIColor clearColor];
+    self.timeLabel.text = @"0s";
+    self.timeLabel.textAlignment = NSTextAlignmentCenter;
+    self.timeLabel.textColor = [UIColor colorWithWhite:0.8 alpha:0.9];
+    [self.contentView addSubview:self.timeLabel];
 }
 
 - (void)layoutSubviews
@@ -62,6 +69,8 @@
     CGFloat editImageH = iconImageH - 10*2;
     
     _editImageView.frame = CGRectMake(10, 10, editImageW, editImageH);
+    
+    _timeLabel.frame = CGRectMake(0, 0, iconImageW, iconImageH);
 }
 
 - (void)setThumbImage:(UIImage *)thumbImage
