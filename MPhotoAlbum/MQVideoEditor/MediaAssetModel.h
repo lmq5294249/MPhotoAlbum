@@ -63,6 +63,10 @@
 
 @property (nonatomic, assign) SpeedType videoSpeedType;
 
+@property (nonatomic) CMTimeRange playTimerRange; //实际要编辑的播放的时间长度
+
+//--------------------分割线-----------------------------
+
 @property (nonatomic, strong) UIImage *image; //图片的原图
 
 @property (nonatomic, assign) BOOL needCompressed;//这里针对高清视频或者高分辨率图片，需要进行压缩处理，不然内存会爆
@@ -105,6 +109,8 @@
 
 @property (nonatomic) CMTimeRange clipTimeRanges; //(这个是总的片段)defaultTimeRange = CMTimeRangeMake(kCMTimeZero, CMTimeMake(5, 1));视频属性截取部分视频长度
 
+@property (nonatomic) CMTimeRange playTimeRanges; //这个是独立播放的时间范围，排除了前后的转场时间
+
 @end
 
 //MARK:- 图片子类PhotoAssetModel -
@@ -113,6 +119,8 @@
 @property (nonatomic, strong) NSURL *imageVideoUrl; //图片转为视频数据（这部分只是为了便于在AVplayer里面播放而设置的）
 
 @property (nonatomic, assign) NSTimeInterval imageDuration; //图片在片段中停留的时长，去除掉转场后的时间默认设置 1s，因为前后转场说加起来 2s =>图片独立播放的时间
+
+@property (nonatomic) CMTimeRange playTimeRanges; //这个是独立播放的时间范围，排除了前后的转场时间
 
 @end
 
