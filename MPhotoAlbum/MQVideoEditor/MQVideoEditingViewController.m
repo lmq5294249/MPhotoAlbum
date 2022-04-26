@@ -109,8 +109,8 @@
     __weak typeof(self) weakSelf = self;
     self.optionalView = [[MQVariableCollectionView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 80, CGRectGetWidth(self.view.frame), 80)];
     self.optionalView.mediaDic = [NSMutableDictionary dictionaryWithDictionary:self.mediaDic];
+    self.optionalView.fatherView = self.view;
     [self.view addSubview:self.optionalView];
-    [self.optionalView reloadData];
 }
 
 - (void)initAttribute
