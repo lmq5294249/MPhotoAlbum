@@ -223,12 +223,12 @@ static NSString* cellId = @"MQDragingCell";
     NSLog(@"点击了CollectionView的 %ld",(long)indexPath.row);
     CGRect screenFrame = [[UIScreen mainScreen] bounds];
     //MARK:点击cell进入编辑片段模式
-//    MVideoEditView *videoEditView = [[MVideoEditView alloc] initWithFrame:screenFrame withMediaAssetArray:self.mediaAssetArray mediaIndex:indexPath.row];
-//    videoEditView.updateBlock = _updateBlock;
+    MVideoEditView *videoEditView = [[MVideoEditView alloc] initWithFrame:screenFrame withMediaAssetArray:self.mediaAssetArray mediaIndex:indexPath.row];
+    videoEditView.updateBlock = _updateBlock;
 //    videoEditView.waitingBlock = _waitingBlock;
 //    videoEditView.hideAlertBlock = _hideAlertBlock;
 //    videoEditView.transitionNodeArray = self.transitionNodeArray;
-//    [self.mainView addSubview:videoEditView];
+    [self.fatherView addSubview:videoEditView];
 }
 
 #pragma mark - 刷新方法 -
