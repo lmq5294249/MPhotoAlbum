@@ -174,16 +174,17 @@ static NSString *const cellId = @"HHMediaCellID";
     //[self.titleView addSubview:self.selectedLabel];
     self.selectedLabel.hidden = YES;
     
-    CGFloat btnWidthValue = (CGRectGetWidth(self.view.frame) - 20*self.fitRatio)/5;
+    CGFloat btnWidthValue = (CGRectGetWidth(self.view.frame) - 32*self.fitRatio)/5;
     //视频图片模块滑动界面
     self.slidePageView = [[MSlidePageView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleView.frame), CGRectGetWidth(self.view.frame), 52)];
     ViewConfig *config = [[ViewConfig alloc] init];
     config.buttonLayoutType = ButtonLayoutTypeCustom;
-    config.numberOfBtns = 2;
-    config.stringArray = [NSMutableArray arrayWithArray:@[@"视频",@"照片"]];
+    config.numberOfBtns = 4;
+    config.stringArray = [NSMutableArray arrayWithArray:@[@"视频",@"照片",@"01",@"02",@"01",@"02",@"03"]];
     config.btnSize = CGSizeMake(btnWidthValue, 52);
     config.realBtnHeight = 38; //实际看到的高度
-    config.waveWidth = 124 * self.fitRatio;
+    //config.waveWidth = 124 * self.fitRatio;
+    config.waveWidth = (btnWidthValue + 16*2 + 16)* self.fitRatio;
     config.marginOfBtnValue = 16 *_fitRatio;
     config.cornerRadius = 8;
     config.sliderFillColor = [UIColor whiteColor];
@@ -356,16 +357,16 @@ static NSString *const cellId = @"HHMediaCellID";
 //获取文件列表的时间列表转为数据便于命名
 -(void)getAllDocumentDate:(NSString *)mediaDateType{
     //将类型对应的时间列表赋给fileNameArray
-    if (_mediaModelDataArr == nil) {
-        _mediaModelDataArr = [NSMutableArray array];
+    if (self.mediaModelDataArr == nil) {
+        self.mediaModelDataArr = [NSMutableArray array];
     }else{
         //每次加载不同类型的数据，需要清除原本的数据
-        [_mediaModelDataArr removeAllObjects];
+        [self.mediaModelDataArr removeAllObjects];
     }
     if ([mediaDateType isEqualToString:@"Image"]) {
         //图片列表
         self.fileNameArray = _photoKeyArr;
-        _mediaModelDataDic = _photoDic;
+        self.mediaModelDataDic = _photoDic;
         NSInteger dateArrCount = _photoKeyArr.count;
         for (int i = 0; i < dateArrCount; i++) {
             NSString *propertyDate = _photoKeyArr[i];
@@ -379,7 +380,7 @@ static NSString *const cellId = @"HHMediaCellID";
         NSInteger dateArrCount = _videoKeyArr.count;
         for (int i = 0; i < dateArrCount; i++) {
             NSString *propertyDate = _videoKeyArr[i];
-            [_mediaModelDataArr addObject:[_videoDic valueForKey:propertyDate]];
+            [self.mediaModelDataArr addObject:[_videoDic valueForKey:propertyDate]];
         }
     }
     [self AddAllTheFileIntoOneMediaArray];
