@@ -98,6 +98,8 @@ typedef NS_ENUM(NSUInteger, ButtonLayoutType) {
 
 - (instancetype)initWithFrame:(CGRect)frame;
 
+- (void)resetStringsArray:(NSMutableArray *)array;
+
 @end
 
 
