@@ -92,7 +92,7 @@
         //部分参数默认设置
         self.buttonLayoutType = ButtonLayoutTypeCustom;
         self.selectIndex = 0;
-        self.normalTextColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+        self.normalTextColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
         self.selectTextColor = [UIColor colorWithRed:255.0/255.0 green:101.0/255.0 blue:1.0/255.0 alpha:1.0];
         self.textFont = [UIFont systemFontOfSize:16.0 weight:UIFontWeightBold];
         self.cornerRadius = 0;
@@ -136,7 +136,7 @@
         
         self.currentIndex = 0;
         
-        self.normalTextColor = [UIColor colorWithRed:102.0/255.0 green:102.0/255.0 blue:102.0/255.0 alpha:1.0];
+        self.normalTextColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
         self.selectTextColor = [UIColor colorWithRed:255.0/255.0 green:101.0/255.0 blue:1.0/255.0 alpha:1.0];
         self.textFont = [UIFont systemFontOfSize:16.0 weight:UIFontWeightBold];
         
@@ -197,6 +197,20 @@
 //MARK:布局设置
 - (void)setViewConfig:(ViewConfig *)viewConfig
 {
+    if (_viewConfig) {
+        //删除原有布局
+        if (self.btnsArray.count > 0) {
+            for (UIButton *btn in self.btnsArray) {
+                [btn removeFromSuperview];
+            }
+            for (UILabel *label in self.labelsArray) {
+                [label removeFromSuperview];
+            }
+        }
+        [self.btnsArray removeAllObjects];
+        [self.labelsArray removeAllObjects];
+        [self.waveView removeFromSuperview];
+    }
     _viewConfig = viewConfig;
     
     //布局类型-- 设计到scrollview是否可以滑动增加内容大小
@@ -239,13 +253,18 @@
         [self setUpWaveSlideViewForButton];
     }
     
+    if (self.btnsArray.count <= 0) {
+        self.waveView.hidden = YES;
+        return;
+    }
+    
     //设置滑动到某个位置
 //    if (_currentIndex != 0) {
         //CGFloat slideDistance = self.singleBtnSize.width * _currentIndex;
         UIButton *button = (UIButton *)self.btnsArray[_currentIndex];
         [self.waveView setCenter:button.center];
 //    }
-    
+    [self showOrHiddenPartOfLabel];
     if (self.supportSlide) {
         [self viewDidScrollToCenterOfScreen];
     }
@@ -330,21 +349,8 @@
     }
     
     if (self.supportSlide) {
-        //支持滑动情况下考虑到按钮偏移的位置，需要调整下显示位置
-        NSInteger showCount = ceilf(self.scrollView.frame.size.width / self.singleBtnSize.width) - 3;
-        if (_currentIndex > showCount && _viewConfig.numberOfBtns > showCount+3) {
-            NSInteger offsetIndexValue = _currentIndex - showCount;
-            [self.scrollView setContentOffset:CGPointMake(self.singleBtnSize.width * offsetIndexValue, 0) animated:YES];
-        }
-        else if (_currentIndex == 0 || _currentIndex == 1)
-        {
-            [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        }
-        else if (_currentIndex == 2 && _viewConfig.numberOfBtns > showCount+3)
-        {
-            [self.scrollView setContentOffset:CGPointMake(0, 0) animated:YES];
-        }
         
+        [self viewDidScrollToCenterOfScreen];
     }
     
     if (self.delegate && [self.delegate respondsToSelector:@selector(slidePageViewDidSelecetedIndex:)]) {
@@ -354,10 +360,17 @@
 
 - (void)viewDidScrollToCenterOfScreen
 {
-    int showCount = ceilf(self.scrollView.frame.size.width / self.singleBtnSize.width) - 3;
-    if (_currentIndex > showCount && _viewConfig.numberOfBtns > showCount+3) {
-        NSInteger offsetIndexValue = _currentIndex - showCount;
-        [self.scrollView setContentOffset:CGPointMake(self.singleBtnSize.width * offsetIndexValue, 0) animated:YES];
+    //支持滑动情况下考虑到按钮偏移的位置，需要调整下显示位置
+    NSInteger showCount = floorf(self.scrollView.frame.size.width / self.singleBtnSize.width);
+    if (_currentIndex+1 >= showCount && _viewConfig.numberOfBtns > showCount) {
+        NSInteger offsetIndexValue = _currentIndex+1 - showCount;
+        if (_currentIndex+1 == _viewConfig.numberOfBtns) {
+            [self.scrollView setContentOffset:CGPointMake(self.singleBtnSize.width * offsetIndexValue, 0) animated:YES];
+        }
+        else{
+            offsetIndexValue ++;
+            [self.scrollView setContentOffset:CGPointMake(self.singleBtnSize.width * offsetIndexValue, 0) animated:YES];
+        }
     }
     else if (_currentIndex == 0 || _currentIndex == 1)
     {
@@ -369,5 +382,78 @@
     }
 }
 
+#pragma mark - scrollViewDelegate
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    int i = 0;
+    for (UILabel *label in self.labelsArray) {
+        label.text = _viewConfig.stringArray[i];
+        i++;
+    }
+}
+
+- (void)scrollViewDidEndScrollingAnimation:(UIScrollView *)scrollView;
+{
+    [self showOrHiddenPartOfLabel];
+}
+
+- (void)showOrHiddenPartOfLabel
+{
+    NSInteger showCount = floorf((self.scrollView.contentOffset.x + self.scrollView.frame.size.width) / self.singleBtnSize.width);
+    NSInteger numBtnsOfScreen = floorf(self.scrollView.frame.size.width / self.singleBtnSize.width);
+    if (showCount == numBtnsOfScreen && numBtnsOfScreen < _viewConfig.numberOfBtns) {
+        int i = 0;
+        for (UILabel *label in self.labelsArray) {
+            label.text = _viewConfig.stringArray[i];
+            if ( showCount-1 == i) {
+                label.text = @"...";
+            }
+            else{
+                label.text = _viewConfig.stringArray[i];
+            }
+            i++;
+        }
+    }
+    else{
+        if (showCount > _currentIndex+1 && showCount < _viewConfig.numberOfBtns) {
+            //界面显示的最后一个btn显示省略号...
+            int i = 0;
+            for (UILabel *label in self.labelsArray) {
+                label.text = _viewConfig.stringArray[i];
+                
+                if ((_currentIndex+1) <= i) {
+                    label.text = @"...";
+                }
+                else{
+                    label.text = _viewConfig.stringArray[i];
+                }
+                i++;
+            }
+        }
+        else
+        {
+            int i = 0;
+            for (UILabel *label in self.labelsArray) {
+                label.text = _viewConfig.stringArray[i];
+                i++;
+            }
+        }
+    }
+}
+
+- (void)resetStringsArray:(NSMutableArray *)array
+{
+    if (array.count >= self.labelsArray.count) {
+        int i = 0;
+        for (UILabel *label in self.labelsArray) {
+            label.text = (NSString *)array[i];
+            i++;
+        }
+    }
+    else{
+        NSLog(@"字符串数组的赋值出错误，数量不对!");
+    }
+    _viewConfig.stringArray = array;
+}
 
 @end
