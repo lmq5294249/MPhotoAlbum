@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MediaAssetModel.h"
 #import "VideoEditorParamTypeHeader.h"
-
+#import "LocalAssetModel.h"
 #import "EditTemplateModel.h"
 
 @interface MVideoEditView : UIView
@@ -24,7 +24,7 @@
 @property (nonatomic, strong) EditUnitModel *editModel;
 
 //------------------
-@property (nonatomic, strong) NSMutableArray <MediaAssetModel*>* mediaAssetArray;
+@property (nonatomic, strong) NSMutableArray <LocalAssetModel*>* mediaAssetArray;
 
 @property (nonatomic, strong) NSMutableArray <MTransitionNode*>* transitionNodeArray;
 
