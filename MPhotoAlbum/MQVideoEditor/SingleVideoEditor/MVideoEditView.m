@@ -77,11 +77,11 @@
 {
     
     NSLog(@"==========单视频编辑模式=============");
-    MediaAssetModel *model = self.mediaAssetArray[_index];
+    LocalAssetModel *model = self.mediaAssetArray[_index];
     VideoAssetModel *videoModel;
     PhotoAssetModel *photoModel;
     //获取数据初始化时间戳列表
-    if (model.mediaType == MQMediaTypeVideo) {
+    if (model.propertyType == PHAssetMediaTypeVideo) {
         videoModel = (VideoAssetModel *)self.mediaAssetArray[_index];
         _videoUrl = videoModel.originalVideoUrl;
     }
