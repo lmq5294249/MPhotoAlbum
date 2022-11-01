@@ -20,6 +20,8 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Music</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Album</string>
 	<key>NSPhotoLibraryUsageDescription</key>
