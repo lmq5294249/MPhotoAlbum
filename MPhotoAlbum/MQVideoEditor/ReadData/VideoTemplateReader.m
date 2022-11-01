@@ -14,6 +14,7 @@ NSString * const BGMusic = @"backgroundMusic";
 NSString * const TemplateTitle = @"templateTitle";
 NSString * const Description = @"description";
 NSString * const Amount = @"amount";
+NSString * const Foreground = @"foreground";
 NSString * const Scripts = @"scripts";
 
 @implementation VideoTemplateReader
@@ -43,6 +44,7 @@ NSString * const Scripts = @"scripts";
     templateModel.title = [dic objectForKey:TemplateTitle];
     templateModel.desc = [dic objectForKey:Description];
     templateModel.amount = [[dic objectForKey:Amount] integerValue];
+    templateModel.maskVideoName = [dic objectForKey:Foreground];
     //templateModel.scripts = [dic objectForKey:@"desc"];
     NSArray *array = [dic objectForKey:Scripts];
     NSMutableArray *editUnitArray = [NSMutableArray array];
