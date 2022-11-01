@@ -15,7 +15,7 @@
 - (void)mAVPlayerIsPlaying;
 - (void)mAVPlayerIsPause;
 @optional
-- (void)showPlayTimeOnScreen:(int)timeValue andTotalTime:(int)totalTime;
+- (void)showPlayTimeOnScreen:(NSTimeInterval)timeValue andTotalTime:(NSTimeInterval)totalTime;
 - (void)getCurrentPlayTime:(CGFloat)timeValue;
 @end
 
@@ -36,6 +36,9 @@
 
 @property (nonatomic, strong) EditTemplateModel *templateModel;
 
+//自动播放
+@property (nonatomic, assign) BOOL autoPlay;
+
 //循环播放某一段时间，用于设置滤镜效果或者转场的展示
 @property (nonatomic, assign) BOOL repeatPlayback;    //是否支持回放
 @property (nonatomic)         CMTime beginReplayTime; //开始回放时间
@@ -50,6 +53,8 @@
 - (void)togglePlayPause:(id)sender;
 
 - (void)setCurTotalTimeOffset:(int)curTotalTimeOffset;
+
+- (void)startToPlay;
 
 - (void)setPlayerPause;
 
