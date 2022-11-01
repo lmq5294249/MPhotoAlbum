@@ -8,6 +8,7 @@
 #import "ViewController.h"
 #import "HohemAlbumViewController.h"
 #import "ContactViewController.h"
+#import "TemplatesViewController.h"
 
 @interface ViewController ()
 
@@ -49,7 +50,7 @@
     
     UIButton *albumBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [albumBtn setFrame:CGRectMake(0, 100, CGRectGetWidth(self.view.frame), 200)];
-    [albumBtn setTitle:@"相册" forState:UIControlStateNormal];
+    [albumBtn setTitle:@"剪辑模板" forState:UIControlStateNormal];
     [albumBtn setTitleColor:[UIColor purpleColor] forState:UIControlStateNormal];
     [albumBtn setBackgroundColor:[UIColor whiteColor]];
     albumBtn.layer.masksToBounds = YES;
@@ -74,10 +75,16 @@
 {
     NSLog(@"进入相册");
     
-    HohemAlbumViewController *albumController = [[HohemAlbumViewController alloc] init];
-    albumController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:albumController animated:YES completion:nil];
+//    HohemAlbumViewController *albumController = [[HohemAlbumViewController alloc] init];
+//    albumController.modalPresentationStyle = UIModalPresentationFullScreen;
+//    [self presentViewController:albumController animated:YES completion:nil];
     
+    TemplatesViewController *templateController = [[TemplatesViewController alloc] init];
+    UINavigationController* navVC = [[UINavigationController alloc] initWithRootViewController:templateController];
+    navVC.navigationBarHidden = YES;
+    navVC.toolbarHidden = YES;
+    navVC.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:navVC animated:YES completion:nil];
 }
 
 - (void)btnEnterHelpView:(id)sender
