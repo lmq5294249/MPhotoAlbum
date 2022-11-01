@@ -180,8 +180,8 @@ static inline CGFloat RadiansToDegrees(CGFloat radians) {
     compositionVideoTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加视频轨道0
     compositionVideoTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加视频轨道1
     compositionVideoTracks[2] = [composition addMutableTrackWithMediaType:AVMediaTypeVideo preferredTrackID:kCMPersistentTrackID_Invalid]; //
-//    compositionAudioTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加音频轨道0
-//    compositionAudioTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加音频轨道1
+    compositionAudioTracks[0] = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加音频轨道0
+    compositionAudioTracks[1] = [composition addMutableTrackWithMediaType:AVMediaTypeAudio preferredTrackID:kCMPersistentTrackID_Invalid]; // 添加音频轨道1
     
     CMTimeRange *passThroughTimeRanges = alloca(sizeof(CMTimeRange) * clipsCount);
     CMTimeRange *transitionTimeRanges = alloca(sizeof(CMTimeRange) * clipsCount);
@@ -234,11 +234,45 @@ static inline CGFloat RadiansToDegrees(CGFloat radians) {
         }
     }
     
-    AVURLAsset *asset = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"TemplateMan" ofType:@"mp4"]]];
-    AVAssetTrack *clipVideoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
-    NSError* error;
-    CMTimeRange timeRangeInAsset = CMTimeRangeMake(kCMTimeZero, [asset duration]);
-    [compositionVideoTracks[2] insertTimeRange:timeRangeInAsset ofTrack:clipVideoTrack atTime:kCMTimeZero error:&error];
+    //这里注意音频时间长度不应该比视频的还长，否则会出现后面的playItem播放加载错误情况
+    //如果非要延长音频时间那么可以选择先先延长视频时间，两者先判断后再取舍
+    //所以目前这里先用nextClipStartTime来处理,进行加减处理
+//    for (int i = 0; i < _musicArray.count; i++) {
+//        MusicSelectedModel *model = self.musicArray[i];
+//        CMTimeRange playTimeRange = model.playTimeRange;
+//        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:model.fileURL options:nil];
+//        AVAssetTrack *clipAudioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+//        CMTimeRange audioTimeRange = CMTimeRangeMake(playTimeRange.start, CMTimeSubtract(nextClipStartTime, playTimeRange.start));
+//        [compositionAudioTracks[0] insertTimeRange:audioTimeRange ofTrack:clipAudioTrack atTime:playTimeRange.start error:nil];
+//    }
+    
+    CMTime audioTime = kCMTimeZero;
+    for (i = 0; i < clipsCount; i ++) {
+        CMTimeRange videoTimeRange = passThroughTimeRanges[i];
+        audioTime = CMTimeAdd(audioTime, videoTimeRange.duration);
+        CMTimeRange tranTimeRange = transitionTimeRanges[i];
+        NSTimeInterval videoDuration = CMTimeGetSeconds(tranTimeRange.duration);
+        if (i < clipsCount - 1 && videoDuration > 0) {
+            audioTime = CMTimeAdd(audioTime, tranTimeRange.duration);
+        }
+    }
+    
+    NSString *maskVideoName = self.templateModel.maskVideoName;
+    if (![maskVideoName isEqualToString:@"empty"]) {
+        AVURLAsset *asset = [AVURLAsset assetWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:maskVideoName ofType:@"mp4"]]];
+        AVAssetTrack *clipVideoTrack = [[asset tracksWithMediaType:AVMediaTypeVideo] objectAtIndex:0];
+        NSError* error;
+    //    CMTimeRange timeRangeInAsset = CMTimeRangeMake(kCMTimeZero, [asset duration]);
+        [compositionVideoTracks[2] insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioTime) ofTrack:clipVideoTrack atTime:kCMTimeZero error:&error];
+    }
+    
+//    NSString *musicName = self.templateModel.music;
+//    if (![musicName isEqualToString:@"empty"]) {
+        AVURLAsset *audioAsset = [[AVURLAsset alloc] initWithURL:[NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"夏文娜-错位时空" ofType:@"mp3"]] options:nil];
+        AVAssetTrack *clipAudioTrack = [[audioAsset tracksWithMediaType:AVMediaTypeAudio] objectAtIndex:0];
+        [compositionAudioTracks[0] insertTimeRange:CMTimeRangeMake(kCMTimeZero, audioTime) ofTrack:clipAudioTrack atTime:kCMTimeZero error:nil];
+//    }
+    
     
     NSMutableArray *instructions = [[NSMutableArray alloc] init];
     
@@ -266,6 +300,7 @@ static inline CGFloat RadiansToDegrees(CGFloat radians) {
                                  [NSNumber numberWithLong:model.transitionsType],@"TransitionType",
                                  [NSNumber numberWithInt:orientationValue],@"VideoOrientation",
                                  [NSNumber numberWithFloat:transValue],@"TransitionDuration",
+                                 model,@"EditUnitModel",
                                  testImage,@"ImageData",
                                  [NSNumber numberWithBool:playingImage],@"PlayImage",
                                  nil];
@@ -346,15 +381,15 @@ static inline CGFloat RadiansToDegrees(CGFloat radians) {
     CGFloat videoHeight = videoAssetTrack.naturalSize.height;
 
     //MARK:第一步 开始判断方向
-    BOOL isVideoAssetPortrait_  = NO;
+    BOOL isVideoAssetPortrait  = NO;
     CGAffineTransform videoTransform = videoAssetTrack.preferredTransform;
     if (videoTransform.a == 0 && videoTransform.b == 1.0 && videoTransform.c == -1.0 && videoTransform.d == 0) {
         //        videoAssetOrientation_ = UIImageOrientationRight;
-        isVideoAssetPortrait_ = YES;
+        isVideoAssetPortrait = YES;
     }
     if (videoTransform.a == 0 && videoTransform.b == -1.0 && videoTransform.c == 1.0 && videoTransform.d == 0) {
         //        videoAssetOrientation_ =  UIImageOrientationLeft;
-        isVideoAssetPortrait_ = YES;
+        isVideoAssetPortrait = YES;
     }
 
     
@@ -554,6 +589,16 @@ static inline CGFloat RadiansToDegrees(CGFloat radians) {
     }
     
     return orientation;
+}
+
+#pragma mark - 编辑后处理
+- (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName
+{
+    AVAssetExportSession *session = [[AVAssetExportSession alloc] initWithAsset:self.composition presetName:presetName];
+    if (self.videoComposition) {
+        session.videoComposition = self.videoComposition;
+    }
+    return session;
 }
 
 
