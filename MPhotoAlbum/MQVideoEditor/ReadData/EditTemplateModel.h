@@ -12,13 +12,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface EditTemplateModel : NSObject
 
-@property (nonatomic, strong) NSString *storyId;
-@property (nonatomic, strong) NSString *thumbnail;
-@property (nonatomic, strong) NSString *demoVideo;
-@property (nonatomic, strong) NSString *music;
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) NSString *desc;
+@property (nonatomic, copy) NSString *storyId;
+@property (nonatomic, copy) NSString *thumbnail;
+@property (nonatomic, copy) NSString *demoVideo;
+@property (nonatomic, copy) NSString *music;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *desc;
 @property (nonatomic, assign) NSInteger amount;
+@property (nonatomic, copy) NSString *maskVideoName;
 @property (nonatomic, copy)   NSArray *scripts;
 
 @end
@@ -33,6 +34,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) MQTransitionType transitionsType;
 @property (nonatomic, assign) float transDuration;
 @property (nonatomic, strong) UIImage *image;
+
+
 @end
 
 
