@@ -133,7 +133,9 @@ typedef NS_ENUM(NSUInteger, SpecialFilterType) {
         
         [self initAllTheParameters];
         self.renderLock = [[NSLock alloc] init];
-        
+        //mask纹理初始化
+//        _maskImage = [UIImage imageNamed:@"lookup_BlackGoldStyle.png"];
+//        _maskImgTextureID = [self getTextureFromImage:_maskImage needTranslate:NO];
         //默认转场设置为1s，公式为 1.0 / 30 = 0.0333333
         preFrameProgressValue = 1.0/30.0;
         _currentProgress = 0.0;
@@ -631,6 +633,27 @@ typedef NS_ENUM(NSUInteger, SpecialFilterType) {
             break;
         case MQTransitionTypeCube:
             transitionID = [self programWithShaderName:@"cube"];
+            break;
+        case MQTransitionTypeRipple:
+            transitionID = [self programWithShaderName:@"ripple"];
+            break;
+        case MQTransitionTypeWaterDrop:
+            transitionID = [self programWithShaderName:@"WaterDrop"];
+            break;
+        case MQTransitionTypeColourDistance:
+            transitionID = [self programWithShaderName:@"ColourDistance"];
+            break;
+        case MQTransitionTypeGirdFlip:
+            transitionID = [self programWithShaderName:@"GridFlip"];
+            break;
+        case MQTransitionTypeGlitchMemories:
+            transitionID = [self programWithShaderName:@"GlitchMemories"];
+            break;
+        case MQTransitionTypeLeftRight:
+            transitionID = [self programWithShaderName:@"LeftRight"];
+            break;
+        case MQTransitionTypeInvertedPageCurl:
+            transitionID = [self programWithShaderName:@"InvertedPageCurl"];
             break;
 
         default:
@@ -1264,10 +1287,14 @@ typedef NS_ENUM(NSUInteger, SpecialFilterType) {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glUniform1i(glGetUniformLocation(backFilterProgramID, "fromTexture"), 1);
     
-    glActiveTexture(GL_TEXTURE4);
+    glActiveTexture(GL_TEXTURE2);
     //附带的纹理图片存在，且未生成纹理ID
     glBindTexture(GL_TEXTURE_2D, _maskImgTextureID);
-    glUniform1i(glGetUniformLocation(foreFilterProgramID, "maskImageTexture"), 4);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glUniform1i(glGetUniformLocation(backFilterProgramID, "maskImageTexture"), 2);
     
     glBindBuffer(GL_ARRAY_BUFFER, self.VBO);
     GLuint PositionSlot = glGetAttribLocation(backFilterProgramID, "Position");
@@ -1758,10 +1785,10 @@ typedef NS_ENUM(NSUInteger, SpecialFilterType) {
     glGenTextures(1, &texureName);
     glBindTexture(GL_TEXTURE_2D, texureName);
     
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     
     glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, (GLsizei)width, (GLsizei)height, 0, GL_RGBA, GL_UNSIGNED_BYTE, textureData);
     glBindTexture(GL_TEXTURE_2D, 0); //解绑
@@ -1956,12 +1983,36 @@ static void ReleaseCVPixelBuffer(void *pixel, const void *data, size_t size)
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
     
-    
+    if (forePixelBuffer) {
+        CVPixelBufferRelease(forePixelBuffer);
+        forePixelBuffer = NULL;
+    }
+    if (backPixelBuffer) {
+        CVPixelBufferRelease(backPixelBuffer);
+        backPixelBuffer = NULL;
+    }
+    if (newPixelBuffer) {
+        CVPixelBufferRelease(newPixelBuffer);
+        newPixelBuffer = NULL;
+    }
 }
 
 - (void)dealloc
 {
     NSLog(@"%s",__FUNCTION__);
+    if (self.VBO) {
+        glDeleteBuffers(1, &_VBO);
+    }
+    if (self.foreVBO) {
+        glDeleteBuffers(1, &_foreVBO);
+    }
+    if (self.backVBO) {
+        glDeleteBuffers(1, &_backVBO);
+    }
+    if (self.rotateVBO) {
+        glDeleteBuffers(1, &_rotateVBO);
+    }
+    
     
     if (foreTextureID != 0) {
         glDeleteTextures(1, &foreTextureID);
