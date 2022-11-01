@@ -34,6 +34,11 @@
     [(AVPlayerLayer *)[self layer] setPlayer:player];
 }
 
+- (void)dealloc
+{
+    NSLog(@"%s",__func__);
+}
+
 @end
 
 static NSString* const AVCDVPlayerViewControllerStatusObservationContext    = @"AVCDVPlayerViewControllerStatusObservationContext";
@@ -65,6 +70,7 @@ static void testContext(){};
 @property (nonatomic, assign) BOOL playing;
 @property (nonatomic, assign) BOOL scrubInFlight;
 
+@property (nonatomic, assign) NSTimeInterval duration;
 
 @end
 
@@ -92,7 +98,7 @@ static void testContext(){};
     
     
     _scrubber = [[UISlider alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 10, CGRectGetWidth(self.frame), 20)];
-    [self addSubview:_scrubber];
+    //[self addSubview:_scrubber];
     [_scrubber addTarget:self action:@selector(scrub:) forControlEvents:UIControlEventValueChanged];
     [_scrubber addTarget:self action:@selector(endScrubbing:) forControlEvents:UIControlEventTouchUpInside];
     [_scrubber addTarget:self action:@selector(endScrubbing:) forControlEvents:UIControlEventTouchUpOutside];
@@ -112,6 +118,7 @@ static void testContext(){};
 
 - (void)loadData
 {
+    self.autoPlay = NO;
     [self updateScrubber];
     [self updateTimeLabel];
     
@@ -184,6 +191,10 @@ static void testContext(){};
             [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playerItemDidReachEnd:) name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem];
         }
         [self.player replaceCurrentItemWithPlayerItem:playerItem];
+        
+        if (self.autoPlay) {
+            [self.player play];
+        }
     }
 }
 
@@ -217,7 +228,7 @@ static void testContext(){};
             [weakSelf updateTimeLabel];
             
             int currentTime = (int)((time.value * 1000) / time.timescale);//当前时间进度
-            int totalTime = CMTimeGetSeconds(self.player.currentItem.duration) * 1000;// = [weakSelf.videoSegmentLengthArray[count] intValue];
+            int totalTime = CMTimeGetSeconds(weakSelf.player.currentItem.duration) * 1000;// = [weakSelf.videoSegmentLengthArray[count] intValue];
             
             if (weakSelf.repeatPlayback && currentTime > ((weakSelf.endReplayTime.value * 1000) / weakSelf.endReplayTime.timescale)) {
                 [weakSelf.player pause];
@@ -227,7 +238,7 @@ static void testContext(){};
             }
             
             if (weakSelf.delegate) {
-                [weakSelf.delegate showPlayTimeOnScreen:currentTime andTotalTime:totalTime];
+                [weakSelf.delegate showPlayTimeOnScreen:CMTimeGetSeconds(time) andTotalTime:CMTimeGetSeconds(weakSelf.player.currentItem.duration)];
             }
             
         }];
@@ -340,7 +351,6 @@ static void testContext(){};
 }
 
 #pragma mark - IBActions
-
 - (void)togglePlayPause:(id)sender
 {
     _playing = !_playing;
@@ -431,6 +441,12 @@ static void testContext(){};
     _scrubInFlight = NO;
 }
 
+- (void)startToPlay
+{
+    [self.player play];
+    _playing = YES;
+}
+
 - (void)setPlayerPause
 {
     if (@available(iOS 10.0, *)) {
@@ -466,9 +482,16 @@ static void testContext(){};
         [self.player pause];
         _playing = NO;
     }
+    [self.player replaceCurrentItemWithPlayerItem:nil];
     [self removeTimeObserverFromPlayer];
+    [self.playerItem removeObserver:self forKeyPath:@"status"];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:self.playerItem]; // 移除监听
     self.playerItem = nil;
+//    [self.playerView removeFromSuperview];
+//    self.playerView = nil;
     self.player = nil;
+//    self.playerView = [[PlayerView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame))];
+//    [self addSubview:self.playerView];
 }
 
 - (void)dealloc
