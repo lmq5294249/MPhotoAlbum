@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E12320E2851D7D60052C0CE /* TestView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E12320D2851D7D60052C0CE /* TestView.m */; };
+		3E159E70285C1E6500C9830B /* MQVideoExportManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E159E6F285C1E6500C9830B /* MQVideoExportManager.m */; };
 		3E1A1D1F27FFD01B00854D55 /* OptionalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */; };
 		3E23C90A2812455E00ADECCD /* MVideoEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C9042812455E00ADECCD /* MVideoEditView.m */; };
 		3E23C90B2812455E00ADECCD /* VideoFrameBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C9052812455E00ADECCD /* VideoFrameBar.m */; };
@@ -16,7 +18,21 @@
 		3E23C916281246D500ADECCD /* UIImage+Zoom.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C914281246D500ADECCD /* UIImage+Zoom.m */; };
 		3E23C91A281257E400ADECCD /* MQVariableCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C919281257E400ADECCD /* MQVariableCollectionView.m */; };
 		3E23C91D28127C1700ADECCD /* MQDragingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E23C91C28127C1700ADECCD /* MQDragingCell.m */; };
+		3E3964AD28586A6000BC999B /* MVideoFrameDisplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3964AC28586A6000BC999B /* MVideoFrameDisplayer.m */; };
+		3E3A62D62865913B00BF8DF0 /* MediaSelectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E3A62D52865913B00BF8DF0 /* MediaSelectionViewController.m */; };
+		3E485D3D2859C85800533ED0 /* MVideoPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E485D3C2859C85800533ED0 /* MVideoPlayerView.m */; };
+		3E485D402859C89E00533ED0 /* MVideoToolControlView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E485D3F2859C89E00533ED0 /* MVideoToolControlView.m */; };
+		3E5A2EBD285B3433003FC46B /* MExportVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E5A2EBC285B3433003FC46B /* MExportVideoViewController.m */; };
+		3E75FCDA285343230036DD91 /* TemplatesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E75FCD9285343230036DD91 /* TemplatesViewController.m */; };
 		3E782963280812E400DA81A4 /* TemplateMan.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 3E782962280812E400DA81A4 /* TemplateMan.mp4 */; };
+		3EBFBFE62909331A0008FC42 /* ripple.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFE42909331A0008FC42 /* ripple.fsh */; };
+		3EBFBFE72909331A0008FC42 /* ripple.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFE52909331A0008FC42 /* ripple.vsh */; };
+		3EBFBFEA290937A30008FC42 /* WaterDrop.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFE8290937A30008FC42 /* WaterDrop.vsh */; };
+		3EBFBFEB290937A30008FC42 /* WaterDrop.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFE9290937A30008FC42 /* WaterDrop.fsh */; };
+		3EBFBFEE290938EE0008FC42 /* ColourDistance.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFEC290938EE0008FC42 /* ColourDistance.vsh */; };
+		3EBFBFEF290938EE0008FC42 /* ColourDistance.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFED290938EE0008FC42 /* ColourDistance.fsh */; };
+		3EBFBFF2290939FA0008FC42 /* GridFlip.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFF0290939FA0008FC42 /* GridFlip.fsh */; };
+		3EBFBFF3290939FA0008FC42 /* GridFlip.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EBFBFF1290939FA0008FC42 /* GridFlip.vsh */; };
 		3EC97BD628055CFF006A25D9 /* swap.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EC97B5C28055CFE006A25D9 /* swap.fsh */; };
 		3EC97BD728055CFF006A25D9 /* cube.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EC97B5D28055CFE006A25D9 /* cube.vsh */; };
 		3EC97BD828055CFF006A25D9 /* rotateScaleFade.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EC97B5E28055CFE006A25D9 /* rotateScaleFade.vsh */; };
@@ -173,6 +189,13 @@
 		3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED07C7127E33BE300AA730C /* GuideDataModel.m */; };
 		3ED4F21B28097032005B086C /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3ED4F21928097032005B086C /* LaunchViewController.m */; };
 		3ED4F21C28097032005B086C /* LaunchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3ED4F21A28097032005B086C /* LaunchViewController.xib */; };
+		3EE92C3D28616F1200801868 /* 夏文娜-错位时空.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 3EE92C3C28616F1200801868 /* 夏文娜-错位时空.mp3 */; };
+		3EEF32FC290A2E2B00371D44 /* GlitchMemories.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF32FA290A2E2B00371D44 /* GlitchMemories.fsh */; };
+		3EEF32FD290A2E2B00371D44 /* GlitchMemories.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF32FB290A2E2B00371D44 /* GlitchMemories.vsh */; };
+		3EEF3300290A2F4D00371D44 /* LeftRight.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF32FE290A2F4D00371D44 /* LeftRight.vsh */; };
+		3EEF3301290A2F4D00371D44 /* LeftRight.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF32FF290A2F4D00371D44 /* LeftRight.fsh */; };
+		3EEF3304290A30D400371D44 /* InvertedPageCurl.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF3302290A30D400371D44 /* InvertedPageCurl.vsh */; };
+		3EEF3305290A30D400371D44 /* InvertedPageCurl.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3EEF3303290A30D400371D44 /* InvertedPageCurl.fsh */; };
 		3EF960BC27FEEE5300AC845A /* OptionalEditView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF960BB27FEEE5300AC845A /* OptionalEditView.m */; };
 /* End PBXBuildFile section */
 
@@ -194,6 +217,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E12320C2851D7D60052C0CE /* TestView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestView.h; sourceTree = "<group>"; };
+		3E12320D2851D7D60052C0CE /* TestView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestView.m; sourceTree = "<group>"; };
+		3E159E6E285C1E6500C9830B /* MQVideoExportManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MQVideoExportManager.h; sourceTree = "<group>"; };
+		3E159E6F285C1E6500C9830B /* MQVideoExportManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQVideoExportManager.m; sourceTree = "<group>"; };
 		3E1A1D1D27FFD01B00854D55 /* OptionalCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionalCell.h; sourceTree = "<group>"; };
 		3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionalCell.m; sourceTree = "<group>"; };
 		3E23C9042812455E00ADECCD /* MVideoEditView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MVideoEditView.m; sourceTree = "<group>"; };
@@ -212,7 +239,27 @@
 		3E23C919281257E400ADECCD /* MQVariableCollectionView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQVariableCollectionView.m; sourceTree = "<group>"; };
 		3E23C91B28127C1700ADECCD /* MQDragingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MQDragingCell.h; sourceTree = "<group>"; };
 		3E23C91C28127C1700ADECCD /* MQDragingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MQDragingCell.m; sourceTree = "<group>"; };
+		3E3964AB28586A6000BC999B /* MVideoFrameDisplayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVideoFrameDisplayer.h; sourceTree = "<group>"; };
+		3E3964AC28586A6000BC999B /* MVideoFrameDisplayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVideoFrameDisplayer.m; sourceTree = "<group>"; };
+		3E3A62D42865913B00BF8DF0 /* MediaSelectionViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MediaSelectionViewController.h; sourceTree = "<group>"; };
+		3E3A62D52865913B00BF8DF0 /* MediaSelectionViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MediaSelectionViewController.m; sourceTree = "<group>"; };
+		3E485D3B2859C85800533ED0 /* MVideoPlayerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVideoPlayerView.h; sourceTree = "<group>"; };
+		3E485D3C2859C85800533ED0 /* MVideoPlayerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVideoPlayerView.m; sourceTree = "<group>"; };
+		3E485D3E2859C89E00533ED0 /* MVideoToolControlView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MVideoToolControlView.h; sourceTree = "<group>"; };
+		3E485D3F2859C89E00533ED0 /* MVideoToolControlView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MVideoToolControlView.m; sourceTree = "<group>"; };
+		3E5A2EBB285B3433003FC46B /* MExportVideoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MExportVideoViewController.h; sourceTree = "<group>"; };
+		3E5A2EBC285B3433003FC46B /* MExportVideoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MExportVideoViewController.m; sourceTree = "<group>"; };
+		3E75FCD8285343230036DD91 /* TemplatesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TemplatesViewController.h; sourceTree = "<group>"; };
+		3E75FCD9285343230036DD91 /* TemplatesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TemplatesViewController.m; sourceTree = "<group>"; };
 		3E782962280812E400DA81A4 /* TemplateMan.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = TemplateMan.mp4; sourceTree = "<group>"; };
+		3EBFBFE42909331A0008FC42 /* ripple.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ripple.fsh; sourceTree = "<group>"; };
+		3EBFBFE52909331A0008FC42 /* ripple.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ripple.vsh; sourceTree = "<group>"; };
+		3EBFBFE8290937A30008FC42 /* WaterDrop.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WaterDrop.vsh; sourceTree = "<group>"; };
+		3EBFBFE9290937A30008FC42 /* WaterDrop.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = WaterDrop.fsh; sourceTree = "<group>"; };
+		3EBFBFEC290938EE0008FC42 /* ColourDistance.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ColourDistance.vsh; sourceTree = "<group>"; };
+		3EBFBFED290938EE0008FC42 /* ColourDistance.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = ColourDistance.fsh; sourceTree = "<group>"; };
+		3EBFBFF0290939FA0008FC42 /* GridFlip.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GridFlip.fsh; sourceTree = "<group>"; };
+		3EBFBFF1290939FA0008FC42 /* GridFlip.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GridFlip.vsh; sourceTree = "<group>"; };
 		3EC97B5C28055CFE006A25D9 /* swap.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = swap.fsh; sourceTree = "<group>"; };
 		3EC97B5D28055CFE006A25D9 /* cube.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = cube.vsh; sourceTree = "<group>"; };
 		3EC97B5E28055CFE006A25D9 /* rotateScaleFade.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = rotateScaleFade.vsh; sourceTree = "<group>"; };
@@ -432,6 +479,13 @@
 		3ED4F21828097032005B086C /* LaunchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
 		3ED4F21928097032005B086C /* LaunchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		3ED4F21A28097032005B086C /* LaunchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LaunchViewController.xib; sourceTree = "<group>"; };
+		3EE92C3C28616F1200801868 /* 夏文娜-错位时空.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "夏文娜-错位时空.mp3"; sourceTree = "<group>"; };
+		3EEF32FA290A2E2B00371D44 /* GlitchMemories.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GlitchMemories.fsh; sourceTree = "<group>"; };
+		3EEF32FB290A2E2B00371D44 /* GlitchMemories.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = GlitchMemories.vsh; sourceTree = "<group>"; };
+		3EEF32FE290A2F4D00371D44 /* LeftRight.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LeftRight.vsh; sourceTree = "<group>"; };
+		3EEF32FF290A2F4D00371D44 /* LeftRight.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = LeftRight.fsh; sourceTree = "<group>"; };
+		3EEF3302290A30D400371D44 /* InvertedPageCurl.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = InvertedPageCurl.vsh; sourceTree = "<group>"; };
+		3EEF3303290A30D400371D44 /* InvertedPageCurl.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = InvertedPageCurl.fsh; sourceTree = "<group>"; };
 		3EF960BA27FEEE5300AC845A /* OptionalEditView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OptionalEditView.h; sourceTree = "<group>"; };
 		3EF960BB27FEEE5300AC845A /* OptionalEditView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OptionalEditView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -468,10 +522,16 @@
 				3E23C90E2812461E00ADECCD /* MAVPlayerView.m */,
 				3E23C9072812455E00ADECCD /* GifTimeView.h */,
 				3E23C9062812455E00ADECCD /* GifTimeView.m */,
-				3E23C9092812455E00ADECCD /* MVideoEditView.h */,
-				3E23C9042812455E00ADECCD /* MVideoEditView.m */,
 				3E23C9082812455E00ADECCD /* VideoFrameBar.h */,
 				3E23C9052812455E00ADECCD /* VideoFrameBar.m */,
+				3E23C9092812455E00ADECCD /* MVideoEditView.h */,
+				3E23C9042812455E00ADECCD /* MVideoEditView.m */,
+				3E3964AB28586A6000BC999B /* MVideoFrameDisplayer.h */,
+				3E3964AC28586A6000BC999B /* MVideoFrameDisplayer.m */,
+				3E485D3B2859C85800533ED0 /* MVideoPlayerView.h */,
+				3E485D3C2859C85800533ED0 /* MVideoPlayerView.m */,
+				3E485D3E2859C89E00533ED0 /* MVideoToolControlView.h */,
+				3E485D3F2859C89E00533ED0 /* MVideoToolControlView.m */,
 			);
 			path = SingleVideoEditor;
 			sourceTree = "<group>";
@@ -487,25 +547,35 @@
 			path = MQCategory;
 			sourceTree = "<group>";
 		};
-		3E23C9172812550400ADECCD /* View */ = {
+		3E23C9172812550400ADECCD /* AlbumView */ = {
 			isa = PBXGroup;
 			children = (
 				3E23C91B28127C1700ADECCD /* MQDragingCell.h */,
 				3E23C91C28127C1700ADECCD /* MQDragingCell.m */,
 				3E23C918281257E400ADECCD /* MQVariableCollectionView.h */,
 				3E23C919281257E400ADECCD /* MQVariableCollectionView.m */,
+				3EF960BA27FEEE5300AC845A /* OptionalEditView.h */,
+				3EF960BB27FEEE5300AC845A /* OptionalEditView.m */,
+				3E1A1D1D27FFD01B00854D55 /* OptionalCell.h */,
+				3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */,
+				3E3A62D42865913B00BF8DF0 /* MediaSelectionViewController.h */,
+				3E3A62D52865913B00BF8DF0 /* MediaSelectionViewController.m */,
 			);
-			path = View;
+			path = AlbumView;
 			sourceTree = "<group>";
 		};
 		3EC97B5A28055C1A006A25D9 /* MQVideoEditor */ = {
 			isa = PBXGroup;
 			children = (
-				3E23C9172812550400ADECCD /* View */,
+				3E23C9172812550400ADECCD /* AlbumView */,
 				3E23C9032812422A00ADECCD /* SingleVideoEditor */,
 				3EC97BCB28055CFF006A25D9 /* ReadData */,
 				3EC97C3F28055DC3006A25D9 /* MQVideoEditingViewController.h */,
 				3EC97C4028055DC3006A25D9 /* MQVideoEditingViewController.m */,
+				3E5A2EBB285B3433003FC46B /* MExportVideoViewController.h */,
+				3E5A2EBC285B3433003FC46B /* MExportVideoViewController.m */,
+				3E12320C2851D7D60052C0CE /* TestView.h */,
+				3E12320D2851D7D60052C0CE /* TestView.m */,
 				3EC97BBA28055CFF006A25D9 /* ManVideoReader.h */,
 				3EC97BD228055CFF006A25D9 /* ManVideoReader.m */,
 				3EC97BBF28055CFF006A25D9 /* MASKVideo.fsh */,
@@ -520,6 +590,8 @@
 				3EC97BD528055CFF006A25D9 /* MQVideoComposition.m */,
 				3EC97BBC28055CFF006A25D9 /* MQVideoEditor.h */,
 				3EC97BBD28055CFF006A25D9 /* MQVideoEditor.m */,
+				3E159E6E285C1E6500C9830B /* MQVideoExportManager.h */,
+				3E159E6F285C1E6500C9830B /* MQVideoExportManager.m */,
 				3EC97BC228055CFF006A25D9 /* MVideoEditEngine.h */,
 				3EC97BC028055CFF006A25D9 /* MVideoEditEngine.m */,
 				3EC97BBE28055CFF006A25D9 /* MVideoEditingManager.h */,
@@ -535,28 +607,42 @@
 		3EC97B5B28055CFE006A25D9 /* TransitionShader */ = {
 			isa = PBXGroup;
 			children = (
-				3EC97B5C28055CFE006A25D9 /* swap.fsh */,
+				3EC97BB728055CFF006A25D9 /* crosswarp.fsh */,
+				3EC97B6628055CFE006A25D9 /* crosswarp.vsh */,
+				3EC97B8D28055CFE006A25D9 /* cube.fsh */,
 				3EC97B5D28055CFE006A25D9 /* cube.vsh */,
+				3EC97B6828055CFE006A25D9 /* doorway.fsh */,
+				3EC97BB528055CFF006A25D9 /* doorway.vsh */,
+				3EC97B8E28055CFE006A25D9 /* FilterImage */,
+				3EC97B9528055CFE006A25D9 /* lookupTable */,
+				3EC97B6A28055CFE006A25D9 /* OpenglShader */,
+				3EC97B9428055CFE006A25D9 /* rotateScaleFade.fsh */,
 				3EC97B5E28055CFE006A25D9 /* rotateScaleFade.vsh */,
 				3EC97B5F28055CFE006A25D9 /* RotateVideoShader */,
 				3EC97B6428055CFE006A25D9 /* scaleIn.fsh */,
-				3EC97B6528055CFE006A25D9 /* windowSlice.fsh */,
-				3EC97B6628055CFE006A25D9 /* crosswarp.vsh */,
-				3EC97B6728055CFE006A25D9 /* squareswire.fsh */,
-				3EC97B6828055CFE006A25D9 /* doorway.fsh */,
-				3EC97B6928055CFE006A25D9 /* swipeLeft.vsh */,
-				3EC97B6A28055CFE006A25D9 /* OpenglShader */,
-				3EC97B8D28055CFE006A25D9 /* cube.fsh */,
-				3EC97B8E28055CFE006A25D9 /* FilterImage */,
-				3EC97B9428055CFE006A25D9 /* rotateScaleFade.fsh */,
-				3EC97B9528055CFE006A25D9 /* lookupTable */,
-				3EC97BB328055CFF006A25D9 /* swap.vsh */,
-				3EC97BB428055CFF006A25D9 /* squareswire.vsh */,
-				3EC97BB528055CFF006A25D9 /* doorway.vsh */,
-				3EC97BB628055CFF006A25D9 /* swipeLeft.fsh */,
-				3EC97BB728055CFF006A25D9 /* crosswarp.fsh */,
-				3EC97BB828055CFF006A25D9 /* windowSlice.vsh */,
 				3EC97BB928055CFF006A25D9 /* scaleIn.vsh */,
+				3EC97B6728055CFE006A25D9 /* squareswire.fsh */,
+				3EC97BB428055CFF006A25D9 /* squareswire.vsh */,
+				3EC97B5C28055CFE006A25D9 /* swap.fsh */,
+				3EC97BB328055CFF006A25D9 /* swap.vsh */,
+				3EC97BB628055CFF006A25D9 /* swipeLeft.fsh */,
+				3EC97B6928055CFE006A25D9 /* swipeLeft.vsh */,
+				3EC97B6528055CFE006A25D9 /* windowSlice.fsh */,
+				3EC97BB828055CFF006A25D9 /* windowSlice.vsh */,
+				3EBFBFE42909331A0008FC42 /* ripple.fsh */,
+				3EBFBFE52909331A0008FC42 /* ripple.vsh */,
+				3EBFBFE9290937A30008FC42 /* WaterDrop.fsh */,
+				3EBFBFE8290937A30008FC42 /* WaterDrop.vsh */,
+				3EBFBFED290938EE0008FC42 /* ColourDistance.fsh */,
+				3EBFBFEC290938EE0008FC42 /* ColourDistance.vsh */,
+				3EBFBFF0290939FA0008FC42 /* GridFlip.fsh */,
+				3EBFBFF1290939FA0008FC42 /* GridFlip.vsh */,
+				3EEF32FA290A2E2B00371D44 /* GlitchMemories.fsh */,
+				3EEF32FB290A2E2B00371D44 /* GlitchMemories.vsh */,
+				3EEF32FF290A2F4D00371D44 /* LeftRight.fsh */,
+				3EEF32FE290A2F4D00371D44 /* LeftRight.vsh */,
+				3EEF3303290A30D400371D44 /* InvertedPageCurl.fsh */,
+				3EEF3302290A30D400371D44 /* InvertedPageCurl.vsh */,
 			);
 			path = TransitionShader;
 			sourceTree = "<group>";
@@ -575,40 +661,40 @@
 		3EC97B6A28055CFE006A25D9 /* OpenglShader */ = {
 			isa = PBXGroup;
 			children = (
-				3EC97B6B28055CFE006A25D9 /* MQThinFaceFilter.fsh */,
-				3EC97B6C28055CFE006A25D9 /* MQZoomInFilter.fsh */,
-				3EC97B6D28055CFE006A25D9 /* NormalFilter.fsh */,
-				3EC97B6E28055CFE006A25D9 /* MQBeautyFaceFilter.fsh */,
-				3EC97B6F28055CFE006A25D9 /* MQMagicCrayonFilter.fsh */,
 				3EC97B7028055CFE006A25D9 /* Display.fsh */,
-				3EC97B7128055CFE006A25D9 /* MQLookUpTableFilter.vsh */,
-				3EC97B7228055CFE006A25D9 /* MQ1977Filter.vsh */,
-				3EC97B7328055CFE006A25D9 /* MQKaleidoscope.fsh */,
-				3EC97B7428055CFE006A25D9 /* GPUImageSketchFilter.vsh */,
-				3EC97B7528055CFE006A25D9 /* MQPreviewNV12Shader.fsh */,
-				3EC97B7628055CFE006A25D9 /* MQGaussianFilter.fsh */,
-				3EC97B7728055CFE006A25D9 /* YUVNormalFilter.vsh */,
-				3EC97B7828055CFE006A25D9 /* GPUImageSepiaFilter.vsh */,
-				3EC97B7928055CFE006A25D9 /* GPUImageGrayscaleFilter.vsh */,
-				3EC97B7A28055CFE006A25D9 /* MQPreviewRGBShader.vsh */,
-				3EC97B7B28055CFE006A25D9 /* GPUImageGaussianBlurFilter.fsh */,
-				3EC97B7C28055CFE006A25D9 /* MQMagicCrayonFilter.vsh */,
 				3EC97B7D28055CFE006A25D9 /* Display.vsh */,
-				3EC97B7E28055CFE006A25D9 /* MQ1977Filter.fsh */,
-				3EC97B7F28055CFE006A25D9 /* MQLookUpTableFilter.fsh */,
-				3EC97B8028055CFE006A25D9 /* MQZoomInFilter.vsh */,
-				3EC97B8128055CFE006A25D9 /* MQThinFaceFilter.vsh */,
-				3EC97B8228055CFE006A25D9 /* MQBeautyFaceFilter.vsh */,
-				3EC97B8328055CFE006A25D9 /* NormalFilter.vsh */,
-				3EC97B8428055CFE006A25D9 /* GPUImageGrayscaleFilter.fsh */,
-				3EC97B8528055CFE006A25D9 /* MQPreviewRGBShader.fsh */,
-				3EC97B8628055CFE006A25D9 /* GPUImageSepiaFilter.fsh */,
+				3EC97B7B28055CFE006A25D9 /* GPUImageGaussianBlurFilter.fsh */,
 				3EC97B8728055CFE006A25D9 /* GPUImageGaussianBlurFilter.vsh */,
+				3EC97B8428055CFE006A25D9 /* GPUImageGrayscaleFilter.fsh */,
+				3EC97B7928055CFE006A25D9 /* GPUImageGrayscaleFilter.vsh */,
+				3EC97B8628055CFE006A25D9 /* GPUImageSepiaFilter.fsh */,
+				3EC97B7828055CFE006A25D9 /* GPUImageSepiaFilter.vsh */,
 				3EC97B8828055CFE006A25D9 /* GPUImageSketchFilter.fsh */,
-				3EC97B8928055CFE006A25D9 /* MQKaleidoscope.vsh */,
-				3EC97B8A28055CFE006A25D9 /* MQPreviewNV12Shader.vsh */,
+				3EC97B7428055CFE006A25D9 /* GPUImageSketchFilter.vsh */,
+				3EC97B7E28055CFE006A25D9 /* MQ1977Filter.fsh */,
+				3EC97B7228055CFE006A25D9 /* MQ1977Filter.vsh */,
+				3EC97B6E28055CFE006A25D9 /* MQBeautyFaceFilter.fsh */,
+				3EC97B8228055CFE006A25D9 /* MQBeautyFaceFilter.vsh */,
+				3EC97B7628055CFE006A25D9 /* MQGaussianFilter.fsh */,
 				3EC97B8B28055CFE006A25D9 /* MQGaussianFilter.vsh */,
+				3EC97B7328055CFE006A25D9 /* MQKaleidoscope.fsh */,
+				3EC97B8928055CFE006A25D9 /* MQKaleidoscope.vsh */,
+				3EC97B7F28055CFE006A25D9 /* MQLookUpTableFilter.fsh */,
+				3EC97B7128055CFE006A25D9 /* MQLookUpTableFilter.vsh */,
+				3EC97B6F28055CFE006A25D9 /* MQMagicCrayonFilter.fsh */,
+				3EC97B7C28055CFE006A25D9 /* MQMagicCrayonFilter.vsh */,
+				3EC97B7528055CFE006A25D9 /* MQPreviewNV12Shader.fsh */,
+				3EC97B8A28055CFE006A25D9 /* MQPreviewNV12Shader.vsh */,
+				3EC97B8528055CFE006A25D9 /* MQPreviewRGBShader.fsh */,
+				3EC97B7A28055CFE006A25D9 /* MQPreviewRGBShader.vsh */,
+				3EC97B6B28055CFE006A25D9 /* MQThinFaceFilter.fsh */,
+				3EC97B8128055CFE006A25D9 /* MQThinFaceFilter.vsh */,
+				3EC97B6C28055CFE006A25D9 /* MQZoomInFilter.fsh */,
+				3EC97B8028055CFE006A25D9 /* MQZoomInFilter.vsh */,
+				3EC97B6D28055CFE006A25D9 /* NormalFilter.fsh */,
+				3EC97B8328055CFE006A25D9 /* NormalFilter.vsh */,
 				3EC97B8C28055CFE006A25D9 /* YUVNormalFilter.fsh */,
+				3EC97B7728055CFE006A25D9 /* YUVNormalFilter.vsh */,
 			);
 			path = OpenglShader;
 			sourceTree = "<group>";
@@ -664,6 +750,7 @@
 		3EC97BCB28055CFF006A25D9 /* ReadData */ = {
 			isa = PBXGroup;
 			children = (
+				3EE92C3C28616F1200801868 /* 夏文娜-错位时空.mp3 */,
 				3E782962280812E400DA81A4 /* TemplateMan.mp4 */,
 				3EC97C42280588D1006A25D9 /* HappyNewYear.mp4 */,
 				3EC97BCC28055CFF006A25D9 /* BlankVideo.mp4 */,
@@ -705,6 +792,8 @@
 				3ED07C5C27E313B900AA730C /* ContactViewController */,
 				3ED07B7F27DF293F00AA730C /* ViewController.h */,
 				3ED07B8027DF293F00AA730C /* ViewController.m */,
+				3E75FCD8285343230036DD91 /* TemplatesViewController.h */,
+				3E75FCD9285343230036DD91 /* TemplatesViewController.m */,
 				3E23C9102812468200ADECCD /* MQCategory */,
 				3EC97B5A28055C1A006A25D9 /* MQVideoEditor */,
 				3ED07C6627E31C5700AA730C /* Album */,
@@ -874,10 +963,6 @@
 				3ED07BB027DF32E900AA730C /* Models */,
 				3ED07BAF27DF32E000AA730C /* Views */,
 				3ED07BAE27DF32CF00AA730C /* Controller */,
-				3EF960BA27FEEE5300AC845A /* OptionalEditView.h */,
-				3EF960BB27FEEE5300AC845A /* OptionalEditView.m */,
-				3E1A1D1D27FFD01B00854D55 /* OptionalCell.h */,
-				3E1A1D1E27FFD01B00854D55 /* OptionalCell.m */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -945,6 +1030,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 1250;
+				ORGANIZATIONNAME = Man;
 				TargetAttributes = {
 					3ED07B7527DF293F00AA730C = {
 						CreatedOnToolsVersion = 12.5.1;
@@ -998,6 +1084,7 @@
 				3EC97BFB28055CFF006A25D9 /* NormalFilter.vsh in Resources */,
 				3EC97BE328055CFF006A25D9 /* MQThinFaceFilter.fsh in Resources */,
 				3EC97C0728055CFF006A25D9 /* riseMap.png in Resources */,
+				3EEF32FD290A2E2B00371D44 /* GlitchMemories.vsh in Resources */,
 				3EC97BDD28055CFF006A25D9 /* scaleIn.fsh in Resources */,
 				3E782963280812E400DA81A4 /* TemplateMan.mp4 in Resources */,
 				3EC97C2328055CFF006A25D9 /* lookup_DarkGreenStyle.png in Resources */,
@@ -1012,12 +1099,15 @@
 				3EC97C2028055CFF006A25D9 /* lookup_pinkWorld33.png in Resources */,
 				3EC97C0228055CFF006A25D9 /* MQPreviewNV12Shader.vsh in Resources */,
 				3EC97BFE28055CFF006A25D9 /* GPUImageSepiaFilter.fsh in Resources */,
+				3EBFBFF2290939FA0008FC42 /* GridFlip.fsh in Resources */,
 				3EC97C1F28055CFF006A25D9 /* lookup_SunsetWarmFilm.png in Resources */,
+				3EEF32FC290A2E2B00371D44 /* GlitchMemories.fsh in Resources */,
 				3EC97BF628055CFF006A25D9 /* MQ1977Filter.fsh in Resources */,
 				3EC97BEB28055CFF006A25D9 /* MQKaleidoscope.fsh in Resources */,
 				3EC97BF228055CFF006A25D9 /* MQPreviewRGBShader.vsh in Resources */,
 				3EC97C3828055CFF006A25D9 /* BlankVideo.mp4 in Resources */,
 				3EC97C2C28055CFF006A25D9 /* swipeLeft.fsh in Resources */,
+				3EBFBFEA290937A30008FC42 /* WaterDrop.vsh in Resources */,
 				3EC97C1C28055CFF006A25D9 /* lookup_test11.png in Resources */,
 				3EC97C1E28055CFF006A25D9 /* lookup_pinkWorld.png in Resources */,
 				3EC97BE428055CFF006A25D9 /* MQZoomInFilter.fsh in Resources */,
@@ -1032,12 +1122,17 @@
 				3EC97BEA28055CFF006A25D9 /* MQ1977Filter.vsh in Resources */,
 				3EC97BE628055CFF006A25D9 /* MQBeautyFaceFilter.fsh in Resources */,
 				3EC97C2828055CFF006A25D9 /* lookup_SKY.png in Resources */,
+				3EBFBFEF290938EE0008FC42 /* ColourDistance.fsh in Resources */,
 				3ED07B8927DF294100AA730C /* LaunchScreen.storyboard in Resources */,
+				3EEF3301290A2F4D00371D44 /* LeftRight.fsh in Resources */,
 				3EC97BED28055CFF006A25D9 /* MQPreviewNV12Shader.fsh in Resources */,
+				3EBFBFEB290937A30008FC42 /* WaterDrop.fsh in Resources */,
 				3EC97BF428055CFF006A25D9 /* MQMagicCrayonFilter.vsh in Resources */,
+				3EEF3304290A30D400371D44 /* InvertedPageCurl.vsh in Resources */,
 				3EC97C1328055CFF006A25D9 /* lookup_GrayStyle.png in Resources */,
 				3EC97C0628055CFF006A25D9 /* nashvilleMap.png in Resources */,
 				3ED07C6927E323DF00AA730C /* Localizable.strings in Resources */,
+				3EEF3300290A2F4D00371D44 /* LeftRight.vsh in Resources */,
 				3EC97BF528055CFF006A25D9 /* Display.vsh in Resources */,
 				3EC97C0C28055CFF006A25D9 /* lookup_GrayOrangeStyle.png in Resources */,
 				3EC97BF828055CFF006A25D9 /* MQZoomInFilter.vsh in Resources */,
@@ -1062,20 +1157,26 @@
 				3EC97BD628055CFF006A25D9 /* swap.fsh in Resources */,
 				3EC97C1528055CFF006A25D9 /* lookup_SweetCandyColor.png in Resources */,
 				3EC97BF728055CFF006A25D9 /* MQLookUpTableFilter.fsh in Resources */,
+				3EBFBFE62909331A0008FC42 /* ripple.fsh in Resources */,
 				3EC97BE728055CFF006A25D9 /* MQMagicCrayonFilter.fsh in Resources */,
 				3EC97BEC28055CFF006A25D9 /* GPUImageSketchFilter.vsh in Resources */,
+				3EBFBFEE290938EE0008FC42 /* ColourDistance.vsh in Resources */,
 				3EC97C0428055CFF006A25D9 /* YUVNormalFilter.fsh in Resources */,
 				3EC97C0328055CFF006A25D9 /* MQGaussianFilter.vsh in Resources */,
 				3EC97C2E28055CFF006A25D9 /* windowSlice.vsh in Resources */,
 				3ED07B8427DF293F00AA730C /* Main.storyboard in Resources */,
 				3EC97C3428055CFF006A25D9 /* MASKVideo.vsh in Resources */,
 				3EC97BFA28055CFF006A25D9 /* MQBeautyFaceFilter.vsh in Resources */,
+				3EE92C3D28616F1200801868 /* 夏文娜-错位时空.mp3 in Resources */,
 				3EC97C0D28055CFF006A25D9 /* lookup_BlackGoldStyle.png in Resources */,
 				3EC97BF928055CFF006A25D9 /* MQThinFaceFilter.vsh in Resources */,
+				3EEF3305290A30D400371D44 /* InvertedPageCurl.fsh in Resources */,
 				3EC97C3228055CFF006A25D9 /* MASKVideo.fsh in Resources */,
 				3EC97C1428055CFF006A25D9 /* lookup_GoldenStyle.png in Resources */,
+				3EBFBFF3290939FA0008FC42 /* GridFlip.vsh in Resources */,
 				3EC97C0A28055CFF006A25D9 /* hudsonMap.png in Resources */,
 				3EC97BDE28055CFF006A25D9 /* windowSlice.fsh in Resources */,
+				3EBFBFE72909331A0008FC42 /* ripple.vsh in Resources */,
 				3EC97C2A28055CFF006A25D9 /* squareswire.vsh in Resources */,
 				3EC97BD828055CFF006A25D9 /* rotateScaleFade.vsh in Resources */,
 				3EC97BE928055CFF006A25D9 /* MQLookUpTableFilter.vsh in Resources */,
@@ -1117,14 +1218,17 @@
 				3E23C91D28127C1700ADECCD /* MQDragingCell.m in Sources */,
 				3ED07B8127DF293F00AA730C /* ViewController.m in Sources */,
 				3ED07C4C27E1F14A00AA730C /* HHBaseTableView.m in Sources */,
+				3E12320E2851D7D60052C0CE /* TestView.m in Sources */,
 				3EC97C4128055DC3006A25D9 /* MQVideoEditingViewController.m in Sources */,
 				3ED07C7227E33BE300AA730C /* GuideDataModel.m in Sources */,
 				3EC97C3328055CFF006A25D9 /* MVideoEditEngine.m in Sources */,
 				3ED07C4127E1F14A00AA730C /* UIColor+HHUtil.m in Sources */,
 				3E23C90C2812455E00ADECCD /* GifTimeView.m in Sources */,
 				3EC97C3D28055CFF006A25D9 /* MediaAssetModel.m in Sources */,
+				3E3A62D62865913B00BF8DF0 /* MediaSelectionViewController.m in Sources */,
 				3ED07C4E27E1F14A00AA730C /* HHBaseView.m in Sources */,
 				3EC97C3728055CFF006A25D9 /* MQCustomVideoCompositionInstruction.m in Sources */,
+				3E159E70285C1E6500C9830B /* MQVideoExportManager.m in Sources */,
 				3ED07BBF27E087F100AA730C /* PHPhotoLibraryManage.m in Sources */,
 				3E23C915281246D500ADECCD /* UIView+Frame.m in Sources */,
 				3ED07C5327E1F14A00AA730C /* TationAuthorityManager.m in Sources */,
@@ -1133,6 +1237,7 @@
 				3ED07BCD27E1EAF400AA730C /* HohemAlbumPlayViewController.m in Sources */,
 				3ED07C4727E1F14A00AA730C /* TationDeviceManager.m in Sources */,
 				3ED07BC727E1EAED00AA730C /* HohemImageCollectionViewCell.m in Sources */,
+				3E5A2EBD285B3433003FC46B /* MExportVideoViewController.m in Sources */,
 				3EC97C3628055CFF006A25D9 /* MVideoPreviewView.m in Sources */,
 				3E23C90F2812461E00ADECCD /* MAVPlayerView.m in Sources */,
 				3ED07C6427E3156700AA730C /* ContactDataModel.m in Sources */,
@@ -1143,6 +1248,7 @@
 				3ED07C5127E1F14A00AA730C /* HohemBaseLabel.m in Sources */,
 				3ED07C4927E1F14A00AA730C /* TationVideoPlayerView.m in Sources */,
 				3ED07C4527E1F14A00AA730C /* TationApplicationManager.m in Sources */,
+				3E3964AD28586A6000BC999B /* MVideoFrameDisplayer.m in Sources */,
 				3ED07BBC27E0877600AA730C /* LocalAssetModel.m in Sources */,
 				3ED07C4227E1F14A00AA730C /* UIView+Point.m in Sources */,
 				3ED07C4427E1F14A00AA730C /* XCFileManager.m in Sources */,
@@ -1153,6 +1259,7 @@
 				3ED07BB327DF34FA00AA730C /* HohemAlbumViewController.m in Sources */,
 				3ED07BC227E0A44200AA730C /* HHMediaCell.m in Sources */,
 				3ED07C4627E1F14A00AA730C /* TationChooseView.m in Sources */,
+				3E485D402859C89E00533ED0 /* MVideoToolControlView.m in Sources */,
 				3EF960BC27FEEE5300AC845A /* OptionalEditView.m in Sources */,
 				3ED07C4B27E1F14A00AA730C /* HHBaseViewController.m in Sources */,
 				3ED07C4D27E1F14A00AA730C /* HHBaseImageView.m in Sources */,
@@ -1161,9 +1268,11 @@
 				3EC97C3028055CFF006A25D9 /* MOpenGLEngine.m in Sources */,
 				3ED07C4F27E1F14A00AA730C /* HHBaseTextField.m in Sources */,
 				3EC97C3528055CFF006A25D9 /* MVideoEditingManager.m in Sources */,
+				3E75FCDA285343230036DD91 /* TemplatesViewController.m in Sources */,
 				3EC97C3A28055CFF006A25D9 /* EditTemplateModel.m in Sources */,
 				3E23C90A2812455E00ADECCD /* MVideoEditView.m in Sources */,
 				3ED07C4827E1F14A00AA730C /* TationToolsManager.m in Sources */,
+				3E485D3D2859C85800533ED0 /* MVideoPlayerView.m in Sources */,
 				3ED07C5027E1F14A00AA730C /* HohemBaseButton.m in Sources */,
 				3EC97C3C28055CFF006A25D9 /* ManVideoReader.m in Sources */,
 				3ED07C6527E3156700AA730C /* ContactTableViewCell.m in Sources */,
@@ -1357,7 +1466,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K9X3CL9GAH;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
 				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
 				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1377,7 +1486,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K9X3CL9GAH;
+				DEVELOPMENT_TEAM = V29DM8ABKF;
 				GCC_PREFIX_HEADER = $SRCROOT/MPhotoAlbum/PrefixHeader.pch;
 				INFOPLIST_FILE = MPhotoAlbum/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
