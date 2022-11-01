@@ -2,47 +2,47 @@
     "storyId": "template1222",
     "thumbnail": "showDemo.jpg",
     "demoVideo": "showDemo.mp4 ",
-    "backgroundMusic": "111.m4a",
+    "backgroundMusic": "empty",
     "templateTitle": "GOODtemplate",
     "description": "简单描述",
     "amount": "4",
-    "foreground": "newYear.mp4",
+    "foreground": "BlankVideo",
     "scripts": [
         {
             "mediaType": "0",
             "mediaDuration": "5.0",
             "audioStartOffset": "0.0",
             "startTime": "0.0",
-            "filterType": "4",
-            "transitionsType": "3",
-            "transitionsDuration": "0"
+            "filterType": "0",
+            "transitionsType": "2",
+            "transitionsDuration": "0.3"
         },
         {
             "mediaType": "0",
             "mediaDuration": "5.0",
             "audioStartOffset": "0.0",
             "startTime": "0.0",
-            "filterType": "2",
-            "transitionsType": "0",
-            "transitionsDuration": "0"
+            "filterType": "9",
+            "transitionsType": "15",
+            "transitionsDuration": "0.4"
         },
         {
             "mediaType": "0",
             "mediaDuration": "6.0",
             "audioStartOffset": "0.0",
             "startTime": "0.0",
-            "filterType": "0",
-            "transitionsType": "8",
-            "transitionsDuration": "0"
+            "filterType": "7",
+            "transitionsType": "13",
+            "transitionsDuration": "0.6"
         },
         {
             "mediaType": "0",
             "mediaDuration": "6.0",
             "audioStartOffset": "0.0",
             "startTime": "0.0",
-            "filterType": "4",
+            "filterType": "6",
             "transitionsType": "2",
-            "transitionsDuration": "0"
+            "transitionsDuration": "1.0"
         }
     ]
 }
