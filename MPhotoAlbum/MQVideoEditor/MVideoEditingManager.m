@@ -153,14 +153,14 @@
 {
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    NSString *videoPath = [DOCUMENTPATH stringByAppendingPathComponent:@"VideoTemp"];
+    NSString *videoPath = [CACAHPAtH stringByAppendingPathComponent:@"VideoTemp"];
     if (![fileManager fileExistsAtPath:videoPath]) {
         NSError *error;
         [fileManager createDirectoryAtPath:videoPath withIntermediateDirectories:NO attributes:nil error:&error];
         //NSLog(videoPath);
     }
     
-    NSString *path = [DOCUMENTPATH stringByAppendingPathComponent:@"VideoTemp"];
+    NSString *path = [CACAHPAtH stringByAppendingPathComponent:@"VideoTemp"];
     
     if (![fileManager fileExistsAtPath:path]) {
         NSError *error;
