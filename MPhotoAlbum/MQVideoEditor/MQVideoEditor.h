@@ -29,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray *transTimeArray;
 
 - (void)buildCompositionObjectsForPlayback;
+- (AVAssetExportSession*)assetExportSessionWithPreset:(NSString*)presetName;
 - (AVPlayerItem *)playerItem;
 
 @end
