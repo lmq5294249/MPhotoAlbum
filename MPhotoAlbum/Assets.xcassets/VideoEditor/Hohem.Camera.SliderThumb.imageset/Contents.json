@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "Hohem.Camera.SliderThumb.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "Hohem.Camera.SliderThumb@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "Hohem.Camera.SliderThumb@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
