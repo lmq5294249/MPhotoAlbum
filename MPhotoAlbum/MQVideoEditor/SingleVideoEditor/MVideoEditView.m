@@ -8,22 +8,19 @@
 
 #import "MVideoEditView.h"
 #import <AVFoundation/AVFoundation.h>
-#import "VideoFrameBar.h"
-#import "MAVPlayerView.h"
-#import "GifTimeView.h"
-//#import "MVideoProcessManager.h"
 #import "TationDeviceManager.h"
+#import "MVideoFrameDisplayer.h"
+#import "MVideoToolControlView.h"
+#import "MVideoPlayerView.h"
 
 #define MinDuration 2500  //ms最小的视频长度为2.5s包含了前后转场在内
 
-@interface MVideoEditView ()<MAVPlayerDelegate,VideoFrameBarDelegate>
+@interface MVideoEditView ()
 {
     UIButton *confirmBtn;
     UIButton *cancelBtn;
     UIButton *playBtn;
     
-    CMTimeRange originalTimeRange; //保存原始
-    CMTimeRange originalPlayTimeRange; //保存原始
     CGFloat iphoneYOffset;
 }
 
@@ -31,23 +28,33 @@
 
 @property (nonatomic, strong) NSURL *videoUrl;
 
-//播放器
-@property (nonatomic, strong) MAVPlayerView *playerView;
+@property (nonatomic) CMTimeRange originalTimeRange; //保存原始
 
-@property (nonatomic, strong) VideoFrameBar *frameBar;
+@property (nonatomic) CMTimeRange originalPlayTimeRange; //保存原始
+
+@property (nonatomic, strong) UILabel *titleLabel;
+
+//播放器
+@property (nonatomic, strong) MVideoPlayerView *videoPlayerView;
+
+@property (nonatomic, strong) MVideoToolControlView *videoToolControlView;
 
 @property (nonatomic, strong) NSMutableArray *videoUrlArray;
 
 @property (nonatomic, strong) NSMutableArray *videoSegmentLengthArray;
 
-//添加选择栏
-@property (nonatomic, strong) GifTimeView *timeView;
-
-@property (nonatomic, assign) CGFloat leftPercent;
-
-@property (nonatomic, assign) CGFloat rightPercent;
-
 @property (nonatomic, assign) BOOL isPhotoMedia;
+
+@property (nonatomic, strong) UIButton *replaceBtn;
+
+@property (nonatomic, strong) MVideoFrameDisplayer *videoFrameDisplayer;
+
+@property (nonatomic, strong) UILabel *cutVideoLabel;
+
+@property (nonatomic, strong) UILabel *dragReminderLabel;
+
+
+
 
 @end
 
@@ -63,48 +70,57 @@
         
         self.mediaAssetArray = array;
         self.index = mediaIndex;
-        
-        [self setUpUI];
-        
-        [self setUpButton];
 
     }
     
     return self;
 }
 
+- (void)updateInterfaceAndData
+{
+    [self setUpUI];
+    
+    [self setUpButton];
+}
+
 - (void)setUpUI
 {
-    
+    __weak typeof(self) weakSelf = self;
     NSLog(@"==========单视频编辑模式=============");
     LocalAssetModel *model = self.mediaAssetArray[_index];
-    VideoAssetModel *videoModel;
-    PhotoAssetModel *photoModel;
+//    VideoAssetModel *videoModel;
+//    PhotoAssetModel *photoModel;
     //获取数据初始化时间戳列表
-    if (model.propertyType == PHAssetMediaTypeVideo) {
-        videoModel = (VideoAssetModel *)self.mediaAssetArray[_index];
-        _videoUrl = videoModel.originalVideoUrl;
-    }
-    else{
-        photoModel = (PhotoAssetModel *)self.mediaAssetArray[_index];
-        _videoUrl = photoModel.imageVideoUrl;
-        _isPhotoMedia = YES;
-    }
+//    if (model.propertyType == PHAssetMediaTypeVideo) {
+//        videoModel = (VideoAssetModel *)self.mediaAssetArray[_index];
+//        _videoUrl = videoModel.originalVideoUrl;
+//    }
+//    else{
+//        photoModel = (PhotoAssetModel *)self.mediaAssetArray[_index];
+//        _videoUrl = photoModel.imageVideoUrl;
+//        _isPhotoMedia = YES;
+//    }
+    
+    _videoUrl = model.propertyAssetURL.URL;
 
     _videoUrlArray = [NSMutableArray array];
     [_videoUrlArray addObject:_videoUrl];
     [self calculateVideoArraySegmentLength];
     //初始化预览播放器
-    if (!_playerView) {
-        _playerView = [[MAVPlayerView alloc] initWithFrame:CGRectMake(0, 100 + iphoneYOffset * 2.0, CGRectGetWidth(self.frame), CGRectGetWidth(self.frame)/1.78)];
-        _playerView.delegate = self;
-        [self addSubview:_playerView];
+    if (!_videoPlayerView) {
+        self.videoPlayerView = [[MVideoPlayerView alloc] initWithFrame:CGRectMake(0, 150, 390, 219)];
+        [self addSubview:self.videoPlayerView];
+        self.videoPlayerView.curPlayVideoUrl = _videoUrl;
+        self.videoPlayerView.keepLooping = YES;
+    
+        self.videoToolControlView = [[MVideoToolControlView alloc] initWithFrame:CGRectMake(16, CGRectGetMaxY(self.videoPlayerView.frame) + 16, CGRectGetWidth(self.frame) - 32, 18)];
+        [self addSubview:self.videoToolControlView];
+        self.videoToolControlView.isDragEnable = NO;
+        self.videoToolControlView.sliderChangeValueBlock = ^(NSTimeInterval pointInTime, BOOL finish) {
+            [weakSelf.videoPlayerView setTheCurrentPlayerTime:pointInTime * 1000];
+        };
+        self.videoPlayerView.delegate = self.videoToolControlView;
     }
-    _playerView.videoUrlArray = _videoUrlArray;
-    _playerView.curPlayIndex = 0;
-    _playerView.videoSegmentLengthArray = _videoSegmentLengthArray;
-    _playerView.singleVideo = YES;
-    _playerView.keepLooping = YES;
     
     AVAsset *asset = [AVAsset assetWithURL:_videoUrl];
     double totalTime = CMTimeGetSeconds(asset.duration);
@@ -112,99 +128,103 @@
     if (totalTime > 12) {
         flag = NO;
     }
-    //CGFloat videoFrameWidth = totalTime * 20.0;
-    CGFloat videoFrameWidth = CGRectGetWidth(self.frame) - 20;
-    self.frameBar = [[VideoFrameBar alloc] initWithFrame:CGRectMake(10, CGRectGetMaxY(_playerView.frame) + 100, videoFrameWidth, 50) url:_videoUrl screenCapturePerSecond:flag];
-    self.frameBar.delegate = self;
-    self.frameBar.layer.cornerRadius = 5;
-    self.frameBar.layer.masksToBounds = YES;
-    [self addSubview:_frameBar];
-    
     //更新数据
     CMTimeRange curTimeRange;
     CMTime beginTime;
     CMTime durationTime;
     CGFloat startPlayTimeValue;
     CGFloat durationPlayTimeValue;
-    if (videoModel) {
-        curTimeRange = videoModel.clipTimeRanges;
-        originalTimeRange = CMTimeRangeMake(curTimeRange.start, curTimeRange.duration);
-        CMTimeRange playTimeRange = videoModel.playTimeRanges;
-        originalPlayTimeRange = CMTimeRangeMake(playTimeRange.start, playTimeRange.duration);
-        beginTime = curTimeRange.start;
-        durationTime = curTimeRange.duration;
-        //刷新AVPlayer显示预览
-        startPlayTimeValue = beginTime.value * 1000 / beginTime.timescale;
-        durationPlayTimeValue = durationTime.value * 1000 / durationTime.timescale;
-        [self.playerView setCurTotalTimeOffset:startPlayTimeValue];
-        self.playerView.playStartTimeValue = startPlayTimeValue;
-        self.playerView.playEndTimeValue = startPlayTimeValue + durationPlayTimeValue;
-    }
-    else{
-        beginTime = kCMTimeZero;
-        durationTime = CMTimeMake(photoModel.imageDuration * 1000, 1000);
-        //刷新AVPlayer显示预览
-        startPlayTimeValue = 0;
-        durationPlayTimeValue = photoModel.imageDuration * 1000;
-        [self.playerView setCurTotalTimeOffset:startPlayTimeValue];
-        self.playerView.playStartTimeValue = startPlayTimeValue;
-        self.playerView.playEndTimeValue = startPlayTimeValue + durationPlayTimeValue;
-    }
+    
+    curTimeRange = [self.clipTimeRanges[_index] CMTimeRangeValue];
+    self.originalTimeRange = CMTimeRangeMake(curTimeRange.start, curTimeRange.duration);
+    CMTimeRange playTimeRange = [self.clipTimeRanges[_index] CMTimeRangeValue];
+    self.originalPlayTimeRange = CMTimeRangeMake(playTimeRange.start, playTimeRange.duration);
+    beginTime = curTimeRange.start;
+    durationTime = curTimeRange.duration;
+    //刷新AVPlayer显示预览
+    startPlayTimeValue = beginTime.value * 1000 / beginTime.timescale;
+    durationPlayTimeValue = durationTime.value * 1000 / durationTime.timescale;
+    //设置视频预览起始点
+    self.videoPlayerView.playStartTimeValue = startPlayTimeValue;
+    self.videoPlayerView.playEndTimeValue = startPlayTimeValue + durationPlayTimeValue;;
     
     playBtn.selected = NO;
     
-    _leftPercent = startPlayTimeValue / (totalTime * 1000);
-    CGFloat x_offset = _leftPercent * CGRectGetWidth(self.frameBar.frame);
-    _rightPercent = durationPlayTimeValue / (totalTime * 1000);
-    CGFloat timeViewWidth = _rightPercent * CGRectGetWidth(self.frameBar.frame);
-    
-    //添加时间戳选择栏
-    GifTimeView *timeView = [[GifTimeView alloc] initWithFrame:CGRectMake(x_offset, 0, timeViewWidth, CGRectGetHeight(self.frameBar.frame))];
-    timeView.frameBarWidth = CGRectGetWidth(self.frameBar.frame);
-    __weak typeof(self) weakSelf = self;
-    timeView.blockValue = ^(CGFloat left, CGFloat right,BOOL finish) {
-        
-        TimeRange range = {left, right};
-        weakSelf.leftPercent = left;
-        weakSelf.rightPercent = right;
-        NSLog(@"打印时间戳的左边: %f  右边: %f",left,right);
-        if (finish) {
-            //触摸完成更新数据和UI
-            [weakSelf updateDataAndUI];
-        }
-    };
-    timeView.hidden = NO;
-    timeView.layer.cornerRadius = 5.0;
-    timeView.layer.masksToBounds = YES;
-    [self.frameBar addSubview:timeView];
-    self.timeView = timeView;
-    
     //设置拖动的视频最小时长限制
     CGFloat minDurationPercent = MinDuration / (totalTime * 1000);
-    self.timeView.limitingPercent = minDurationPercent;
-    [self.timeView currentLeft:_leftPercent rightPercent:_rightPercent];
+    CGFloat bottomDistValue = Tation_BottomSafetyDistance;
+    self.videoFrameDisplayer = [[MVideoFrameDisplayer alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 68 - 50 - bottomDistValue, CGRectGetWidth(self.frame), 50) url:_videoUrl videoFragmentDur:CMTimeGetSeconds(durationTime)];
+    [self addSubview:self.videoFrameDisplayer];
+    [self.videoFrameDisplayer setStartPointTime:CMTimeGetSeconds(beginTime)]; //设置初始时间位置
+    self.videoFrameDisplayer.videoRePlayBlock = ^(NSTimeInterval start, NSTimeInterval duration, BOOL finish) {
+        weakSelf.videoPlayerView.playStartTimeValue = start * 1000;
+        weakSelf.videoPlayerView.playEndTimeValue = (start + duration) * 1000;
+        [weakSelf.videoPlayerView setTheCurrentPlayerTime: (start * 1000)];
+        if (finish) {
+            //播放
+            //更新数据
+            CMTime beginTime = CMTimeMake(start * 1000, 1000);
+            CMTime durationTiem = CMTimeMake(duration * 1000, 1000);
+            CMTimeRange curTimeRange = CMTimeRangeMake(beginTime, durationTiem);
+            
+            weakSelf.originalTimeRange = curTimeRange;
+        }
+    };
+    
+    self.dragReminderLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.frame) - 30 - 22 - bottomDistValue, CGRectGetWidth(self.frame), 22)];
+    self.dragReminderLabel.text = @"拖动选择视频裁剪区域";
+    self.dragReminderLabel.textColor = [UIColor colorWithRed:128.0/255.0 green:128.0/255.0 blue:128.0/255.0 alpha:1.0];
+    self.dragReminderLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.dragReminderLabel];
+    
+    self.cutVideoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMinY(self.videoFrameDisplayer.frame) - 15 - 22, CGRectGetWidth(self.frame), 22)];
+    self.cutVideoLabel.text = [NSString stringWithFormat:@"裁剪%.2fs视频",CMTimeGetSeconds(durationTime)];
+    self.cutVideoLabel.textColor = [UIColor whiteColor];
+    self.cutVideoLabel.textAlignment = NSTextAlignmentCenter;
+    [self addSubview:self.cutVideoLabel];
+    
+    self.replaceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.replaceBtn.frame = CGRectMake((CGRectGetWidth(self.frame) - 60)/2, CGRectGetMaxY(self.videoToolControlView.frame) + 32, 60, 22);
+    [self.replaceBtn setTitle:@"替换" forState:UIControlStateNormal];
+    [self.replaceBtn addTarget:self action:@selector(didClickReplaceButton:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.replaceBtn];
 }
 
 - (void)setUpButton
 {
+    CGRect saftArea = Tation_safeArea;
+    CGFloat xIphoneMargin = saftArea.origin.y;
+    
     confirmBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [confirmBtn setFrame:CGRectMake(CGRectGetWidth(self.frame) - 60, CGRectGetHeight(self.frame) - 80, 40, 40)];
-    [confirmBtn setImage:[UIImage imageNamed:@"MQVideoEdit.Selected"] forState:UIControlStateNormal];
+    [confirmBtn setFrame:CGRectMake(CGRectGetWidth(self.frame) - 64 - 16, xIphoneMargin + 1, 64, 38)];
+    [confirmBtn setTitle:@"确定" forState:UIControlStateNormal];
+    [confirmBtn setBackgroundColor:[UIColor orangeColor]];
+    //[confirmBtn setImage:[UIImage imageNamed:@"MQVideoEdit.Selected"] forState:UIControlStateNormal];
     [confirmBtn addTarget:self action:@selector(saveMediaChangesAndReturn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:confirmBtn];
+    confirmBtn.layer.masksToBounds = YES;
+    confirmBtn.layer.cornerRadius = 19;
     
     cancelBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [cancelBtn setFrame:CGRectMake(20, CGRectGetHeight(self.frame) - 80, 40, 40)];
-    [cancelBtn setImage:[UIImage imageNamed:@"MQVideoEdit.Discard"] forState:UIControlStateNormal];
+    [cancelBtn setFrame:CGRectMake(32, xIphoneMargin, 40, 40)];
+    [cancelBtn setImage:[UIImage imageNamed:@"Hohem.Tutorial.Back"] forState:UIControlStateNormal];
     [cancelBtn addTarget:self action:@selector(discardChangesAndReturn:) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:cancelBtn];
     
-    playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [playBtn setFrame:CGRectMake((CGRectGetWidth(self.frame) - 40)/2, CGRectGetMinY(self.frameBar.frame) - 60, 40, 40)];
-    [playBtn setImage:[UIImage imageNamed:@"MQVideoPlayer.Play"] forState:UIControlStateNormal];
-    [playBtn setImage:[UIImage imageNamed:@"MQVideoPlayer.Pause"] forState:UIControlStateSelected];
-    [playBtn addTarget:self action:@selector(replayVideo:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:playBtn];
+//    playBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [playBtn setFrame:CGRectMake((CGRectGetWidth(self.frame) - 40)/2, CGRectGetMinY(self.frameBar.frame) - 60, 40, 40)];
+//    [playBtn setImage:[UIImage imageNamed:@"MQVideoPlayer.Play"] forState:UIControlStateNormal];
+//    [playBtn setImage:[UIImage imageNamed:@"MQVideoPlayer.Pause"] forState:UIControlStateSelected];
+//    [playBtn addTarget:self action:@selector(replayVideo:) forControlEvents:UIControlEventTouchUpInside];
+//    [self addSubview:playBtn];
+    
+    self.titleLabel = [[UILabel alloc] init];
+    self.titleLabel.frame = CGRectMake((CGRectGetWidth(self.frame) - 100)/2, xIphoneMargin, 100, 40);
+    self.titleLabel.text = @"裁剪视频";
+    self.titleLabel.textColor = [UIColor whiteColor];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont systemFontOfSize:18.0 weight:UIFontWeightBold];
+    [self addSubview:self.titleLabel];
 }
 
 
@@ -225,26 +245,18 @@
 
 - (void)discardChangesAndReturn:(UIButton *)btn
 {
-    [_playerView setPlayerPause];
+    //[_playerView setPlayerPause];
     //不保存修改
-    MediaAssetModel *model = self.mediaAssetArray[_index];
-    if (model.mediaType == MQMediaTypeVideo) {
-        VideoAssetModel *videoModel = (VideoAssetModel *)model;
-        videoModel.clipTimeRanges = originalTimeRange;
-        videoModel.playTimeRanges = originalPlayTimeRange;
-    }
-    [UIView animateWithDuration:0.7 animations:^{
-        self.alpha = 0.0;
-    } completion:^(BOOL finished) {
-        if (finished) {
-            [self removeFromSuperview];
-        }
-    }];
+    [self removeFromSuperview];
 }
 
 - (void)saveMediaChangesAndReturn:(UIButton *)btn
 {
-    [_playerView setPlayerPause];
+    //[_playerView setPlayerPause];
+    
+    //修改当前的视频播放时间范围
+    self.clipTimeRanges[_index] = [NSValue valueWithCMTimeRange:self.originalTimeRange];
+    self.updateBlock();
     
     [UIView animateWithDuration:0.7 animations:^{
         self.alpha = 0.0;
@@ -255,37 +267,21 @@
     }];
 }
 
-- (void)replayVideo:(UIButton *)btn
+- (void)didClickReplaceButton:(UIButton *)btn
 {
-    btn.selected = !btn.selected;
-    if (btn.selected) {
-        [_playerView rePlayAllTheTime];
-    }
-    else{
-        [_playerView setPlayerPause];
-    }
+    
 }
 
-- (void)updateDataAndUI
-{
-    //更新数据
-    AVAsset *asset = [AVAsset assetWithURL:_videoUrl];
-    double totalTime = CMTimeGetSeconds(asset.duration) * 1000; //ms
-    CMTime beginTime = CMTimeMake(totalTime * self.leftPercent, 1000);
-    CMTime durationTiem = CMTimeMake(totalTime * self.rightPercent, 1000);
-    CMTimeRange curTimeRange = CMTimeRangeMake(beginTime, durationTiem);
-    if (!_isPhotoMedia) {
-        VideoAssetModel *videoModel = (VideoAssetModel *)self.mediaAssetArray[_index];
-        videoModel.clipTimeRanges = curTimeRange;
-    }
-    
-    //刷新AVPlayer显示预览
-    int startPlayTimeValue = totalTime*self.leftPercent;
-    [self.playerView setCurTotalTimeOffset:startPlayTimeValue];
-    self.playerView.playStartTimeValue = startPlayTimeValue;
-    self.playerView.playEndTimeValue = startPlayTimeValue + totalTime * self.rightPercent;
-    playBtn.selected = NO;
-}
+//- (void)replayVideo:(UIButton *)btn
+//{
+//    btn.selected = !btn.selected;
+//    if (btn.selected) {
+//        [_playerView rePlayAllTheTime];
+//    }
+//    else{
+//        [_playerView setPlayerPause];
+//    }
+//}
 
 #pragma mark - MAVPlayerDelegate && VideoFrameBarDelegate
 - (void)mAVPlayerIsPlaying
@@ -303,9 +299,9 @@
     AVAsset *asset = [AVAsset assetWithURL:_videoUrl];
     double totalTime = CMTimeGetSeconds(asset.duration) * 1000; //ms
     CGFloat timePercent = timeValue/totalTime;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.frameBar setPercent:timePercent];
-    });
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        [self.frameBar setPercent:timePercent];
+//    });
 }
 
 - (void)dragHandleViewWithPercent:(CGFloat)percent
