@@ -51,15 +51,22 @@ typedef NS_ENUM(NSUInteger, MQMediaType) {
  转场动画类型选项
  */
 typedef NS_ENUM(NSUInteger, MQTransitionType) {
-    MQTransitionTypeDoorWay = 0, //开门转场
-    MQTransitionTypeCrosswarp,
-    MQTransitionTypeScaleIn,
-    MQTransitionTypeSwipeLeft,
-    MQTransitionTypeWindowSlice,
-    MQTransitionTypeSwap,
-    MQTransitionTypeSquareswire,
-    MQTransitionTypeRotateScaleFade,
-    MQTransitionTypeCube,
+    MQTransitionTypeDoorWay             = 0, //开门转场
+    MQTransitionTypeCrosswarp           = 1,
+    MQTransitionTypeScaleIn             = 2,
+    MQTransitionTypeSwipeLeft           = 3,
+    MQTransitionTypeWindowSlice         = 4,
+    MQTransitionTypeSwap                = 5,
+    MQTransitionTypeSquareswire         = 6,
+    MQTransitionTypeRotateScaleFade     = 7,
+    MQTransitionTypeCube                = 8,
+    MQTransitionTypeRipple              = 9,
+    MQTransitionTypeWaterDrop           = 10,
+    MQTransitionTypeColourDistance      = 11,
+    MQTransitionTypeGirdFlip            = 12,
+    MQTransitionTypeGlitchMemories      = 13,
+    MQTransitionTypeLeftRight           = 14,
+    MQTransitionTypeInvertedPageCurl    = 15,
 };
 
 /*
