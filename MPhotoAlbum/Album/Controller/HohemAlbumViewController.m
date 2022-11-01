@@ -8,61 +8,22 @@
 #import "HohemAlbumViewController.h"
 #import "HohemShowAlbumViewController.h"
 #import "HohemAlbumPlayViewController.h"
-#import "TationDeviceManager.h"
-#import "MSlidePageView.h"
 #import "PHPhotoLibraryManage.h"
 #import "LocalAssetModel.h"
 #import "HHMediaCell.h"
-#import "OptionalEditView.h"
-#import "MQVideoEditingViewController.h"
+
 #define baseMargin 6.0
 
 static NSString *const cellId = @"HHMediaCellID";
 
 @interface HohemAlbumViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,MSlidePageDelegate>
 
-@property (nonatomic, assign) HohemAlbumViewController_ShowType showType;
-@property (nonatomic, copy) PHFetchResult <PHAsset *>*dataFetchResult;
-@property (nonatomic, copy) PHFetchResult <PHAsset *>*photoFetchResult;
-@property (nonatomic, copy) PHFetchResult <PHAsset *>*videoFetchResult;
-
-@property (nonatomic, strong) NSMutableDictionary *videoDic;
-@property (nonatomic, strong) NSMutableDictionary *photoDic;
-@property (nonatomic, strong) NSMutableArray *photoKeyArr;
-@property (nonatomic, strong) NSMutableArray *videoKeyArr;
-
-@property (nonatomic, strong) NSMutableDictionary *mediaModelDataDic;
-@property (nonatomic, strong) NSMutableArray *mediaModelDataArr;
-@property (nonatomic, strong) NSMutableArray *mediaModelArr;
-@property (nonatomic, strong) NSMutableArray *fileNameArray;
-
-@property (nonatomic, strong) NSMutableArray *selectItemArr; //暂时未使用
-@property (nonatomic, strong) NSMutableArray *deleteArray; //删除数组
-
-@property (nonatomic, strong) UIView *titleView;
-@property (nonatomic, strong) UIImageView *labelImageVIew;
-@property (nonatomic, strong) MSlidePageView *slidePageView;
-
 @property (nonatomic, strong) UICollectionViewFlowLayout *flowLayout;
 @property (nonatomic, strong) UICollectionView *collectionView;
-
-@property (nonatomic, assign) HohemAlbum_Mode albumMode; //相册模式
-@property (nonatomic, assign) BOOL isEnableEdit;
-@property (nonatomic, strong) UIButton *backBtn;
-@property (nonatomic, strong) UIButton *selectedBtn;
-@property (nonatomic, strong) UIButton *deletedBtn;
-@property (nonatomic, strong) UIButton *videoEditorBtn;
-@property (nonatomic, strong) UIButton *editedBtn;
-@property (nonatomic, strong) UIButton *nextStepBtn;
-
 @property (nonatomic, strong) UILabel *selectedLabel;
-
-@property (nonatomic, assign) CGFloat fitRatio;
-
 @property (nonatomic, strong) UIView *bottomView;
-
-//下面是视频编辑模块的测试
-@property (nonatomic, strong) OptionalEditView *optionalView;
+@property (nonatomic, strong) NSMutableArray *selectItemArr; //暂时未使用
+@property (nonatomic, strong) NSMutableArray *deleteArray; //删除数组
 
 @end
 
@@ -71,7 +32,6 @@ static NSString *const cellId = @"HHMediaCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
-    
     [self requestAuthorization];
     
     //获取UI适应屏幕的参数
@@ -83,6 +43,7 @@ static NSString *const cellId = @"HHMediaCellID";
     
     //APP进入前台
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(UIApplicationWillEnterForegroundNotificationWithNotification:) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -155,10 +116,10 @@ static NSString *const cellId = @"HHMediaCellID";
     [self.titleView addSubview:self.backBtn];
     if (self.hiddenBackBtn) self.backBtn.hidden = YES;
     //视频编辑按钮
-    self.editedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.editedBtn setImage:[UIImage imageNamed:@"Hohem_Album_ editing"] forState:UIControlStateNormal];
-    [self.editedBtn addTarget:self action:@selector(didClickEditBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.titleView addSubview:self.editedBtn];
+//    self.editedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//    [self.editedBtn setImage:[UIImage imageNamed:@"Hohem_Album_ editing"] forState:UIControlStateNormal];
+//    [self.editedBtn addTarget:self action:@selector(didClickEditBtn:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.titleView addSubview:self.editedBtn];
     //多选按钮
     self.selectedBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.selectedBtn setImage:[UIImage imageNamed:@"Hohem_Album_ unselected"] forState:UIControlStateNormal];
@@ -220,23 +181,6 @@ static NSString *const cellId = @"HHMediaCellID";
     
     //[self.bottomView addSubview:self.selectedLabel];
     [self.view addSubview:self.deletedBtn];
-    
-    __weak typeof(self) weakSelf = self;
-    self.optionalView = [[OptionalEditView alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(self.view.frame) - 80, CGRectGetWidth(self.view.frame), 80)];
-    self.optionalView.maxcount = 4;
-    self.optionalView.deleteOptionalModelBlock = ^{
-        weakSelf.nextStepBtn.hidden = YES;
-    };
-    [self.view addSubview:self.optionalView];
-    
-    //视频剪辑下一步按钮
-    self.nextStepBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [self.nextStepBtn setTitle:@"下一步" forState:UIControlStateNormal];
-    self.nextStepBtn.titleLabel.font = [UIFont systemFontOfSize:18 weight:UIFontWeightBold];
-    [self.nextStepBtn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-    [self.nextStepBtn addTarget:self action:@selector(didClickNextStepBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.slidePageView addSubview:self.nextStepBtn];
-    self.nextStepBtn.hidden = YES;
 }
 
 - (void)viewWillLayoutSubviews {
@@ -258,8 +202,8 @@ static NSString *const cellId = @"HHMediaCellID";
     self.selectedBtn.center = CGPointMake(self.selectedBtn.center.x, logoViewCenter.y);
     self.backBtn.center = CGPointMake(self.backBtn.center.x, logoViewCenter.y);
     //编辑位置在左边返回处
-    self.editedBtn.frame = CGRectMake( 32* self.fitRatio * 2 + 44* self.fitRatio, 4 + xIphoneMargin, 44* self.fitRatio, 44* self.fitRatio);
-    self.editedBtn.center = CGPointMake(self.editedBtn.center.x, logoViewCenter.y);
+//    self.editedBtn.frame = CGRectMake( 32* self.fitRatio * 2 + 44* self.fitRatio, 4 + xIphoneMargin, 44* self.fitRatio, 44* self.fitRatio);
+//    self.editedBtn.center = CGPointMake(self.editedBtn.center.x, logoViewCenter.y);
     
     self.slidePageView.frame = CGRectMake(0, CGRectGetMaxY(self.titleView.frame) - 10, CGRectGetWidth(self.view.frame), 52);
     
@@ -272,8 +216,6 @@ static NSString *const cellId = @"HHMediaCellID";
     self.deletedBtn.frame = CGRectMake((w - 66 * self.fitRatio)/2, CGRectGetMinY(self.bottomView.frame) + (92 + bottomDistValue - 66 * self.fitRatio)/2 - 4, 66 * self.fitRatio, 66 * self.fitRatio);
     self.selectedLabel.frame = CGRectMake(CGRectGetMinX(self.deletedBtn.frame) - 60 - 4, (48  - 24)/2 + bottomDistValue/4, 60, 24);
     
-    self.nextStepBtn.frame = CGRectMake(CGRectGetWidth(self.slidePageView.frame)- 100, 0, 100, CGRectGetHeight(self.slidePageView.frame));
-    
     //bottomView底部层添加渐变层
     self.bottomView.alpha = 1.0;
     CAGradientLayer *gradientLayer = [CAGradientLayer layer];
@@ -283,7 +225,6 @@ static NSString *const cellId = @"HHMediaCellID";
     gradientLayer.colors = @[(__bridge id)[UIColor colorWithRed:0.0/255.0 green:0.0/255.0 blue:0.0/255.0 alpha:1.0].CGColor,(__bridge id)[UIColor colorWithRed:52.0/255.0 green:52.0/255.0 blue:52.0/255.0 alpha:0.72].CGColor,(__bridge id)[UIColor colorWithRed:161.0/255.0 green:161.0/255.0 blue:161.0/255.0 alpha:0.00].CGColor];
     gradientLayer.locations = @[@(0),@(0.4f),@(1.0f)];
     [self.bottomView.layer addSublayer:gradientLayer];
-    
 }
 
 - (void)UIApplicationWillEnterForegroundNotificationWithNotification:(NSNotification *)notification {
@@ -365,22 +306,22 @@ static NSString *const cellId = @"HHMediaCellID";
     }
     if ([mediaDateType isEqualToString:@"Image"]) {
         //图片列表
-        self.fileNameArray = _photoKeyArr;
-        self.mediaModelDataDic = _photoDic;
-        NSInteger dateArrCount = _photoKeyArr.count;
+        self.fileNameArray = self.photoKeyArr;
+        self.mediaModelDataDic = self.photoDic;
+        NSInteger dateArrCount = self.photoKeyArr.count;
         for (int i = 0; i < dateArrCount; i++) {
             NSString *propertyDate = _photoKeyArr[i];
-            [_mediaModelDataArr addObject:[_photoDic valueForKey:propertyDate]];
+            [_mediaModelDataArr addObject:[self.photoDic valueForKey:propertyDate]];
         }
         
     }else{
         //视频列表
-        self.fileNameArray = _videoKeyArr;
-        _mediaModelDataDic = _videoDic;
-        NSInteger dateArrCount = _videoKeyArr.count;
+        self.fileNameArray = self.videoKeyArr;
+        self.mediaModelDataDic = self.videoDic;
+        NSInteger dateArrCount = self.videoKeyArr.count;
         for (int i = 0; i < dateArrCount; i++) {
             NSString *propertyDate = _videoKeyArr[i];
-            [self.mediaModelDataArr addObject:[_videoDic valueForKey:propertyDate]];
+            [self.mediaModelDataArr addObject:[self.videoDic valueForKey:propertyDate]];
         }
     }
     [self AddAllTheFileIntoOneMediaArray];
@@ -396,7 +337,13 @@ static NSString *const cellId = @"HHMediaCellID";
     for (int i = 0; i < self.mediaModelDataDic.count; i++) {
         NSMutableArray *mediaTempArr = [self.mediaModelDataDic valueForKey:self.fileNameArray[i]];
         for (LocalAssetModel *modelTemp in mediaTempArr) {
-            [self.mediaModelArr addObject:modelTemp];
+            //MARK:注意这里可能出现两次进来，然后被释放掉的情况？？？
+            if (modelTemp && self.mediaModelArr) {
+                [self.mediaModelArr addObject:modelTemp];
+            }
+            else{
+                NSLog(@"===警告出现model为nil===");
+            }
         }
     }
 }
@@ -579,14 +526,6 @@ static NSString *const cellId = @"HHMediaCellID";
     return min / 390.0;
 }
 
-- (void)didClickNextStepBtn:(UIButton *)btn {
-    //进入编辑模式
-    MQVideoEditingViewController *videoEditingViewController = [[MQVideoEditingViewController alloc] init];
-    videoEditingViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    videoEditingViewController.mediaDic = [NSDictionary dictionaryWithDictionary:self.optionalView.optionalDict];
-    [self presentViewController:videoEditingViewController animated:YES completion:nil];
-}
-
 #pragma mark - UICollectionViewDataSource
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -597,6 +536,10 @@ static NSString *const cellId = @"HHMediaCellID";
 //默认设为一组，每组包含数据源数组个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     if (self.mediaModelDataArr == nil) {
+        return 0;
+    }
+    
+    if (section >= self.mediaModelDataArr.count) {
         return 0;
     }
     NSArray *mediaArray = self.mediaModelDataArr[section];
@@ -707,23 +650,6 @@ static NSString *const cellId = @"HHMediaCellID";
 
         }
     }
-    else{
-        NSArray *dateArray = self.mediaModelDataArr[indexPath.section];
-        LocalAssetModel *model = dateArray[indexPath.row];
-        NSString *string = [NSString stringWithFormat:@"%d",(int)self.optionalView.curIndex];
-        LocalAssetModel *newModel = [self.optionalView.optionalDict objectForKey:string];
-        newModel.asset = model.asset;
-        newModel.propertyName = model.propertyName;
-        newModel.propertyType = model.propertyType;
-        newModel.propertyThumbImage = model.propertyThumbImage;
-        [self.optionalView reloadData];
-        if (self.optionalView.curIndex == 10000) {
-            self.nextStepBtn.hidden = NO;
-        }
-        else{
-            self.nextStepBtn.hidden = YES;
-        }
-    }
 }
 
 -(NSInteger)IndexForImageShow:(NSIndexPath *)indexPath
@@ -769,7 +695,6 @@ static NSString *const cellId = @"HHMediaCellID";
 
 
 #pragma mark ---- UICollectionViewDelegateFlowLayout
-
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
