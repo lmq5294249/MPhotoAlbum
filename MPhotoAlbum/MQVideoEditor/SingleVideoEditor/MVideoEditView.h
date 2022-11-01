@@ -26,6 +26,10 @@
 //------------------
 @property (nonatomic, strong) NSMutableArray <LocalAssetModel*>* mediaAssetArray;
 
+@property (nonatomic, strong) NSMutableArray *clipTimeRanges;
+
+@property (nonatomic, strong) EditTemplateModel *templateModel;
+
 @property (nonatomic, strong) NSMutableArray <MTransitionNode*>* transitionNodeArray;
 
 @property (nonatomic, assign) NSInteger index; //需要编辑的媒体编号
@@ -38,4 +42,5 @@
 
 - (instancetype)initWithFrame:(CGRect)frame withMediaAssetArray:(NSMutableArray*)array mediaIndex:(NSInteger)mediaIndex;
 
+- (void)updateInterfaceAndData;
 @end
