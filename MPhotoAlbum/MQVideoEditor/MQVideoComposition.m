@@ -8,6 +8,7 @@
 #import "MQVideoComposition.h"
 #import "MOpenGLEngine.h"
 #import "MQCustomVideoCompositionInstruction.h"
+#import "EditTemplateModel.h"
 
 @interface MQVideoComposition ()
 {
@@ -23,6 +24,10 @@
 @property (nonatomic, assign) BOOL enableMaskEffect;
 @property (nonatomic, assign) float lastStartTimer;
 
+@property (nonatomic, assign) NSInteger curFilter;
+@property (nonatomic, assign) NSInteger curForeFilter;
+@property (nonatomic, assign) NSInteger curBackFilter;
+
 @end
 
 @implementation MQVideoComposition
@@ -36,10 +41,13 @@
         _previousBuffer = nil;
         _renderContextDidChange = NO;
         
-        self.openGLRender = [[MOpenGLEngine alloc] initWithFilter:0];
+        self.openGLRender = [[MOpenGLEngine alloc] initWithFilter:6];
         self.openGLRender.transitionDuration = 0.9;
         
         _shouldCancelAllRequests = NO;
+        
+        self.curForeFilter = 1000; //不能设置为0
+        self.curBackFilter = 1000;
     }
     return self;
 }
@@ -79,7 +87,7 @@
                     self.lastStartTimer = CMTimeGetSeconds(timeRange.start) * 1000;
                 }
                 
-                //NSLog(@"打印当前的轨道值：%lu",(unsigned long)request.sourceTrackIDs.count);
+                NSLog(@"打印当前的轨道值：%lu",(unsigned long)request.sourceTrackIDs.count);
                 //NSLog(@"打印当前的shaderType值：%@",currentInstruction.paramArray);
                 
                 CVPixelBufferRef resultPixels;
@@ -99,13 +107,19 @@
                     UIImage *backImage = [passDic2 objectForKey:@"ImageData"];
                     BOOL backImagePlaying = [passDic2 objectForKey:@"PlayImage"];
                     
-                    dispatch_sync(dispatch_get_main_queue(), ^{
+                    if (self.curForeFilter != foreFilterType) {
                         [self.openGLRender setForeFilterPragramIDWithType:foreFilterType];
                         [self.openGLRender setForeVideoRenderType:foreOrienValue];
+                        self.curForeFilter = foreFilterType;
+                    }
+                    
+                    if (self.curBackFilter != backFilterType) {
                         [self.openGLRender setBackFilterPragramIDWithType:backFilterType];
                         [self.openGLRender setBackVideoRenderType:backOrienValue];
-                        [self.openGLRender setCurrentTransitionProgressValue:(CMTimeGetSeconds(currentTime) - CMTimeGetSeconds(timeRange.start)) / transTimeValue];
-                    });
+                        self.curBackFilter = backFilterType;
+                    }
+                    
+                    [self.openGLRender setCurrentTransitionProgressValue:(CMTimeGetSeconds(currentTime) - CMTimeGetSeconds(timeRange.start)) / transTimeValue];
                     
                     CVPixelBufferRef foreBuffer = NULL,backBuffer = NULL;
                     if (foreImagePlaying) {
@@ -123,11 +137,11 @@
                     }
                     
 
-                    NSLog(@"openGLRender Buffer");
+                    //NSLog(@"openGLRender Buffer");
                     [self.openGLRender switchTransitionFilter:transitionType];
                     resultPixels = [self.openGLRender startRenderVideoWithPixelBufferRef:foreBuffer andPixelBufferRef:backBuffer];
-//                    CVPixelBufferRelease(foreBuffer);
-//                    CVPixelBufferRelease(backBuffer);
+                    //CVPixelBufferRelease(foreBuffer);
+                    //CVPixelBufferRelease(backBuffer);
 
                 }else if (request.sourceTrackIDs.count > 0)
                 {
@@ -159,7 +173,7 @@
                     }
                     else{
                         resultPixels = NULL;
-                        NSLog(@"LYVideoCompostion:获取数据异常");
+                        NSLog(@"%s:获取数据异常",__func__);
                     }
                     
                     
@@ -167,7 +181,7 @@
 //                    CVPixelBufferRetain(resultPixels);
                 }
                 else{
-                    NSLog(@"LYVideoCompostion：数据流异常");
+                    NSLog(@"%s:获取数据异常",__func__);
                     [request finishCancelledRequest];
                     return;
                 }
@@ -188,6 +202,9 @@
                 CVPixelBufferRef maskPixelBuffer = [self.openGLRender startRenderMaskVideoWithPixelBufferRef:resultPixels maskVideoBuffer:maskImageBuffer];
 //                CFRelease(resultPixels);
                 //NSLog(@"Get the next rendererd pixel buffer");
+                //MARK:导出时需要设置等待时间，不然内存分分钟暴涨
+                [NSThread sleepForTimeInterval:0.005];
+                
                 if (resultPixels) {
                     // The resulting pixelbuffer from OpenGL renderer is passed along to the request
                     [request finishWithComposedVideoFrame:maskPixelBuffer];
